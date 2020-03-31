@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        section {
+            width: 450px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            background: url(images/3.jpg) no-repeat;
+            position: relative;
+            perspective: 1000px;  /*给父盒子添加透视效果*/
+        }
+        .door-l, .door-r {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-color: pink;
+            transition: all 1s; /*两个门都做过渡效果*/
+            background: url(images/bg.png);
+
+
+        }
+        .door-l {
+            left: 0;
+            border-right: 1px solid #000;
+            transform-origin: left;/* */
+        }
+        .door-r {
+            right: 0;
+            left: 1px solid #000;
+            transform-origin: right;/*  */
+        }
+        .door-l::before, .door-r::before {  /**/
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            border-radius: 50%; /*圆角*/
+            transform：translateY(-50%); 
+        }
+        .door-l::before {
+            right: 5px;
+        }
+        .door-r::before {
+            left: 5px;
+        }
+
+        section:hover .door-l {
+            transform: rotateY(-130deg);  
+        }
+        section:hover .door-r {
+            transform: rotateY(130deg);
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="door-l"></div>
+    <div class="door-r"></div>
+</section>
+</body>
+</html>

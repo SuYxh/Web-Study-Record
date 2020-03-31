@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.dd{
+            border:1px solid red;
+            width:1200px;
+            margin:0px auto;
+        }
+        ul{list-style:none;}
+        ul li{
+            width:180px;
+            height:300px;
+            margin:5px;
+            float:left;
+            border:1px solid #ddd;
+        }
+        @media all and (min-width:501px) and (max-width:1000px) {
+            div.dd{width:980px}
+            ul li{border-color:green;}
+        }
+
+        @media all and (min-width:0px) and (max-width:500px) {
+            div.dd{width:450px}
+            ul li{border-color:red;}
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>响应式布局</h1>
+    <div class="dd">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div style="clear: both; width: 100%; height:1px;"></div>
+    </div>
+</body>
+</html>

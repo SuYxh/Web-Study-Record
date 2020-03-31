@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS选择符实例</title>
+    <style>
+        /*ul中的所有子li标签都采用此样式*/
+        /*ul li{color:red;}*/
+
+        /*ul中的直接子li标签采用此样式（注意ol中的li不是）*/
+        ul > li{color:blue;}
+
+        /*紧邻div的一个p兄弟标签采用此样式*/
+        /*div+p{color:red;}*/
+        
+        /*div后面所有兄弟p标签都采用此样式*/
+        div~p{color:red;}
+    </style>
+</head>
+<body>
+    <h1>关系选择器</h1>
+
+    <ul>
+        <li>列表一级子项目1</li>
+        <li>列表一级子项目2</li>
+        <ol>
+            <li>列表二级子项目1</li>
+            <li>列表二级子项目2</li>
+        </ol>
+    </ul>
+
+    <div>aaaaaa</div>
+    <p>qqqqqqqqqq</p>
+    <p>qqqqqqqqqq</p>
+
+    <div>bbbbbb</div>
+    <p>qqqqqqqqqq</p>
+    <p>qqqqqqqqqq</p>
+    <p>qqqqqqqqqq</p>
+   
+</body>
+</html>

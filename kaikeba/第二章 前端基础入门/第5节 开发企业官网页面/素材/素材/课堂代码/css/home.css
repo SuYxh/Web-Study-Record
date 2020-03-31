@@ -1,0 +1,62 @@
+/*首页面的css样式*/
+
+/*幻灯图片样式*/
+.slide-show{
+    height:460px;
+    overflow: hidden;
+    position: relative;
+}
+.slide-show .menu{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:234px;
+    height:460px;
+    overflow: hidden;
+    border: 0;
+    color: #fff;
+    padding:20px 0px;
+    background: rgba(105,101,101,.6);
+}
+.slide-show .menu ul li{
+    width:100%;
+    height:42px;
+    line-height:42px;
+    padding-left: 30px;
+}
+.slide-show .menu ul li a{
+    font-size:14px;
+    color:#fff;
+    font-weight: 700;
+}
+.slide-show .menu ul li span.icon{
+    float:right;
+    margin-right:50px;
+    font-size:22px;
+    font-weight: 600;
+}
+.slide-show .menu ul li:hover{
+    background-color:#ff6700;
+}
+
+.promo{
+    margin-top:14px;
+    height:170px;
+}
+.promo .span4{
+    border:1px dashed #ff6700;
+    box-sizing:border-box;
+}
+.promo .span16{
+    display:flex;
+    justify-content: space-between;
+}
+.promo .span16 img{
+    width:316px;
+    height:170px;
+}
+
+
+#footer{
+    height:300px;
+}

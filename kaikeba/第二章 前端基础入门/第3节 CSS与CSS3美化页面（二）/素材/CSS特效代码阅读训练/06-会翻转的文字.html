@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>会翻转的文字</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font: 80px "微软雅黑";
+				padding: 200px;
+			}
+
+			.zhi {
+				margin: 20px;
+				color: #369;
+				position: relative;
+			}
+
+			.zhi:before,
+			.zhi:after {      /*  .zhi 之前、之后插入内容的内容的公共样式。 */
+				/* 获取插入的内容，使用的了 自定义属性  attr(attribute)	设置Content作为选择器的属性之一。 */
+				content: attr(data-zhi);
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform-origin: left top;
+				-webkit-transform-origin: left top;
+				-o-transform-origin: left top;
+				-ms-transform-origin: left top;
+				transition: all 0.3s ease 0s;
+
+			}
+
+			.zhi:before {          /* .zhi 之前插入内容的内容的独有样式  表面看到的*/
+				/* color:#fff; */
+				color: #000000;
+				z-index: 3;
+				transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
+			}
+
+			.zhi:after {        /* .zhi 之后插入内容的内容的独有样式，即 后面的影子*/  
+				color: rgba(0, 0, 0, 0.2);
+				transform: scale(1.1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				z-index: 2;
+			}
+
+			.zhi:hover:before {        /* 当鼠标移入的时候改变 .zhi 之前插入内容的内容的独有样式 */
+				/* color:#fafafa; */
+				color: #FF0000;
+				transform: rotateX(0deg) rotateY(-40deg) rotateZ(0deg) skew(0deg, 1deg);
+			}
+
+			.zhi:hover:after {      /* 当鼠标移入的时候改变 .zhi 之后插入内容的内容的独有样式 */
+				transform: scale(1.1, 1) rotateX(0deg) rotateY(-40deg) rotateZ(0deg) skew(0deg, 20deg);
+			}
+		</style>
+
+	</head>
+	<body>
+		<span class="zhi" data-zhi="前努">前</span>
+		<span class="zhi" data-zhi="端力">端</span>
+		<span class="zhi" data-zhi="全学">全</span>
+		<span class="zhi" data-zhi="栈习">栈</span>
+	</body>
+</html>

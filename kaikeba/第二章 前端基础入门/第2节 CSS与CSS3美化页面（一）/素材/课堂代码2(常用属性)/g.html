@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width:500px;
+            height:1000px;
+            background-color:#ddd;
+            position: relative;/*指定内层做相对定位*/
+        }
+        #inner{
+            width:100px;
+            height:100px;
+            background-color:red; 
+            position:absolute; /*外层指定了相对，就导致此处是按照外层div做定位*/
+            top:100px;
+            right:200px;
+        }
+
+        /*绝对定位*/
+        #mid{
+            position:absolute;
+            z-index:1;
+            top:40px;
+            left:470px;
+        }
+
+        /*固定定位*/
+        #mm{
+            position:fixed;
+            top:100px;
+            right:-80px;
+            transition:right 0.5s ease;
+        }
+        #mm:hover{
+            right:20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>CSS实例:定位position属性</h3> 
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+
+    <img id="mid" src="./images/1.gif"/>
+
+    <img id="mm" src="./images/mistakertu.gif"/>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width:300px;
+            height:300px;
+            float:left;
+            margin:10px;
+        }
+
+        div.c1 {
+            /*
+            border-width:4px;
+            border-style: solid;
+            border-color: red;
+            */
+            border:4px solid red; /*指定4px厚度的红色实线边框*/
+        }
+
+        div.c2 {
+            /*单独的边框设置*/
+            border-top:4px dotted blue;
+            border-left:4px dashed orange;
+            border-bottom:4px solid red;
+            border-right: 4px double green;
+        }
+
+        /*边框的圆角处理*/
+        div.c3 {
+            border:4px solid green;
+            /*border-radius:20px; /*四个半径为20px的圆角*/
+            /*border-radius:20px 30px;/*左上和右下圆角半径20px，右上和左下半径30圆角*/
+            /*border-radius:20px 30px 40px;/*左上半径20px，右上和左下半径30圆角 右下40px*/
+            border-radius:10px 20px 30px 40px;/*左上10 右上20 右下30 左下40半径*/
+        }
+
+        /*边框的圆角处理 单独设置圆角信息*/
+        div.c4 {
+            border: 4px solid red;
+            border-top-left-radius:20px;
+            border-top-right-radius:40px;
+            border-bottom-left-radius:60px;
+            border-bottom-right-radius:80px;
+        }
+
+        div.c5 {
+            border: 4px solid red;
+            border-radius:50%; /*50%的圆角就是画圆*/
+        }
+
+        div.c6{
+            border:2px solid rgb(0,0,255);
+            border-radius:5px;
+            box-shadow: 0px 0px 4px 4px rgba(0,0,255,0.5);
+        }
+
+        div.c7{
+            border:2px solid rgb(0,0,255);
+            border-radius:5px;
+           
+        }
+        div.c7:hover{
+            box-shadow: 0px 0px 4px 4px rgba(0,0,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS属性：border边框属性</h1>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+    <div class="c5"></div>
+    <div class="c6"></div>
+    <div class="c7"></div>
+    <div class="c8"></div>
+</body>
+</html>

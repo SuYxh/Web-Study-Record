@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        body{
+            background-image: url(./images/Meinv083.jpg);
+            background-attachment: fixed;
+        }
+        */
+        div{
+            width:400px;
+            height:300px;
+            border:1px solid #ddd;
+            margin:10px;
+            float:left;
+        }
+        div.c1{
+            /*
+            background-color:cadetblue;
+            background-image: url("./images/1.gif");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            */
+            /*等价于上面简写：背景图片1.gif，上下左右都居中，不平铺，背景颜色*/
+            background: url(./images/1.gif) center center no-repeat cadetblue;
+
+        }
+
+        div.c2{
+            background-image:url(./images/Meinv083.jpg);
+            background-repeat: no-repeat;
+            background-position: -100px -320px;
+        }
+
+        div.c3{
+            /*效果同上（简写）*/
+            background:url(./images/Meinv083.jpg) -100px -320px no-repeat;
+        }
+
+        div.c4{
+            background:url(./images/repeat.png) 0px 0px repeat-x;
+        }
+
+        div.c5{
+            background:url(./images/repeat.png) 0px -92px repeat-x;
+            height:40px;
+        }
+
+        div.c6{
+            background: url(./images/v_icon.png) -110px -115px no-repeat;
+            width:30px;height:30px;
+        }
+
+        div.c7,div.c8,div.c9{
+            width:30px;
+            height:28px;
+            border: none;
+            background: url(./images/step.gif) 0px 0px no-repeat;
+        }
+        div.c8{background-position: -31px 0px;}
+        div.c9{background-position: -62px 0px;}
+        div.c7:hover{background-position: 0px -28px;}
+        div.c8:hover{background-position: -31px -28px;}
+        div.c9:hover{background-position: -62px -28px;}
+
+
+        div.c10{
+            background: url(./images/Meinv039.jpg) no-repeat;
+            background-size:100%;
+        }
+
+        div.c11{
+            background-image: repeating-linear-gradient(to right,#f00,#fff);
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS的背景属性：background</h1>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+    <div class="c5"></div>
+    <div class="c6"></div>
+    <div class="c7"></div>
+    <div class="c8"></div>
+    <div class="c9"></div>
+
+    <div class="c10"></div>
+    <div class="c11"></div>
+    <div class="c12"></div>
+    <div class="c13"></div>
+</body>
+</html>

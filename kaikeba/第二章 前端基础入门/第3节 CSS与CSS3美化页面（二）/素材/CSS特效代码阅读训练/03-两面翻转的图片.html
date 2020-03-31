@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两面翻转的图片</title>
+    <style>
+        div {
+            width: 310px;
+            height: 438px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        div img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s;
+
+        }
+       div img:first-child {
+            z-index: 1;                       /* 红色K 显示在上方 */
+            backface-visibility: hidden;    /* backface-visibility 属性定义当元素不面向屏幕时是否可见 */
+        }
+        div:hover img {
+            transform: rotateY(180deg);   /* 定义沿着 Y 轴的 3D 旋转。 */
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="images/pk1.png" alt=""/>
+    <img src="images/pk2.png" alt=""/>
+</div>
+</body>
+</html>

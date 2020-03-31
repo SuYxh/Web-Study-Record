@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>个人简历</title>
+		<style type="text/css">
+			body {
+				background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+				background-attachment: fixed;
+			}
+
+			.content {
+				margin: 100px 80px;
+			}
+
+			.zx {
+				text-align: center;
+			}
+
+			.input-text {
+				width: 600px;
+				height: 30px;
+				background-color: rgb(80, 51, 100, 0.3);
+				border-color: rgb(80, 51, 100);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<table border="1" width="900" cellspacing="0" cellpadding="4">
+				<caption>
+					<h3>个人信息登记表单</h3>
+				</caption>
+				<tr>
+					<th>姓名</th>
+					<th colspan="2"><input class="input-text" type="text" name="name" value="杨鑫昊" /></th>
+					<th rowspan="4"><input  type="file" name="img" value="" /></th>
+				</tr>
+				<tr>
+					<td>性别：
+						<label> <input style="background-color: ;" type="radio" name="sex" value="男" />男</label>
+						<label> <input type="radio" name="sex" value="女" />女</label>
+					</td>
+					<td>年龄：<input style="background-color: rgb(114,63,120);border:rgb(114,63,120) ; height: 50px;width: 50px;font-size: 20px;" type="number" name="age" value="22" max="60" min="16" /></td>
+					<td>学历：
+						<select name="study">
+							<option value="大专">大专</option>
+							<option value="本科" selected="selected">本科</option>
+							<option value="硕士">硕士</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>电话：<input type="text" name="phone" value="18372635819" /></td>
+					<td>邮箱：<input type="email" name="email" value="y170088888@163.com" /></td>
+					<td>专业：<input type="text" name="major" value="电子信息" /></td>
+				</tr>
+				<tr>
+					<td>毕业院校：<input type="text" name="college" value="HUAT" /></td>
+					<td class="zx" colspan="2">地址：<input type="text" name="address" value="电子信息" /></td>
+				</tr>
+				<tr>
+					<td class="zx">学习经历</td>
+					<td colspan="3">
+						<textarea rows="" cols="">
+
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="zx">职业技能</td>
+					<td colspan="3">
+						<textarea rows="" cols="">
+
+						</textarea>
+				</tr>
+				<tr>
+					<td class="zx">工作经历</td>
+					<td colspan="3"><textarea rows="" cols="">
+
+						</textarea></td>
+				</tr>
+				<tr>
+					<td class="zx">兴趣爱好</td>
+					<td colspan="3">
+						<label><input type="checkbox" name="hobby" value="" />看书</label>
+						<label><input type="checkbox" name="hobby" value="" />运动</label>
+						<label><input type="checkbox" name="hobby" value="" />音乐</label>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

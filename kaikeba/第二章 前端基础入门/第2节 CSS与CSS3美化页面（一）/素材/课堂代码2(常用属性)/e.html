@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*div{float:left;}*/
+        div.dd{
+            width:400px;
+            border:10px solid red;
+            /*设定内填充距离*/
+            padding-top:10px;
+            padding-right:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            /*指定对外间距*/
+            margin:50px
+        }
+
+        div.ee{
+            width:300px;/*默认内容宽度，不包含边框厚度和内补白*/
+            height:300px;
+            border: 20px solid #333;
+            margin:100px auto; /*上下100px,左右居中*/
+            padding:50px;
+            /*设置盒模型组成模式：border-box表示盒子宽度包含边框厚度和内补白*/
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS的尺寸和内外补白</h1>
+    <div class="dd">
+        margin属性接受1~4个参数值。如果提供四个参数值，将按上、右、下、左的顺序作用于四边；提供三个，第一个用于上，第二个用于左、右，第三个用于下；提供两个，第一个用于上、下，第二个用于左、右；只提供一个，同时用于四边。 
+非替代(non-replaced)行内元素可以使用该属性定义horizontal-margin；若要定义vertical-margin，必须改变元素为块级或行内块级。 
+外延边距始终透明，即不可见也无法设置背景等任何样式。 
+某些相邻的margin会发生合并，我们称之为margin折叠：
+
+    </div>
+    <div class="ee"></div>
+</body>
+</html>

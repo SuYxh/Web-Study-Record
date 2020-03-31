@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*1.html选择器*/
+        h3{color:red;}
+
+        /*2.类选择器*/
+        /*将网页中class属性值为cc的标签采用此样式*/
+        .cc{color:hotpink}
+        /*class属性值为cc的h1标题标签采用此样式*/
+        h1.cc{color:green;}
+        .dd{background-color:#ddd;}
+
+        /*3. id选择器*/
+        /*id属性值为hid的标签采用此样式*/
+        #hid{font-size:40px;}
+
+        /*测试选择器的优先级*/
+        #sid{color:greenyellow}
+        .sc{color:green;background-color:#ddd;}
+        span{color:red !important;font-size:22px;}
+
+        /*4.关联选择器（包含选择器）*/
+        /*ol标签下的li标签采用此样式*/
+        ol li{color:lightseagreen}
+        
+        /*5.选择器组*/
+        h1,h2,h3,h4,h5,h6{background-color: linen;font-family:Arial, Helvetica, sans-serif;}
+        
+        /*6. 伪类选择器*/
+        a:link {color: #FF0000; text-decoration: none}             /* 未访问的链接 */
+        a:visited {color: #00FF00; text-decoration: none}          /* 已访问的链接 */
+        a:hover {color: #FF00FF; text-decoration: underline}     /* 鼠标在链接上 */
+        a:active {color: #0000FF; text-decoration: underline}     /* 激活链接 */
+    </style>
+</head>
+<body>
+    <h1 class="cc">CSS的常用选择器（选择符）</h1>
+
+    <h3 id="hid">什么是CSS?</h3>
+    <ul>
+        <li>CSS 指层叠样式表 (Cascading Style Sheets)</li>
+        <li class="cc">样式定义如何显示控制 HTML 元素,从而实现美化HTML网页。</li>
+        <li>样式通常存储在样式表中，目的也是为了解决内容与表现分离的问题</li>
+        <li class="cc dd">外部样式表(CSS文件)可以极大提高工作效率</li>
+        <li class="dd">多个样式定义可层叠为一，后者可以覆盖前者样式</li>
+    </ul>
+
+    <span class="sc" id="sid">CSS的常用选择器</span>
+
+    <h4>插入样式表的方法有三种:</h4>
+    <ol>
+        <li>外部样式表(External style sheet)</li>
+        <li>内部样式表(Internal style sheet)</li>
+        <li>内联样式(Inline style)</li>
+    </ol>
+
+    <ul>
+        <li><a href="a.html?id=1111">CSS语法实例</a></li>
+        <li><a href="b.html">CSS样式使用方式</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       h1{
+           color:blue;
+           text-shadow:0px 0px 6px blue;
+       }
+       h3{
+        color:red;
+       }
+       h3:hover{
+        text-shadow:0px 0px 3px red;
+       }
+       div.c1{
+          width:480px; /*定义宽度*/ 
+          font-size: 20px; /*字体大小*/
+          font-family: "Microsoft YaHei", "Heiti SC", tahoma, arial; /*字体*/
+          font-style: italic; /*斜体*/
+          font-weight:bold; /*加粗 700*/
+          line-height:1.5;
+       }
+       /*下面的font字体修饰等价于上面效果*/
+       div.c2{
+           width: 480px;
+           font:bold italic 20px/1.5 "Microsoft YaHei", "Heiti SC", tahoma, arial;
+       }
+
+
+       div.dcc{
+           width: 480px;
+           font: 14px/1.5 "Microsoft YaHei","arial";
+           color: #333;
+           text-indent:2em; /*每段文章首行缩进2个字*/
+           letter-spacing: 1px; /*字间距*/
+       }
+       img{float: left;margin:10px;}
+
+       div.c3{
+           width:480px;
+           height:50px;
+           background-color: thistle;
+           text-align:center; /*内容左右居中*/
+           line-height:50px; /*行高50px，并且内容会自动上下居中*/
+           text-decoration: line-through; /*删除线*/
+       }
+
+       span.ss{
+           font-size:40px;
+           vertical-align: middle; /*指定文字对齐方式*/
+       }
+    </style>
+</head>
+<body>
+    <h1>CSS常用属性--字体和文本属性</h1>
+    <div class="c1">
+    内部样式是在HTML的head标签内放置样式表，每个样式表赋予一个名称，
+    用于标识一个样式。在HTML元素使用class属性引入已定义的样式名称。
+    内部样式的优先级要低于行内样式，但高于外部样式。
+    下面的HTML文档是内部样式的案例。
+    </div>
+    <div class="c2">
+    内部样式是在HTML的head标签内放置样式表，每个样式表赋予一个名称，
+    用于标识一个样式。在HTML元素使用class属性引入已定义的样式名称。
+    内部样式的优先级要低于行内样式，但高于外部样式。
+    下面的HTML文档是内部样式的案例。
+    </div>
+
+
+    <h3>三种方式可以把CSS样式应用到HTML元素</h3>
+    <div class="dcc">
+        <img src="./images/Meinv083.jpg" width="180"/>
+       <p>
+        行内样式是利用HTML元素的style属性引入样式表，
+        行内样式的优先级最高，行内样式会覆盖元素引入的内部样式或外部样式。
+        下面的HTML文档是行内样式的案例。</p>
+        <p>
+        内部样式是在HTML的head标签内放置样式表，每个样式表赋予一个名称，
+        用于标识一个样式。在HTML元素使用class属性引入已定义的样式名称。
+        内部样式的优先级要低于行内样式，但高于外部样式。
+        下面的HTML文档是内部样式的案例。</p>
+        <p>
+        外部样式是将样式表写入到一个外部文件，外部文件的扩展名为css，
+        样式表的写法和内部样式的写法相同。
+        外部样式文件可以通过HTML的link标签链接到网页文档，
+        样式表文件链接到网页文档后，HTML元素可以通过class属性引入样式文件中的样式表。
+        外部样式的优先级最低。</p>
+    </div>
+
+    <hr/>
+
+    <div class="c3">
+        外部样式是将样式表写入到一个外部文件
+    </div>
+    <br/><br/>
+    <span class="ss">外部样式</span>是将样式表写入到一个外部文件
+    <br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

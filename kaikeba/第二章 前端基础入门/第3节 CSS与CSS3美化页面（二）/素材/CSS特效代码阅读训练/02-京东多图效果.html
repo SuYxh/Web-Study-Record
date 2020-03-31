@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>京东多图效果</title>
+    <style>
+        a {
+            float: left;
+            width: 183px;
+            height: 130px;
+            overflow: hidden;
+            margin: 10px;
+        }
+        
+        img {
+            width: 193px;
+            height: 130px;
+            transition: margin-left 0.4s;
+			/* transition: all 0.4s; */
+        }
+        
+        a:hover img {
+            margin-left: -10px;           /* 当鼠标移入的时候 margin-left 的属性值将改变 */
+			/* transform: scale(1.1); */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a href="#"><img src="images/11.jpg" alt=""></a>
+        <a href="#"><img src="images/22.jpg" alt=""></a>
+        <a href="#"><img src="images/33.jpg" alt=""></a>
+    </div>
+</body>
+
+</html>

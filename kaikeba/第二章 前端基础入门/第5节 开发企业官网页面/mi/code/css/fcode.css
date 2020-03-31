@@ -1,0 +1,280 @@
+.page-main {
+	background: #f5f5f5;
+	padding-bottom: 40px;
+}
+
+
+
+/* 面包屑导航 开始 */
+.breadcrumbs {
+	height: 40px;
+	font-size: 12px;
+	line-height: 40px;
+	background: #f5f5f5;
+}
+
+.breadcrumbs a {
+	color: #757575;
+}
+
+.breadcrumbs a:hover {
+	color: #ff6700;
+}
+
+.breadcrumbs .sep {
+	margin: 0 .5em;
+	color: #b0b0b0A; 
+}
+/* 面包屑导航 结束*/
+
+
+/* code-main  */
+.code-main {
+	position: relative;
+	padding-top: 70px;
+	padding-bottom: 30px;
+	background-color: #fff;
+	color: #424242;
+}
+
+.code-main .title {
+	margin: 0;
+	line-height: 1;
+	font-size: 40px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.code-main .desc {
+	margin: 20px 0;
+	color: #757575;
+	font-size: 20px;
+	text-align: center;
+}
+
+/* 加载动画 --- 开始 */
+.code-main .loading {
+	margin: 50px 0;
+	padding: 20px 0;
+}
+
+/*  loader  */
+.loader {
+	position: relative;
+	margin: 0 auto;
+	width: 4px;
+	height: 20px;
+	background: #ff6700;
+	overflow: visible;
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+
+.loader,
+.loader:after,
+.loader:before {
+	-webkit-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	-webkit-animation-name: loader;
+	animation-name: loader;
+	-webkit-animation-duration: .3s;
+	animation-duration: .3s;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	animation-direction: alternate-reverse;
+}
+
+.loader:after,
+.loader:before {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 4px;
+	height: 20px;
+	content: "";
+	background: #ff6700;
+}
+
+.loader:before {
+	margin: -10px 0 0 -10px;
+	-webkit-animation-delay: .25s;
+	animation-delay: .25s;
+	-webkit-transform: scaleY(.3);
+	-ms-transform: scaleY(.3);
+	transform: scaleY(.3);
+}
+
+.loader:after {
+	margin: -10px 0 0 6px;
+	-webkit-animation-delay: .5s;
+	animation-delay: .5s;
+	-webkit-transform: scaleY(.5);
+	-ms-transform: scaleY(.5);
+	transform: scaleY(.5);
+}
+
+
+@-webkit-keyframes loader {
+	0% {
+		-webkit-transform: scaleY(.5);
+		opacity: .2;
+	}
+
+	to {
+		-webkit-transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes loader {
+	0% {
+		-webkit-transform: scaleY(.5);
+		transform: scaleY(.5);
+		opacity: .2;
+	}
+
+	to {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+/* loder 结束 */
+/* 加载动画 结束 */
+
+/* code-form 开始 */
+.code-form {
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.code-form .code-form-inputcode {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.code-form .code-form-inputcode input {
+	width: 604px;
+	height: 58px;
+	padding: 0;
+	line-height: 58px;
+	border: 1px solid #ff6700;
+	text-align: center;
+	font-size: 20px;
+	color: #424242;
+}
+
+.code-form .code-form-inputcode input:focus {
+	outline: none;
+}
+
+.code-form .code-form-verifycode {
+	text-align: center;
+}
+
+.code-main .link {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.code-main .link a {
+	color: #ff6700;
+}
+/* code-form 结束 */
+
+/* code-sub 开始 */
+.code-sub {
+	margin-top: 20px;
+	padding: 60px 0;
+	background-color: #fff;
+}
+
+.code-sub dl {
+	float: left;
+	width: 33.2%;
+	margin: 0;
+	height: 330px;
+	text-align: center;
+	border-right: 1px solid #e0e0e0;
+}
+
+.code-sub dl.code-sub-sns {
+	border: 0;
+}
+
+.code-sub dl dt {
+	margin-bottom: 20px;
+	font-size: 22px;
+	color: #424242;
+}
+
+.code-sub dl dd {
+	margin: 0 auto;
+	width: 260px;
+	line-height: 2;
+	color: #757575;
+	font-size: 13px;
+}
+
+.code-sub dl img {
+	display: block;
+	margin: 0 auto;
+}
+
+.code-sub dl .code-sub-word {
+	height: 135px;
+}
+
+.code-sub .code-sub-sns-list {
+	padding: 0;
+	margin: 22px 0;
+}
+
+.code-sub .code-sub-sns-list li {
+	list-style: none;
+	margin-bottom: 10px;
+	line-height: 24px;
+}
+
+.code-sub .code-sub-sns-list li a {
+	text-decoration: none;
+	color: #757575;
+	font-size: 14px;
+}
+
+.code-sub .code-sub-sns-list li span {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-right: 15px;
+	border-radius: 50%;
+	color: #fff;
+}
+
+.code-sub .code-sub-sns-list li span.weibo {
+	background-color: #e53935;
+}
+
+.code-sub .code-sub-sns-list li span.wechat {
+	background-color: #8bc34a;
+}
+
+.code-sub .code-sub-sns-list li span.misns {
+	background-color: #ff6700;
+}
+
+
+
+
+
+

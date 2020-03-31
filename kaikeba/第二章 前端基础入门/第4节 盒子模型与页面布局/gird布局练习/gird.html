@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>gird布局</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			.wrapper {
+				border-radius: 5px;
+				display: grid;
+				grid-template-columns: 100px 100px 100px;
+				grid-template-rows: 50px 50px;
+				position: relative;
+				left: 35%;
+				
+			}
+
+			.item1 {
+				background-color: #008000;
+				text-align: center;
+				grid-column-start: 1;
+				grid-column-end: 3;
+			}
+
+			.item2 {
+				background-color: yellow;
+				text-align: center;
+			}
+
+			.item3 {
+				background-color: aqua;
+				text-align: center;
+			}
+
+			.item4 {
+				background-color: hotpink;
+				text-align: center;
+			}
+
+			.item5 {
+				background-color: chartreuse;
+				text-align: center;
+			}
+
+			.item6 {
+				background-color: #F47D31;
+				text-align: center;
+				grid-column-start: 1;
+				grid-column-end: 4;
+			}
+
+			.container {
+				margin-top: 50px;
+				display: grid;
+				grid-template-columns: repeat(12, 1fr);
+				grid-template-rows: 50px 350px 50px;
+				grid-gap: 5px;
+				grid-template-areas: 
+				"h h h h h h h h h h h h"
+				"m m c c c c c c c c c c"
+				"f f f f f f f f f f f f";
+			}
+			.header{
+				grid-area: h;
+				border-radius: 10px;
+				text-align: center;
+			}
+			.menu{
+				grid-area: m;
+				border-radius: 10px;
+				text-align: center;
+			}
+			.content{
+				grid-area: c;
+				border-radius: 10px;
+				text-align: center;
+			}
+			.footer{
+				grid-area: f;
+				border-radius: 10px;
+				text-align: center;
+			}
+			@media screen and (max-width:640px) {
+				.container{
+					grid-template-areas:
+					            "m m m m m m h h h h h h"
+					            "c c c c c c c c c c c c"
+					            "f f f f f f f f f f f f";
+				}
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="item1">1</div>
+			<div class="item2">2</div>
+			<div class="item3">3</div>
+			<div class="item4">4</div>
+			<div class="item5">5</div>
+			<div class="item6">6</div>
+		</div>
+		<hr>
+		<div class="container">
+			<div style="background-color: #008000;" class="header">
+				HEADER
+			</div>
+			<div style="background-color: yellow;" class="menu">
+				MENU
+			</div>
+			<div style="background-color: #00FFFF;" class="content">
+				CONTENT
+			</div>
+			<div style="background-color: deeppink;" class="footer">
+				FOOTER
+			</div>
+		</div>
+	</body>
+</html>

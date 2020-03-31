@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p.cc:first-letter{color:blue;font-size:30px;}
+        p.cc:first-line{color:red;}
+        h1::before{content:"Hello ";}
+        h1::after{content:" 选择器 ";}
+
+        ul li:first-child{color:red;}
+        ul li:last-child{color:red;}
+        ul p:first-of-type{color:blue;}
+        ul li:nth-child(4){background-color:#ddd;}
+        p:not(.cc){background-color: powderblue;}
+
+        h1:hover{color:red;font-size:30px;}
+    </style>
+</head>
+<body>
+    <h1>CSS选择器：伪类/伪元素 </h1>
+    <p class="cc">今天，阳光明媚，晴空万里，非常适合户外活动，
+    如踏青、远足之类的。长期坐在办公室的同学们要多注意运动。
+    今天，阳光明媚，晴空万里，非常适合户外活动，
+    如踏青、远足之类的。长期坐在办公室的同学们要多注意运动。
+    今天，阳光明媚，晴空万里，非常适合户外活动，
+    如踏青、远足之类的。长期坐在办公室的同学们要多注意运动。
+    </p>
+    <ul class="demo">
+        <li>1.aaaaaaa</li>
+        <li>2.aaaaaaa</li>
+        <p>bbbbbbbb</p>
+        <li>3.aaaaaaa</li>
+        <li>4.aaaaaaa</li>
+        <p>bbbbbbbb</p>
+        <li>5.aaaaaaa</li>
+        <li>6.aaaaaaa</li>
+    </ul>
+
+    
+</body>
+</html>

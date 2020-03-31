@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS中的属性选择器</title>
+    <style>
+        /*含有title属性的li标签采用此样式*/
+        /* li[title]{color:red;}*/
+
+        /*含有title属性值为bb的li标签采用此样式*/
+        /*li[title="bb"]{color:red;}*/
+
+        /*含有class属性值（以空格分隔开）中有aa的li标签采用此样式*/
+       /* li[class~="aa"]{color:red;}*/
+
+       /*含有class属性值（以-分隔开)以aa开头的li标签采用此样式*/
+       li[class|="aa"]{color:red;}
+
+       /*class属性值是以b子串开头的*/
+       /*li[class^="b"]{background-color:#ddd;}*/
+
+       /*class属性值是以dd结尾的li标签*/
+       /*li[class$="dd"]{background-color:#ddd;}*/
+
+       /*class属性值中含有bb的li标签*/
+       li[class*="bb"]{background-color:#ddd;}
+    </style>
+</head>
+<body>
+    <h1>CSS中的属性选择器</h1>
+    <ul>
+        <li class="aa-bb" title="html">1.html选择器</li>
+        <li class="bb-cc">2.class类选择器</li>
+        <li class="cc dd" title="id">3.id选择器</li>
+        <li class="bb-dd">4.关联选择器</li>
+        <li class="aa bb" title="bb">5.组合选择器</li>
+        <li class="bb aa">6.伪类选择器</li>
+    </ul>
+</body>
+</html>

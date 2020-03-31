@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8" />
+<title>align-content_CSS参考手册_web前端开发参考手册系列</title>
+<style>
+	*{margin:0px;padding:0px;}
+	ul{list-style:none;width:400px;float:left;margin:5px;height:400px;border:1px dashed #22B14C;}
+	ul li{width:100px;height:100px;}
+	ul li:nth-child(1){background-color:#ffc90e;}
+	ul li:nth-child(2){background-color:#b5e61d;width:120px;height:130px;}
+	ul li:nth-child(3){background-color:#99d9ea;}
+
+	ul{
+		display:flex;
+	}
+	ul.b1{
+		justify-content:space-between;
+		align-items:flex-start;
+	}
+
+	ul.b2{
+		justify-content:space-between;
+		align-items:center;
+	}
+
+	ul.b3{
+		justify-content:space-between;
+		align-items:flex-end;
+	}
+
+	ul.b4{
+		flex-direction:column-reverse;
+		justify-content:space-between;
+		align-items:center;
+	}
+</style>
+</head>
+<body>
+	<h1>flex示例：</h1>
+	<ul class="box b1">
+		<li>flex:1;</li>
+		<li>flex:2;</li>
+		<li>flex:3;</li>
+	</ul>
+
+	<ul class="box b2">
+		<li>flex:1;</li>
+		<li>flex:2;</li>
+		<li>flex:3;</li>
+	</ul>
+
+	<ul class="box b3">
+		<li>flex:1;</li>
+		<li>flex:2;</li>
+		<li>flex:3;</li>
+	</ul>
+
+	<ul class="box b4">
+		<li>flex:1;</li>
+		<li>flex:2;</li>
+		<li>flex:3;</li>
+	</ul>
+</body>
+</html>
+			

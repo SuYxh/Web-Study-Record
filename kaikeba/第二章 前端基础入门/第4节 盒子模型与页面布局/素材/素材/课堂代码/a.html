@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIV+CSS传统网页布局</title>
+    <style>
+        /*公共的css样式*/
+        *{margin:0px;padding:0px}
+        a{text-decoration: none;}
+        ul{list-style:none;}
+
+        /*页面头部样式*/
+        #header{
+            position:fixed;
+            top:0px;
+            width:100%;
+            border-bottom:1px solid #46474a;
+        }
+        #header .header-nav{
+            height:80px;
+            width:1200px;
+            background-color: goldenrod;
+            margin:0px auto;
+        }
+
+        /*页面导航样式*/
+        #nav{
+            height:60px;
+            margin-top:81px;
+            background-color:#46474a;
+        }
+
+        /*页面主体样式*/
+        #container{
+            width:100%;
+        }
+        #container .content{
+            width:1200px;
+            margin:0px auto;
+            margin-top:50px;
+        }
+        #container .content .main{
+            width:950px;
+            margin:0px auto;
+        }
+
+        /*页面主体中的电影排行列表样式*/
+        #container .content .main ul li{
+            display:block;
+            height:220px;
+            line-height:220px;
+            width:100%;
+            margin-bottom:20px;
+            border:1px dashed #f60;
+        }
+        .main ul li .info{
+            height:100%;
+            width:680px;
+            float:right;
+            background-color:snow;
+            border-bottom:1px solid #aaa;
+        }
+
+        .main ul li .info .info-right{
+            width:80px;
+            height:80px;
+            border:1px dashed orange;
+            float: right;
+            margin-top:70px;
+        }
+
+        .main ul li .info .info-left{
+            width:300px;
+            height:120px;
+            border:1px dashed orange;
+            margin-top:50px;
+        }
+        .main ul li .ids{
+            height:50px;
+            width:50px;
+            margin-top:85px;
+            margin-bottom:85px;
+            background-color:orange;
+            display:inline-block;
+        }
+
+        .main ul li .pic{
+            height:200px;
+            width:160px;
+            margin:10px 25px;
+            border:1px dashed green;
+            display: inline-block;
+        }
+
+        /*页面尾部样式*/
+        #footer{
+            height:300px;
+            background-color:#46474a;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- 网页头部开始 -->
+    <div id="header">
+        <div class="header-nav">
+            <h2>使用div+CSS布局实现《猫眼电影》榜单排行界面的布局效果</h2>
+            网址：https://maoyan.com/board
+        </div>
+    </div>
+    <!-- 网页头部结束 -->
+
+    <!-- 导航开始 -->
+    <div id="nav">
+    </div>
+    <!-- 导航结束 -->
+
+    <!-- 页面主体开始 -->
+    <div id="container">
+        <div class="content">
+            <div class="main">
+                <!-- 电影排行列表开始 -->
+                <ul>
+                    <li>
+                        <div class="info">
+                            <div class="info-right"></div>
+                            <div class="info-left"></div>
+                        </div>
+                        <div class="ids"></div>
+                        <div class="pic"></div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <div class="info-right"></div>
+                            <div class="info-left"></div>
+                        </div>
+                        <div class="ids"></div>
+                        <div class="pic"></div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <div class="info-right"></div>
+                            <div class="info-left"></div>
+                        </div>
+                        <div class="ids"></div>
+                        <div class="pic"></div>
+                    </li>
+                    <li>
+                        <div class="info">
+                            <div class="info-right"></div>
+                            <div class="info-left"></div>
+                        </div>
+                        <div class="ids"></div>
+                        <div class="pic"></div>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul><!-- 电影排行列表结束 -->
+            </div>
+        </div>
+    </div><!-- 页面主体结束 -->
+    
+
+    <!-- 页面尾部开始 -->
+    <div id="footer"></div>
+    <!-- 页面主体结束 -->
+</body>
+</html>
