@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Ajax请求演示</title>
+		<script src="myAjax.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				padding: 100px 450px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<form action="register2.php" method="post">
+				<h2 style="text-align: center;">用户注册</h2>
+				<label>用户名：</label><input type="text" id="username" name="username" value="" />
+				<span id="uname">我是异步请求</span>
+				<br>
+
+				<label>手机号：</label><input type="text" id="phonenum" name="phonenum" value="" />
+				<span id="phonenum_result">我是同步请求</span>
+				<br>
+				
+				<label>邮&nbsp;&nbsp;&nbsp;&nbsp;箱：</label><input type="email" id="email" name="email" value="" />
+				<span id="phonenum_result">我是摆设！</span>
+				<br>
+				<input type="submit" value="提交" disabled="disabled" />
+				<p>用户名的验证是异步请求，“yxh”此用户名不可用，其他均可。在php文件中设置了网络延迟，3秒，异步请求不会卡顿</p>
+				<p>手机号的验证是同步请求，“110”此手机号不可用，其他均可。在php文件中设置了网络延迟，3秒，同步请求会卡顿3秒</p>
+			</form>
+		</div>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				var username = document.querySelector("#username");
+				var phonenum = document.querySelector("#phonenum");
+				
+				// 用户名 验证事件
+				username.onblur = function (){
+					var usernameValue = username.value;
+					obj = {
+						type:"GET",
+						url:"Ajax.php",
+						data:{
+							username:usernameValue
+						},
+						dataType:"text",
+						success:function(result){
+							document.getElementById("uname").innerHTML = result;
+						}
+					};
+					myAjax(obj);
+				};
+				
+				// 手机号 验证事件
+				phonenum.onblur = function (){
+					var phonenumValue = phonenum.value;
+					obj = {
+						type:"POST",
+						url:"Ajax.php",
+						data:{
+							phonenum:phonenumValue
+						},
+						async:false,
+						dataType:"text",
+						success:function(result){
+							document.getElementById("phonenum_result").innerHTML = result;
+						}
+					}
+					myAjax(obj);
+				};
+			}
+		</script>
+	</body>
+</html>
