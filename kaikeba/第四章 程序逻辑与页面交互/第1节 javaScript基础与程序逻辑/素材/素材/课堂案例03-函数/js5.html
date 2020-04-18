@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //内置函数：
+        /*
+        escape()    //字串编码
+        unescape()    //字串反编码
+        *eval()        //将参数字符串作为脚本代码来执行。
+        *isNaN()      // is not a number (不是一个数值)
+        *parseInt()
+        *parseFloat()
+        */
+
+        var url = "http://www.***.com/a.html?name=张三&age=20";
+
+        console.log(url);
+        url2 = escape(url);
+        console.log(url2);
+        console.log(unescape(url2));
+
+        console.log("--------------------");
+
+        var str = "var uname='zhangsan',age=20;";
+        eval(str); //将参数str字串当成js脚本程序执行
+        console.log(uname);
+
+        console.log(isNaN("10s"));
+        
+        console.log(parseInt("34as4567dfg"));
+
+
+        </script>
+</head>
+<body>
+    <h1>JavaScript语言的函数</h1>
+</body>
+</html>

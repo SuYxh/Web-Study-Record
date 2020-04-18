@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript语言--循环结构之for循环</h1>
+</body>
+<script>
+    //for循环的使用
+    //循环输出1-10的值
+    for(var i=1;i<=10;i++){
+        //console.log(i)
+        document.write(i+" ");
+    }
+    document.write("<br/>");
+    
+    //循环输出10~1的值
+    for(var i=10;i>=1;i--){
+        document.write(i+" ");
+    }
+    document.write("<br/>");
+    
+    //循环输出1~10的偶数值
+    for(var i=1; i <= 10; i++){
+        if(i%2==0){
+            document.write(i+" ");
+        }
+    }
+    document.write("<br/>");
+
+    //循环1~100的值，并计算他们的累加值
+    var sum = 0
+    for(var i=1;i<=100;i++){
+        //document.write(i+" ");
+        sum += i; //将每次循环的值累加到变量sum中
+    }
+    document.write("100的累加值："+sum)
+    document.write("<br/>");
+</script>
+</html>

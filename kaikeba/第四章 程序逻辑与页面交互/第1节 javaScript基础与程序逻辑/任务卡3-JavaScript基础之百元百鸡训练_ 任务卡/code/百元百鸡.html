@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>百元百鸡</title>
+	</head>
+	<body>
+		<!-- 		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<th>公鸡🐓</th>
+				<th>母鸡🐓</th>
+				<th>小鸡🐥</th>
+			</tr>
+			<tr>
+				<td>${x}</td>
+				<td>${y}</td>
+				<td>${z}</td>
+			</tr>
+		</table> -->
+		<script type="text/javascript">
+			/*
+			由题意有：
+			数量100只：x + y +  z == 100  
+			总价100元：5 * x + 3 * y + 1/3 * z == 100  
+			待解决问题：表格动态追加数据
+			*/
+			
+			
+			var tab = document.getElementById('tbMain');
+			for (var x = 0; x <= 100; x++) {
+
+				for (var y = 0; y <= 100; y++) {
+					for (var z = 0; z <= 100; z++) {
+
+						if ((x + y + z == 100) && (5 * x + 3 * y + 1 / 3 * z == 100) && (x > 0) && (y > 0) && (z > 0)) {
+
+
+							document.write(
+								`
+				<table border="" cellspacing="" cellpadding="">
+							<tr>
+								<th>公鸡🐓</th>
+								<th>母鸡🐓</th>
+								<th>小鸡🐥</th>
+							</tr>
+							<tr>
+								<td>${x}</td>
+								<td>${y}</td>
+								<td>${z}</td>
+							</tr>
+						</table>
+				`
+							)
+						}
+					}
+				}
+
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数值类型
+        console.log(typeof a); //undefined 没有定义的变量
+
+        var a = 10; //整数
+        console.log(typeof a); //number
+        a = 3.14; //浮点数
+        console.log(typeof a); //number
+
+        //布尔类型：boolean： 值：true false
+        a = true;
+        console.log(typeof a); //boolean
+
+        //字符串：使用单引号或双引号都可以定义子符串
+        a = "Hello ...";
+        console.log(typeof a); //string
+        a = null;
+        console.log(typeof a); //object
+
+        //引用类型
+        var b = [10,20,30]; //数组的定义
+        console.log(typeof b); //数组对象object
+
+        console.log(b instanceof Array); //true 检查对象b是否是来源于Array
+        console.log(a instanceof Array); //false 检查对象a是否是来源于Array
+    
+        var ob = new Object();
+        console.log(typeof ob); //object
+        var fn = function(){} //声明一个空函数
+        console.log(typeof fn); //function
+
+        console.log("======================================");
+        console.log(1.23e5); //1.23*10的5次方
+        console.log("整数进制的使用");
+        console.log(10); //10 十进制
+        console.log(0b10); //2 二进制
+        console.log(0o10); //8 八进制
+        console.log(0x10); //16 十六进制（0 1 2 3 4 5 6 7 8 9 a b c d e f）
+        console.log("===============十进制转成其他进制==============");
+        var num = 220;
+        console.log(num.toString(2)); //11011100 二进制
+        console.log(num.toString(8)); //334 八进制
+        console.log(num.toString(16)); //DC 十六进制
+
+        console.log("===============其他进制转成十进制==============");
+        console.log(parseInt('11011100',2)); //二进制转十进制
+        console.log(parseInt('334',8)); //八进制转十进制
+        console.log(parseInt('DC',16)); //十六进制转十进制
+
+        /*
+            面试案例：
+            假设有15瓶水，其中有一个水有毒，
+            请问至少使用几只小白鼠可以一次性试喝出来。
+        */
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的数据类型</h1>
+</body>
+</html>

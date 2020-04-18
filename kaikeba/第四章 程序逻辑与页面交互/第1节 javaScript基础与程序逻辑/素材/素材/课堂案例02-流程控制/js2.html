@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //多分支结构
+        console.log("start...");
+        var m = 1;
+        switch(m){
+            case 1:
+                console.log("1111111111");
+                break;
+            case 2:
+            case 5:
+                console.log("2222222222");
+                break;
+            case 3:
+                console.log("333333333");
+                //break;
+            case 4:
+                console.log("4444444444");
+                break;
+            default:
+                console.log("0000000000000");
+        }
+        console.log("end...");
+
+
+        //使用js的内置对象获取当前星期几的信息
+        var w = new Date().getDay();
+        console.log(w);
+        switch(w){
+            case 0: x = "星期日"; break;
+            case 1: x = "星期一"; break;
+            case 2: x = "星期二"; break;
+            case 3: x = "星期三"; break;
+            case 4: x = "星期四"; break;
+            case 5: x = "星期五"; break;
+            case 6: x = "星期六"; break;
+            default: x = "无效的星期信息";
+        }
+        console.log(x);
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的switch ... case分支结构</h1>
+</body>
+</html>

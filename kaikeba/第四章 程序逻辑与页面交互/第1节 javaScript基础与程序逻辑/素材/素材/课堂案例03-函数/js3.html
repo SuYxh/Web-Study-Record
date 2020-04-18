@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //函数中的返回值：
+        
+        //统计指定参数的累加值函数
+        function mysum(m){
+            total = 0;
+            for(var i=0; i<=m; i++){
+                total += i;
+            }
+            return total; //返回结果
+        }
+
+        //使用
+        var a = mysum(10);
+        console.log("10的累加值："+a);
+        console.log("50的累加值："+mysum(50));
+        console.log("100的累加值："+mysum(100));
+        
+        console.log("=========================");
+
+
+        function fun(m){
+            console.log("111111");
+            console.log("222222");
+            if(m>=10){
+                return; //执行return后，就会终止当前函数的执行
+            }
+            console.log("333333");
+        }
+
+        console.log(fun(18)); //undefined
+        console.log("=========================");
+
+        function demo(){
+            console.log("aa");
+            return "cc";
+        }
+        console.log("bb"+demo()); //aa  bbcc
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的函数</h1>
+</body>
+</html>

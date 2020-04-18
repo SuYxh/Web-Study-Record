@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("start...");
+        
+        var grade = 58; //定义一个成绩的变量
+
+        /*
+        //单分支结构
+        if(grade>=60){
+            console.log("考试通过了");
+        }
+        */
+
+        /*
+        //双分支结构
+        if(grade >= 60){
+            console.log("成绩及格！");
+        }else{
+            console.log("成绩不及格！");
+        }
+        */
+
+        //多分支判断
+        if(grade >= 90){
+            console.log("成绩优秀！");
+        }else if(grade >=75 ){
+            console.log("成绩良好！");
+        }else if(grade >= 60){
+            console.log("成绩及格！");
+        }else{
+            console.log("成绩不及格！");
+        }
+
+        
+        //嵌套的多分支判断
+        if(grade >= 75){
+            if(grade >=90 ){
+                console.log("成绩优秀！");
+            }else{
+                console.log("成绩良好！");
+            }
+        }else{
+            if(grade >= 60){
+                console.log("成绩及格！");
+            }else{
+                console.log("成绩不及格！");
+            }
+        }
+
+
+
+        console.log("end...");
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的分支结构</h1>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //值类型和引用类型的区别
+        //值类型：
+        var a = 10;
+        var b = a; //由于a是值类型，故此处赋值，属于开辟一个新空间，将的值复制一份传给了b。
+        b = 20;
+        console.log(a); //10 
+
+        //引用类型：
+        var oa = {name:'zhangsan',age:20};
+        var ob = oa; //oa是引用类型，故ob为oa别名。并没有复制一份新对象
+        ob.name = "lisi";
+        console.log(oa);
+
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的数据类型</h1>
+</body>
+</html>

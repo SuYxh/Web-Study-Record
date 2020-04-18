@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("=========6.三元运算符========");
+        var age = 26;
+        var info = (age < 18) ? "太年轻":"足够成熟";
+        console.log(info);
+
+        
+        console.log("=========7.逗号运算符========");
+        var a = 10, b = 20, c = 30;
+        console.log(a+":"+b+":"+c); //10:20:30
+        
+        console.log("=========8.类型运算符========");
+        //typeof  instanceof
+        var oStringObject = new String("hello world"); 
+        console.log(oStringObject instanceof String);   // 输出 "true"
+        // 判断 foo 是否是 Foo 类的实例
+        function Foo(){} 
+        var foo = new Foo(); 
+        console.log(foo instanceof Foo)//true
+        // 判断 foo 是否是 Foo 类的实例 , 并且是否是其父类型的实例
+        function Aoo(){} 
+        function Foo(){} 
+        Foo.prototype = new Aoo();//JavaScript 原型继承
+        var foo = new Foo(); 
+        console.log(foo instanceof Foo)//true 
+        console.log(foo instanceof Aoo)//true
+        
+        console.log("=========9.delete运算符========");
+        var stu = {name:'zhangsan',sex:'man',age:20};
+        console.log(stu);
+        delete stu.sex; //删除stu对象中的sex属性
+        console.log(stu);
+    
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言中的运算符--其他运算符</h1>
+</body>
+</html>

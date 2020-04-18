@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        //函数的定义：
+        function myfun(){
+            console.log("aaaaaaaaa");
+            console.log("bbbbbbbbb");
+            console.log("ccccccccc");
+            console.log("ddddddddd");
+        }
+
+        //函数使用
+        myfun();
+        console.log("-------------------");
+        myfun();
+        console.log("-------------------");
+        myfun();
+        console.log("-------------------");
+       */
+
+
+       //函数的定义方式：
+       //1.标准式
+       function demo1(){
+           console.log("Hello Demo1");
+       }
+
+       demo1();
+
+       //2.使用Function()构造函数定义
+       var demo2 = new Function('console.log("Hello Demo2");');
+
+       demo2();
+
+       //3.使用表达式方式定义（匿名）
+       var demo3 = function(){
+            console.log("Hello Demo3"); 
+       }
+
+       demo3();
+
+       //4. 函数自调用定义
+       (function(){
+            console.log("Hello Demo4");
+       })();
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言中的函数</h1>
+</body>
+</html>

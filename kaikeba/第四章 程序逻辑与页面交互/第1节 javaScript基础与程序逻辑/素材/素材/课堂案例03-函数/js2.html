@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //函数中的参数
+        function mysum(m){
+            total = 0;
+            for(var i=0; i<=m; i++){
+                total += i;
+            }
+            console.log(m+"的累加值："+total);
+        }
+
+        //使用
+        mysum(10);
+        mysum(50);
+        mysum(100);
+
+        console.log("=============================");
+
+        //定义多个参数的调用
+        function myadd(a,b){
+            console.log(a+b);
+        }
+
+        myadd(10,20);
+        myadd(100,200);
+        myadd(200);
+        myadd(200,300,400);
+        
+        console.log("=============================");
+
+        //arguments 对象
+        function fun(){
+            console.log(arguments);
+            //遍历输出所有参数值
+            for(var i in arguments){
+                console.log(arguments[i]);
+            }
+        }
+
+        fun(10,20,30,40,50);
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的函数</h1>
+</body>
+</html>

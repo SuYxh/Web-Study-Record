@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript语言--循环结构之for...in遍历</h1>
+</body>
+<script>
+    //for...in的使用
+    var ob = {"name":"张三","age":22,"sex":"男"};
+    for(key in ob){
+        document.write(key+":"+ob[key]+"<br/>");
+    }
+    
+
+    var a = [10,20,30,40,50];
+    //遍历（迭代）数组a中的每个值的下标
+    for(k in a){
+        document.write(k+":"+a[k]+"<br/>");
+    }
+</script>
+</html>

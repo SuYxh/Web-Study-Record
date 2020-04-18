@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>while循环打印乘法表</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.write('<table width="800" border="1">');
+			//循环输出行
+			var j = 9;
+			while (j >= 1) {
+				document.write('<tr>');
+				//循环输出字段（列）
+				var i = 1;
+				while (i <= 9) {
+					//判断是否输出空的单元格
+					if (i > j) {
+						document.write('<td>&nbsp;</td>');
+					} else {
+						document.write('<td>' + i + '*' + j + "=" + (i * j) + '</td>');
+					}
+					i++;
+				}
+				document.write('</tr>');
+				j--;
+			}
+			document.write('</table>');
+			document.write('<br/><hr/><br/>');
+
+
+
+
+
+			document.write('<table width="800" border="1">');
+			//循环输出行
+			var j = 9;
+			while (j >= 1) {
+				document.write('<tr>');
+				//循环输出字段（列）
+				var i = 1;
+				while (i <= 9) {
+					//判断是否输出空的单元格
+					if (j > i) {
+						document.write('<td>&nbsp;</td>');
+					} else {
+						document.write('<td>' + i + '*' + j + "=" + (i * j) + '</td>');
+					}
+					i++;
+				}
+				document.write('</tr>');
+				j--;
+			}
+			document.write('</table>');
+			document.write('<br/><hr/><br/>');
+
+
+
+
+
+			document.write('<table width="800" border="1">');
+			var	i = 1;
+			while (i <= 9) {
+				document.write('<tr>');
+				j = 1;
+				while (j <= 9) {
+					if (j > i) {
+						document.write('<td>&nbsp;</td>');
+					} else {
+						document.write('<td>' + i + '*' + j + "=" + (i * j) + '</td>');
+					}
+					j++;
+				}
+				document.write('</tr>');
+				i++;
+			}
+			document.write('</table>');
+			document.write('<br/><hr/><br/>');
+			
+			
+			
+			
+			document.write('<table width="800" border="1">');
+			var	i = 1;
+			while (i <= 9) {
+				document.write('<tr>');
+				j = 1;
+				while (j <= 9) {
+					if (i > j) {
+						document.write('<td>&nbsp;</td>');
+					} else {
+						document.write('<td>' + i + '*' + j + "=" + (i * j) + '</td>');
+					}
+					j++;
+				}
+				document.write('</tr>');
+				i++;
+			}
+			document.write('</table>');
+			document.write('<br/><hr/><br/>');
+			
+		</script>
+	</body>
+</html>

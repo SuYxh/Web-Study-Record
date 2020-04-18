@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>JS折纸计算</title>
+	</head>
+	<body>
+		<label>请输入纸张的厚度：<input type="number" name="" id="houdu" placeholder="单位为毫米" value="" /></label>
+		<br>
+		<label>请输入折纸次数：<input type="number" name="" id="count" value="" /></label>
+		<br>
+		<button type="button" onclick="compute()">计算</button>
+		<div id="result">
+			
+		</div>
+
+		<script type="text/javascript">
+			/*
+			单位换算：一公里=1KM（千米）=1000m（米）
+					1米 = 1000 毫米
+			
+			折纸次数：JS做2的n次方计算
+			*/
+			
+			
+			var exp = document.getElementById('count');
+			var houdu = document.getElementById('houdu');
+			var result = document.getElementById('result');
+			function compute(){
+				var h = houdu.value;
+				 // alert(exp.value)
+				 // alert(h)
+				if (exp.value != '' && exp.value > 0) {
+					for (var i=1;i<exp.value;i++) {
+						h *= 2;
+					}
+					result.innerHTML = `
+					<ul>
+						<li>${h} 毫米 </li>
+						<li>${h/1000} 米 </li>
+						<li>${h/1e10} 万公里 </li>
+					</ul>
+					`
+				} else{
+					if (exp.value == '') {
+						alert('请输入次数！')
+					} else{
+						result.innerHTML = '结果为1'
+					}
+				}
+			}		
+		</script>
+
+	</body>
+</html>

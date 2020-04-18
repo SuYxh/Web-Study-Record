@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //变量的作用域：
+
+        /*
+        var name = "zhangsan"; //全局变量
+
+        function demo(){
+            console.log("函数内输出全局变量1："+name);
+            name = "lisi";
+            console.log("函数内输出全局变量2："+name);
+        }
+
+        console.log("函数外输出全局变量1："+name);
+        demo();
+        console.log("函数外输出全局变量2："+name);
+        */
+
+        /*
+        function demo2(){
+            var uname = "zhangsan"; //局部变量
+            console.log("函数内输出全局变量："+uname);
+        }
+        demo2(); //函数调用
+        //console.log("函数外输出全局变量2："+uname); //报错，不存在
+
+       //console.log(window);
+        */
+
+        //隐式全局变量:没有使用var声明的变量,就叫隐式全局变量，在函数外可以获取到。
+        var b = 20;
+        function demo3(){
+            a1 = 10; //没有var声明的变量 隐式全局变量
+            console.log(a1);
+            console.log(b);
+        }
+
+        demo3();
+        delete b; //只可以删除隐式全局变量
+        console.log(a1);
+        console.log(b);
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的函数</h1>
+</body>
+</html>

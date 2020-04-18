@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>do_while循环打印乘法表</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		document.write('<table width="800" border="1">');
+		//循环输出行
+		var j = 1;
+		do{
+		   document.write('<tr>');
+		   //循环输出字段（列）
+		   var i = 1;
+		   do{
+		       //判断是否输出空的单元格
+		       if(j>i){
+		           document.write('<td>&nbsp;</td>');
+		       }else{
+		           document.write('<td>'+i+'*'+j+"="+(i*j)+'</td>');
+		       }
+		       i++;
+		   }while(i <= 9);
+		   document.write('</tr>');
+		   j++;
+		}while(j<=9);
+		document.write('</table>');
+		document.write('<br/><hr/><br/>');
+		
+		
+		document.write('<table width="800" border="1">');
+		//循环输出行
+		var j = 1;
+		do{
+		   document.write('<tr>');
+		   //循环输出字段（列）
+		   var i = 1;
+		   do{
+		       //判断是否输出空的单元格
+		       if(i>j){
+		           document.write('<td>&nbsp;</td>');
+		       }else{
+		           document.write('<td>'+i+'*'+j+"="+(i*j)+'</td>');
+		       }
+		       i++;
+		   }while(i <= 9);
+		   document.write('</tr>');
+		   j++;
+		}while(j<=9);
+		document.write('</table>');
+		document.write('<br/><hr/><br/>');
+		
+
+
+
+
+		document.write('<table width="800" border="1">');
+		//循环输出行
+		var j = 1;
+		do{
+		   document.write('<tr>');
+		   //循环输出字段（列）
+		   var i = 9;
+		   do{
+			   // document.write('<td>'+i+'*'+j+"="+(i*j)+'</td>');
+		       //判断是否输出空的单元格
+		       if(j>i){
+		           document.write('<td>&nbsp;</td>');
+		       }else{
+		           document.write('<td>'+i+'*'+j+"="+(i*j)+'</td>');
+		       }
+		       i--;
+		   }while(i >= 1);
+		   document.write('</tr>');
+		   j++;
+		}while(j<=9);
+		document.write('</table>');
+		document.write('<br/><hr/><br/>');
+		
+		
+		document.write('<table width="800" border="1">');
+		//循环输出行
+		var j = 1;
+		do{
+		   document.write('<tr>');
+		   //循环输出字段（列）
+		   var i = 9;
+		   do{
+			   // document.write('<td>'+i+'*'+j+"="+(i*j)+'</td>');
+		       //判断是否输出空的单元格
+		       if(i>j){
+		           document.write('<td>&nbsp;</td>');
+		       }else{
+		           document.write('<td>'+i+'*'+j+"="+(i*j)+'</td>');
+		       }
+		       i--;
+		   }while(i >= 1);
+		   document.write('</tr>');
+		   j++;
+		}while(j<=9);
+		document.write('</table>');
+		document.write('<br/><hr/><br/>');
+	</script>
+</body>
+</html>

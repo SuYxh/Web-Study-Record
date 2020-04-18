@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+		请输入一个数：<input id="num" type="text" />
+		<input type="button" value="判断是否为素数" onclick = "num()" />
+
+		<p>
+			计算数组[1,2,3,4,5,6]的平均值
+			<button type="button" onclick="alert(myArr([1,2,3,4,5,6]))">计算</button>
+		</p>
+		<script type="text/javascript">
+			// 判断一个数是否为 素数			
+			function num(){
+				var num = parseInt(document.getElementById("num").value);//9
+				for(var i=2;i<=num-1;i++){//i=7  num=7
+					if(num%i==0){
+						break;
+					}
+				}
+				if(i>num-1){
+					alert(num+"是素数");
+					return true;
+				}else{
+					alert(num+"不是素数");
+					return false;
+				}	
+			}
+			
+			
+			//接收数组参数，返回其平均值
+			function myArr(arr){
+				var sum = 0;
+				for (var i=0;i<arr.length;i++) {
+					sum += arr[i];
+				}
+				var average = sum / arr.length;
+				return average;
+			}
+			console.log('数组[1,2,3,4]的平均值为：' +myArr([1,2,3,4]))
+			
+			// number类型参数，个数不限，返回累加结果
+			function mySum(){
+				var sum = 0;
+				for (let item in arguments) {
+					sum += arguments[item];
+				}
+				return sum;
+			}
+			console.log('累加的和为：'+ mySum(1,2,3,4,5))
+			
+			
+		</script>
+</body>
+</html>

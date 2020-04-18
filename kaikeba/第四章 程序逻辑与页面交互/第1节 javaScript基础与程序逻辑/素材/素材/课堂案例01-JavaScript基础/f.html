@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("============1.算数运算符===============");
+        console.log(10+20); //30
+        console.log(100-20); //80
+        console.log(10*20);  //200
+        console.log(100/20); //5
+        console.log(10%3); //余数1
+        console.log("10"+20); //1020 子串做加计算是连接操作
+        console.log('10'+20+30); //102030
+        console.log(10+'20'+30); //102030
+        console.log(10+20+'30'); //3030
+        console.log(true+30); //31
+        console.log("-----------------");
+        
+        /*
+        var a = 10;
+        a++; //变量a自增1
+        --a; //自减1
+        console.log(a);
+        */
+
+       // var a = 10
+       // var b = 20 + a++; //先取出变量a的值与20求和后赋给变量b，之后a自增1
+       // console.log(b); //30
+       // console.log(a); //11
+
+
+       // var a = 10
+       //var b = 20 + ++a; //先将变量a自增1,再与与20求和结果赋给变量b
+       //console.log(b); //31
+       //console.log(a); //11
+
+       var a1 = 10;
+       console.log(a1 + ++a1); //21
+
+       var a2 = 10;
+       console.log(a2 + a2++); //20
+
+       var a3 = 10;
+       console.log(a3++ + ++a3); //10+12=22
+
+       var a4 = 10;
+       console.log(a4++ + a4++); //10+11=21
+
+       var a5 = 10;
+       console.log(++a5 + ++a5); //11+12=23
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言中的运算符</h1>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //类型转换
+        console.log(String(20))
+        console.log(typeof String(20))
+        console.log(String(false))
+        console.log(String(new Date()))
+        console.log(String(null))
+        console.log(String([10,20,30]))
+        console.log("========数值类型的转换========");
+        console.log(Number("30")+20); //50
+        console.log("30"+20); //"3020"
+        console.log(Number('3.1415926'));
+        console.log(Number('3.14abc')); //NaN => Not a Number
+        console.log(isNaN("20")); //false 不是一个纯数值判断函数
+
+        console.log(parseInt("40abc")); //40
+        console.log(parseInt("40.6abc")); //40
+        console.log(parseFloat("40.6abc")); //40.6
+        console.log(parseFloat("abc40.8")); //NaN
+
+        console.log(true+1); //2
+        console.log("abc"+100); //'abc100'
+    </script>
+</head>
+<body>
+    <h1>JavaScript语言的数据类型--类型转换</h1>
+</body>
+</html>
