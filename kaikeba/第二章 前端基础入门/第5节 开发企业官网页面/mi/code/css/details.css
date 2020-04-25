@@ -10,11 +10,13 @@
 
 /*导航  */
 .xm-product-box .nav-bar {
-	position: relative;
+	position: absolute;
 	height: 63px;
 	width: 100%;
 	margin-top: 0;
 	color: #616161;
+	top: 140px;
+	background-color: #E0E0E0;
 }
 
 .xm-product-box .nav-bar h2 {

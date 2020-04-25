@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./css/details.css" />
 </head>
 <body>
+	<div id="app">
+		
+	
     <!-- 页面头部 -->
     <div id="header">
         <div class="site-topbar">
@@ -82,8 +85,8 @@
     <!-- 页面主体开始 -->
 	
 	<!-- 导航 -->
-			<div class="xm-product-box nav_fix" >
-				<div class="nav-bar">
+			<div id="navBar" class="xm-product-box nav_fix" >
+				<div  class="nav-bar">
 					<div class="container ">
 						<h2>小米10</h2>
 							<div class="left"> 
@@ -100,7 +103,18 @@
 			</div>
 		<!-- 导航结束 -->	
 		
-		
+		<script type="text/javascript">
+			var navBar = document.getElementById('navBar');
+			var header = document.getElementById('header')
+			var shenti = document.getElementsByTagName('body')
+			console.log(header)
+			window.onscroll = function(){
+				if(document.documentElement.scrollTop > 140){
+					console.log(document.documentElement.scrollTop)
+					navBar.style.top = '0'
+				}
+			}
+		</script>
 		
 		<!-- 购买 -->		
 		<div class="xm-buyBox">
@@ -435,5 +449,6 @@
 			<div class="slogan ir">探索黑科技，小米为发烧而生</div>
 		</div><!-- site-info 结束-->
 	<!-- 页面尾部结束 -->
+</div>
 </body>
 </html>
