@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>fangfajing</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+			overflow: hidden;
+		}
+		ul li {
+			float: left;
+			margin-top: 20px;
+			margin-left: 20px;
+			border: 2px solid #FFFFFF;
+		}
+		ul li.active {
+			border-color: #FF0000
+		}
+		
+		
+		
+		#box {
+		    display: block;
+		    width: 400px;
+		    height: 400px;
+		    margin: 50px;
+		    position: relative;
+		    border: 1px solid #ccc;
+		}
+		#small-box {
+		    position: relative;
+		    z-index: 1;
+		}
+		#float-box {
+		    display: none;
+		    width: 160px;
+		    height: 120px;
+		    position: absolute;
+		    background: #ffffcc;
+		    border: 1px solid #ccc;
+		    filter: alpha(opacity=50);
+		    opacity: 0.5;
+		}
+		#mark {/*应该是把图片放在这个上面，它的透明度为0，是个block*/
+		    position: absolute;
+		    display: block;
+		    width: 400px;
+		    height: 400px;
+		    background-color: #fff;
+		    filter: alpha(opacity=0);/*过滤器，目前只有少数浏览器支持*/
+		    opacity: 0;
+		    z-index: 10;
+		}
+		#big-box {
+		    display: none;
+		    position: absolute;
+		    top: 0;
+		    left: 460px;
+		    width: 400px;
+		    height: 300px;
+		    overflow: hidden;
+		    border: 1px solid #ccc;
+		    z-index: 1;;
+		}
+		
+		#big-box img {
+		    position: absolute;
+		    z-index: 5
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+    <div id="small-box">
+        <div id="mark"></div>
+        <div id="float-box"></div>
+        <img src="./images/s-1.jpg" width="400px" id="bigImg" >
+    </div>
+	
+	<ul>
+		<li><a href=""><img src="./images/s-1.jpg" width="46px" class="smallImg" ></a></li>
+		<li><a href=""><img src="./images/s-2.jpg" width="46px" class="smallImg" ></a></li>
+		<li><a href=""><img src="./images/s-3.jpg" width="46px" class="smallImg" ></a></li>
+		<li><a href=""><img src="./images/s-4.jpg" width="46px" class="smallImg" ></a></li>
+		<li><a href=""><img src="./images/s-5.jpg" width="46px" class="smallImg" ></a></li>
+	</ul>
+	
+    <div id="big-box">
+        <img src="./images/l-1.jpg" id="big-box-img"  />
+    </div>
+</div>
+	
+	
+	
+	<script type="text/javascript">
+		var bigImg = document.getElementById('bigImg')
+		var smallImgs = document.getElementsByClassName('smallImg')
+		var bigBoxImg = document.getElementById('big-box-img')
+		
+		var box=document.getElementById("box");
+		var SmallBox=document.getElementById("small-box");
+		var MarkBox=document.getElementById("mark");
+		var FloatBox=document.getElementById("float-box");
+		var BigBox=document.getElementById("big-box");
+		
+		for (var i = 0; i < smallImgs.length; i++) {
+			smallImgs[i].onmousemove = function(){
+				for (var j = 0; j < smallImgs.length; j++) {
+					smallImgs[j].parentNode.parentNode.setAttribute('class', '');
+				}
+				
+				console.log(this.getAttribute('src'))
+				console.log(this.getAttribute('src').indexOf('-'))
+				var smallImgSrc = this.getAttribute('src');
+				bigImg.setAttribute('src',smallImgSrc)
+				var bigBoxImgPath = './images/l'+ this.getAttribute('src').slice(this.getAttribute('src').indexOf('-'))
+				console.log(bigBoxImgPath)
+				bigBoxImg.setAttribute('src',bigBoxImgPath)
+				
+				this.parentNode.parentNode.setAttribute('class', 'active');
+			}
+		}
+		
+		
+		//给小盒子添加事件，移入和移出
+		//移入：浮动的box和和bigBox显示
+		SmallBox.onmouseover=function(){
+		    FloatBox.style.display="block";
+		    BigBox.style.display="block";
+		}
+		//移除：浮动的box和bigBox隐藏
+		SmallBox.onmouseout=function(){
+		    FloatBox.style.display="none";
+		    BigBox.style.display="none";
+		}
+		
+		
+		//给小盒子添加鼠标移动事件
+		MarkBox.onmousemove=function(ev){
+		    var _event=ev||window.event;//做兼容性，兼容IE
+		    //1计算值：
+		    var left=_event.clientX-box.offsetLeft-SmallBox.offsetLeft-FloatBox.offsetWidth/2;
+		    var top=_event.clientY-box.offsetTop-SmallBox.offsetTop-FloatBox.offsetHeight/2;
+		
+		
+		//5.优化，在前面加判断,不让其溢出，加判断
+		if(left<0) left=0;
+		if(top<0) top=0;
+		if(left>SmallBox.offsetWidth-FloatBox.offsetWidth)
+		        left=SmallBox.offsetWidth-FloatBox.offsetWidth;
+		if(top>SmallBox.offsetHeight-FloatBox.offsetHeight)
+		        top=SmallBox.offsetHeight-FloatBox.offsetHeight;
+		
+		//2把值赋值给放大镜
+		FloatBox.style.left=left+"px";
+		FloatBox.style.top=top+"px";
+		
+		//3计算比例
+		var percentX=left/(MarkBox.offsetWidth-FloatBox.offsetWidth);
+		var percentY=top/(MarkBox.offsetHeight-FloatBox.offsetHeight);
+		
+		//4利用这个比例计算距离后赋值给右侧的图片
+		bigBoxImg.style.left=-percentX*(bigBoxImg.offsetWidth-BigBox.offsetWidth)+"px";
+		bigBoxImg.style.top=-percentY*(bigBoxImg.offsetHeight-BigBox.offsetHeight)+"px";
+		
+		
+		
+		}
+	</script>
+	
+</body>
+</html>
