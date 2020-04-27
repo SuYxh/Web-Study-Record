@@ -2,7 +2,7 @@
 
 演示： [https://kkb.huat.xyz/Animation/%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%A8%AA%E5%B9%85%E6%95%88%E6%9E%9C/](https://kkb.huat.xyz/Animation/侧边栏横幅效果/) 
 
-源码：
+源码： [https://github.com/SuYxh/Web-Study-Record/tree/master/%E6%A1%88%E4%BE%8B/2-%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%A8%AA%E5%B9%85%E6%95%88%E6%9E%9C](https://github.com/SuYxh/Web-Study-Record/tree/master/案例/2-侧边栏横幅效果) 
 
 
 

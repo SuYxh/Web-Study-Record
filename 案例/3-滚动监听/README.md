@@ -2,7 +2,7 @@
 
 演示：  [https://kkb.huat.xyz/Animation/%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC/](https://kkb.huat.xyz/Animation/滚动监听/) 
 
-源码：
+源码： [https://github.com/SuYxh/Web-Study-Record/tree/master/%E6%A1%88%E4%BE%8B/3-%E6%BB%9A%E5%8A%A8%E7%9B%91%E5%90%AC](https://github.com/SuYxh/Web-Study-Record/tree/master/案例/3-滚动监听) 
 
 
 
