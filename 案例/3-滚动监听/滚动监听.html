@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=javascript:void(0), initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            width: 1190px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .container div {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #fff;
+            color: orange;
+            font-size: 30px;
+        }
+
+        .aside {
+            position: fixed;
+            right: 20px;
+            top: 300px;
+            width: 40px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .aside li {
+            height: 50px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .aside li a {
+            color: peru;
+        }
+
+        .aside li.current {
+            background-color: coral;
+        }
+
+        .aside li.current a {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="box">
+        <div class="current">爱逛好货</div>
+        <div>好店主播</div>
+        <div>品质特色</div>
+        <div>猜你喜欢</div>
+    </div>
+    <ul class="aside" id="aside">
+        <li class="current">
+            <a href="javascript:void(0)">爱逛好货</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">好店主播</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">品质特色</a>
+        </li>
+        <li>
+            <a href="javascript:void(0)">猜你喜欢</a>
+        </li>
+    </ul>
+    <script src="./myAnimation.js"></script>
+    <script>
+        window.onload = function () {
+            // 1.获取事件源
+            var box = document.getElementById('box');
+            var allBoxs = box.children;
+            var aside = document.getElementById('aside');
+            var lis = aside.children;
+            var isClick = false; //默认没有被点击
+
+            // 2.上色,遍历 allBoxs 添加颜色
+            var colors = ['red', 'pink', 'purple', 'blue'];
+            for (let i = 0; i < allBoxs.length; i++) {
+                allBoxs[i].style.backgroundColor = colors[i];
+
+            }
+
+            // 3.监听侧边栏按钮的点击
+            for (let j = 0; j < lis.length; j++) {
+                // lis[j].index = j;
+                lis[j].onclick = function () {
+
+                    // 当点击时候的时候将其设置为true
+                    isClick = true;
+                    // 在点击之前先清除一下
+                    for (let k = 0; k < lis.length; k++) {
+                        lis[k].className = ''
+                    }
+                    // 当被点击的时候添加 current类
+                    this.className = 'current';
+
+                    //先不加入动画 点击按钮跳转到相应的div
+                    //document.documentElement.scrollTop = 3 * document.body.clientHeight   // 执行后跳转到在最后一个div
+                    // document.documentElement.scrollTop = this.index * document.body.clientHeight
+                    // document.documentElement.scrollTop = j * document.body.clientHeight
+                    // console.log(document.body.clientHeight)
+
+                    //让页面动起来
+                    startAnimation(document.documentElement, {
+                        "scrollTop": j * (document.body.clientHeight)
+                    }, function () {
+                        isClick = false
+                    })
+
+                }
+
+            }
+
+            // 4.监听页面滚动
+            window.onscroll = function() {
+                if (!isClick) {
+                    // 4.1 获取页面滚动的高度
+                    var docScrollTop = document.documentElement.scrollTop+20 || document.body.scrollTop+20;
+                    console.log(docScrollTop);
+                    for (var i = 0; i < lis.length; i++) {
+                        if (docScrollTop > allBoxs[i].offsetTop) {
+                            for (var j = 0; j < allBoxs.length; j++) {
+                                lis[j].className = '';
+                            }
+                            lis[i].className = 'current';
+                        }
+                    }
+                }
+        }
+    } 
+    </script>
+
+
+</body>
+
+</html>

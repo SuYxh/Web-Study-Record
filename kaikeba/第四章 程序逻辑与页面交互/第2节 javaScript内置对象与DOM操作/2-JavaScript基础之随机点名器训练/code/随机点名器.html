@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<style type="text/css">
+			.box {
+				margin: 100px auto;
+				background-color: #FF8C00;
+				width: 300px;
+				height: 180px;
+				border-radius: 10px;
+				position: relative;
+
+			}
+
+			.name {
+				background-color: #B4B4B4;
+				font-weight: bold;
+				color: #000000;
+				text-align: center;
+				padding: 5px;
+				border-radius: 10px;
+				width: 150px;
+				height: 40px;
+				line-height: 40px;
+				position: relative;
+				left: 25%;
+				top: 15%;
+			}
+
+			#button {
+				margin-top: 10px;
+				text-align: center;
+				line-height: 40px;
+				border-radius: 5px;
+				position: absolute;
+				left: 38%;
+				top: 45%;
+				width: 80px;
+				height: 40px;
+				cursor: pointer;
+				background-color: antiquewhite;
+				border: 1px solid #CCCCCC;
+				user-select: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="name" id="result">
+				随机点名器
+			</div>
+			<div id="button">
+				开始
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var arr = ['Emma', 'Mary', 'Kelly', 'Allen', 'Jeanne', 'Apple', 'IPhoe', 'Edith', 'Rose', 'Jack', 'IOS', 'juh'];
+			var btn = document.getElementById('button')
+			var result = document.getElementById('result')
+			var timer = null;
+
+			function getRandomIntInclusive(min, max) {
+				min = Math.ceil(min);
+				max = Math.floor(max);
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+
+			function start() {
+				clearInterval(timer)
+				timer = setInterval(function() {
+					result.innerHTML = arr[getRandomIntInclusive(0, arr.length - 1)]
+				}, 100)
+			}
+
+			function stop() {
+				clearInterval(timer)
+			}
+
+			btn.onclick = function() {
+				btn.innerText == '开始' ? (start(), btn.style.backgroundColor = "red", btn.innerText = "暂停") : (stop(), btn.style.backgroundColor =
+					"#CCCCCC", btn.innerText = "开始")
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,455 @@
+.span10 {
+	float: left;
+	margin-left: 14px;
+	min-height: 1px;
+}
+
+.span10 {
+	width: 606px;
+}
+
+/*导航  */
+.xm-product-box .nav-bar {
+	position: relative;
+	height: 63px;
+	width: 100%;
+	margin-top: 0;
+	color: #616161;
+}
+
+.xm-product-box .nav-bar h2 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 60px;
+	color: #212121;
+	float: left;
+}
+
+.xm-product-box .nav-bar .right,
+.xm-product-box .nav-bar .left {
+	float: right;
+	display: inline;
+	margin: 17px 0 0 0;
+}
+
+
+.xm-product-box .nav-bar .right a.cur {
+	color: #ff6700;
+}
+
+.xm-product-box .nav-bar .right .separator,
+.xm-product-box .nav-bar .left .separator {
+	margin: 0.25em;
+	color: #212121;
+}
+
+
+.xm-product-box .nav-bar .left {
+	float: left;
+	margin-left:5px;
+	font-size: 12px;
+	margin-top: 21px
+}
+
+
+
+/* 轮播 */
+.xm-buyBox .pro-view {
+	height: 600px;
+	margin-left: 0;
+}
+
+.xm-buyBox .pro-view img {
+	height: 560px;
+	width: 560px;
+	margin-top: 85px;
+}
+
+
+/* 商品详情 */
+.xm-buyBox .pro-info {
+	float: right;
+	margin-left: 12px;
+	margin-top: 85px;
+}
+
+/* 商品标题 */
+.xm-buyBox .pro-info .pro-title {
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: normal;
+	color: #212121;
+}
+
+/* 商品tag */
+.xm-buyBox .pro-info .sale-desc {
+	color: #b0b0b0;
+	margin: 0;
+	padding: 0;
+	padding-top: 8px;
+}
+
+/* 经营主体 */
+.xm-buyBox .pro-info .aftersale-company {
+	margin-bottom: 0;
+	color: #ff6700;
+}
+
+/* 价格 */
+.xm-buyBox .pro-info .pro-price {
+	display: block;
+	font-size: 18px;
+	line-height: 1;
+	color: #ff6700;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 12px 0 20px;
+}
+
+/* 分仓地址 */
+.address-wrap {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.user-default-address {
+	padding: 30px 40px 30px 50px;
+	position: relative;
+	background: #fafafa;
+	border: 1px solid #e0e0e0;
+}
+
+.user-default-address .iconfont-location {
+	position: absolute;
+	left: 20px;
+	top: 26px;
+	font-size: 20px;
+	color: #999;
+}
+
+.user-default-address .address-info {
+	display: inline-block;
+}
+
+.user-default-address .switch-choose-regions {
+	line-height: 1;
+	color: #ff6700;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.user-default-address .product-status {
+	color: #ff6700;
+	margin-top: 5px;
+}
+
+/* 产品版本 */
+
+.list-wrap {
+	margin-top: 30px;
+}
+
+
+
+/* 一级、二级选择模板 */
+.xm-buyBox .pro-info .pro-choose {
+	margin-bottom: 30px;
+	z-index: 1;
+	position: relative;
+}
+
+.xm-buyBox .pro-info .pro-choose .step-title {
+	line-height: 1;
+	font-size: 18px;
+}
+
+.xm-buyBox .pro-info .pro-choose ul {
+	margin: 0;
+	padding: 0;
+	padding-top: 1px;
+	margin-left: -6px;
+}
+
+.xm-buyBox .pro-info .pro-choose ul .icon {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	margin-right: 10px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+
+.xm-buyBox .pro-info .pro-choose ul li {
+	border: 1px solid #e0e0e0;
+	list-style: none;
+	cursor: pointer;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	float: left;
+	margin-left: 6px;
+	margin-top: 15px;
+	line-height: 42px;
+	height: 42px;
+	position: relative;
+}
+
+.xm-buyBox .pro-info .pro-choose ul .step-name .price {
+	color: #b0b0b0;
+	float: right;
+	position: relative;
+	right: 25px;
+}
+.xm-buyBox .pro-info .pro-choose .active{
+	border: 1px solid #ff6700;
+}
+.xm-buyBox .pro-info .pro-choose ul li.active a.step-name {
+	color: #ff6700;
+}
+
+.xm-buyBox .pro-info .pro-choose ul li.active a.step-name .price {
+	color: #757575;
+	float: right;
+	position: relative;
+	right: 25px;
+}
+
+
+
+/* 保护服务 */
+.xm-buyBox .pro-info .list-choose .step-title {
+	margin-bottom: 15px;
+	font-size: 18px;
+}
+
+.xm-buyBox .pro-info .list-choose .step-title a {
+	float: right;
+	font-size: 14px;
+	color: #ff6700;
+}
+
+.xm-buyBox .pro-info .list-choose ul {
+	max-height: 706px;
+	overflow-y: auto;
+	width: 100%;
+}
+
+.xm-buyBox .pro-info .list-choose ul li {
+	background: #fff;
+	cursor: pointer;
+	padding: 30px 90px 20px 0;
+	position: relative;
+	border: 1px solid #e0e0e0;
+	list-style: none;
+	cursor: pointer;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	float: left;
+	margin-top: 0px;
+	left: -40px;
+}
+
+.xm-buyBox .pro-info .list-choose ul li .icon-checkbox {
+	display: block;
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+	margin-left: 30px;
+	float: left;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+	margin-top: 25px;
+}
+
+.xm-buyBox .pro-info .list-choose ul li .icon-checkbox em {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	border: 1px solid #b0b0b0;
+	font-style: normal;
+	line-height: 24px;
+	color: #fff;
+	font-size: 12px;
+	vertical-align: middle;
+	margin-top: -4px;
+}
+
+.xm-buyBox .pro-info .list-choose ul li img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    margin-left: 10px;
+    float: left;
+}
+
+.xm-buyBox .pro-info .list-choose ul li div {
+    width: 370px;
+    overflow: hidden;
+    /* zoom: 1; */
+    float: left;
+}
+.xm-buyBox .pro-info .list-choose ul li .name {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.xm-buyBox .pro-info .list-choose ul li .name em {
+    font-style: normal;
+    font-size: 14px;
+    background: #ff6700;
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 20px;
+    color: #fff;
+}
+.xm-buyBox .pro-info .list-choose ul li .desc {
+    font-size: 14px;
+    height: 18px;
+    color: #b0b0b0;
+    width: 286px;
+    overflow: hidden;
+    _zoom: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.xm-buyBox .pro-info .list-choose ul li div p {
+    margin-top: 5px;
+	    color: #757575;
+}
+
+.xm-buyBox .pro-info .list-choose ul li .agreement .icon-checkbox {
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+	float: none;
+	margin: 0;
+	width: 14px;
+	height: 14px;
+	line-height: 14px;
+	margin-right: 5px;
+	margin-top: 2px;
+	border-radius: 2px
+}
+
+.xm-buyBox .pro-info .list-choose ul li .agreement .icon-checkbox em {
+	margin-top: 0;
+	vertical-align: inherit;
+	border-radius: 2px
+}
+.xm-buyBox .pro-info .list-choose ul li .agreement a {
+	color: #ff6700;
+	
+}
+.xm-buyBox .pro-info .list-choose ul li .agreement a span {
+	color: #757575;
+	margin: 0 5px;
+}
+
+
+.xm-buyBox .pro-info .list-choose ul li .price {
+    position: absolute;
+    right: 20px;
+    bottom: 32px;
+    color: #757575;
+}
+
+
+
+/* 已选择的产品 */
+.xm-buyBox .pro-info .pro-list {
+	background: #f9f9fa;
+	padding: 30px;
+	margin-bottom: 30px;
+}
+
+.xm-buyBox .pro-info .pro-list ul {
+	padding: 0;
+	margin: 0;
+}
+
+.xm-buyBox .pro-info .pro-list ul li {
+	list-style: none;
+	line-height: 30px;
+	color: #616161;
+}
+
+.xm-buyBox .pro-info .pro-list ul li span {
+	float: right;
+}
+
+.xm-buyBox .pro-info .pro-list ul .totlePrice {
+	color: #ff6700;
+	font-size: 24px;
+	padding-top: 20px;
+}
+
+/* 购买按钮 */
+
+.xm-buyBox .pro-info .btn-wrap {
+	margin: 0;
+	padding: 0;
+	margin: 10px 0 20px 0;
+}
+
+.xm-buyBox .pro-info .btn-wrap li {
+	list-style: none;
+	display: inline-block;
+	margin-right: 10px;
+	vertical-align: text-top;
+}
+
+.xm-buyBox .pro-info .btn-wrap .btn-like {
+	display: inline-block;
+	width: 140px;
+	height: 52px;
+	line-height: 52px;
+	padding: 0;
+	margin: 0;
+	border: 1px solid #b0b0b0;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: all .4s;
+	transition: all .4s;
+	font-size: 16px;
+	position: relative;
+}
+
+.xm-buyBox .pro-info .btn-wrap .btn-like i {
+	font-size: 22px;
+	line-height: 23px;
+	vertical-align: -4px;
+	margin-right: 5px;
+}
+
+/* mi-policy */
+.xm-buyBox .pro-info .pro-policy a {
+	display: inline-block;
+	white-space: nowrap;
+	color: #b0b0b0;
+	cursor: pointer;
+}
+
+
+.xm-buyBox .pro-info .pro-policy span {
+	display: inline-block;
+	margin-right: 15px;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+
+.xm-buyBox .pro-info .pro-policy span i {
+	font-size: 20px;
+	display: inline-block;
+	font-style: normal;
+	vertical-align: middle;
+}
+
+.xm-buyBox .pro-info .pro-policy span em {
+	font-style: normal;
+	display: inline-block;
+	margin-left: 2px;
+	vertical-align: middle;
+}

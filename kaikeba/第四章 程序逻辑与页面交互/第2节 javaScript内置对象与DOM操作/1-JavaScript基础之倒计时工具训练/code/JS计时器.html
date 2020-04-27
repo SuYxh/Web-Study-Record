@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, timerial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		#box{
+			position: relative;
+			background-color: #CCCCCC;
+			width: 300px;
+			padding: 20px;
+			border-radius: 10px;
+			margin: 100px auto;
+		}
+		#top{
+			text-align: center;
+		}
+		#time{
+			/* background-color: #666666; */
+			color: #FBFBFB;
+			text-align: center;
+			height: 20px;
+			margin-top: 10px;
+			margin-bottom:10px ;
+			border-radius: 10px;
+			
+		}
+		#bottom{
+			text-align: center;
+			/* background-color: #DA70D6; */
+			border-radius: 10px;
+		}
+		input {
+			width: 50px;
+			text-align: center;
+			border-radius: 10px;
+			background-color: #E0E0E0;
+			outline: none;
+		}
+		button{
+			text-align: center;
+			border-radius: 5px;
+			background-color: #E0E0E0;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="top">
+			<input type="number" name="hour" id="hour" />时
+			<input type="number" name="minutes" id="minutes" />分
+			<input type="number" name="second" id="second" />秒
+		</div>
+	
+		<div id="time">
+			
+		</div>
+		
+		<div id="bottom">
+			<button type="button" id="start">开始</button>
+			<button type="button" id="end">结束</button>
+			<button type="button" id="stop">暂停</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var timer = null;
+		// 事件源函数
+		function $(id){
+			return typeof id === 'string' ? document.getElementById(id) : null;
+		}
+		// 当时间数值小于10的时候加0
+		function addZero(i) {
+		    return i < 10 ? "0" + i: i + "";
+		}
+		// 计算格式化时间
+		function compute(sumTime){
+			var h = parseInt(sumTime / (60*60) % 24);
+			var m = parseInt(sumTime / 60 % 60);
+			var s = parseInt(sumTime % 60);
+			h = addZero(h);
+			m = addZero(m);
+			s = addZero(s);
+			return {h,m,s};
+		}
+		
+		// 更新时间函数
+		 function  updateTime(){
+			 // 初始总时间
+			var sumTime = parseInt($('hour').value*(60*60)) + parseInt($('minutes').value*60) + parseInt($('second').value);
+			//计算时间并格式化，渲染初始时间
+			var startValue = compute(sumTime);
+			$('time').innerHTML = `时间：${startValue.h}时： ${startValue.m}分钟：${startValue.s}秒`
+			$('hour').value = startValue.h;
+			$('minutes').value = startValue.m;
+			$('second').value = startValue.s;
+			
+			// 判断是否计时结束
+			if (sumTime <= 0) {
+				alert('计时结束')
+				clearInterval(timer);
+				return
+			}
+			sumTime--;
+			// 后面时间的计算和渲染
+			var newValue = compute(sumTime);
+			if(newValue.m == 0 && newValue.h != 0){
+				newValue.m = 59;
+				newValue.h = 0+ '0';
+			}
+			$('time').innerHTML = `时间：${newValue.h}时： ${newValue.m}分钟：${newValue.s}秒`
+			$('hour').value = newValue.h
+			$('minutes').value = newValue.m;
+			$('second').value = newValue.s;
+			
+			return sumTime;
+		}
+		
+	
+		// 开始事件
+		$('start').onclick =function(){
+			if ($('hour').value == '' && $('minutes').value =='' && $('second').value =='') {
+				alert('请输入时间哦！');
+				return ;
+			}
+			clearInterval(timer)
+			timer = setInterval(updateTime, 1000);
+			updateTime()
+		}
+		// 暂停事件
+		$('stop').onclick  = function(){
+			if ($('hour').value == '' && $('minutes').value =='' && $('second').value =='') {
+				alert('请输入时间哦！');
+				return ;
+			}
+			$('stop').innerHTML == '暂停' ? (clearInterval(timer),$('stop').innerHTML = '继续') : (clearInterval(timer),timer = setInterval(updateTime, 1000),updateTime(),$('stop').innerHTML = '暂停')
+		}
+		//结束事件
+		$('end').onclick = function (){
+			if ($('hour').value == '' && $('minutes').value =='' && $('second').value =='') {
+				alert('请输入时间哦！');
+				return ;
+			}
+				clearInterval(timer);
+				$('hour').value = 0;
+				$('minutes').value = 0;
+				$('second').value = 0;
+				$('time').innerHTML = `时间：${$('hour').value}时： ${$('minutes').value}分钟：${$('second').value}秒`
+			
+		}
+		
+		
+		
+	</script>
+	
+
+	
+</body>
+</html>

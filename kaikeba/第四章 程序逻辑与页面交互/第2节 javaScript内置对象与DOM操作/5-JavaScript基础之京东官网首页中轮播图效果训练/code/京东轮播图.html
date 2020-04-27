@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>京东轮播图</title>
+	<style type="text/css">
+		*{padding: 0;margin: 0;}
+		.wrap{
+			width: 600px;
+			height: 400px;
+			position: relative;
+			margin: 100px auto;
+		}
+		.list{
+			width: 600px;
+			height: 400px;
+			list-style: none;
+			position: relative;
+			padding-left: 0;
+		}
+		.item{
+			width: 100%;
+			height: 100%;
+			color: white;
+			font-size: 50px;
+			position: absolute;
+			opacity: 0;
+			transition: all .5s;
+		}
+		.item:nth-child(1){
+			background-color: black;
+		}
+		.item:nth-child(2){
+			background-color: red;
+		}
+		.item:nth-child(3){
+			background-color: goldenrod;
+		}
+		.item:nth-child(4){
+			background-color: green;
+		}
+		.item:nth-child(5){
+			background-color: pink;
+		}
+		.item.active{
+			z-index: 10;
+			opacity: 1;
+		}
+		.btn{
+			width: 25px;
+			height: 35px;
+			position: absolute;
+			top: 45%;
+			z-index: 100;
+			background-color:rgba(0,0,0,.15);
+			text-align: center;
+			line-height: 35px;
+			cursor: pointer;
+			user-select: none;
+			color: #FFFFFF;
+		}
+		.btn:hover{
+			background-color:rgba(0,0,0,0.4);
+		}
+		#goPre{
+			left: 0;
+			border-top-right-radius: 100%;
+			border-bottom-right-radius: 100%;
+		}
+		#goNext{
+			right: 0;
+			border-top-left-radius: 100%;
+			border-bottom-left-radius: 100%;
+		}
+		.pointList{
+			list-style: none;
+			padding-left: 0px;
+			position: absolute;
+			left: 20px;
+			bottom: 20px;
+			z-index: 100;
+		}
+		.point{
+			width: 8px;
+			height: 8px;
+			background-color: rgba(0,0,0,0.4);
+			border-radius: 100%;
+			float: left;
+			margin-right: 14px;
+			text-align: center;
+			line-height: 20px;
+			border: 2px solid rgba(255,255,255,0.6);
+		}
+		.point.active{
+			background-color: rgba(255,255,255,0.2);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="list">
+			<img src="img/home01.jpg"  class="item">
+			<img src="img/home02.jpg" class="item">
+			<img src="img/home03.jpg" class="item">
+			<img src="img/home04.jpg" class="item">
+			<img src="img/home05.jpg" class="item">
+		</ul>
+		<ul class="pointList">
+			<li class="point active" data-index= '0'></li>
+			<li class="point" data-index= '1'></li>
+			<li class="point" data-index= '2'></li>
+			<li class="point" data-index= '3'></li>
+			<li class="point" data-index= '4'></li>
+		</ul>
+		
+		<div  class="btn" id="goPre">&lt;</div>
+		<div  class="btn" id="goNext">&gt;</div>
+	</div>
+	<script type="text/javascript">
+		var items = document.getElementsByClassName('item');
+		var points = document.getElementsByClassName('point');
+		var goPreBtn = document.getElementById('goPre');
+		var goNextBtn = document.getElementById('goNext');
+		console.log(goNextBtn)
+		var index = 0;
+		var time  = 0;
+		console.log(items)
+		
+		var clearActive = function(){
+			for (var i = 0; i < items.length; i++) {
+				items[i].className = 'item'
+				points[i].className = 'point'
+			}
+		}
+		
+		function goIndex(){
+			clearActive();
+			items[index].className = 'item active'
+			points[index].className = 'point active'
+		}
+		
+		var goNext = function(){
+			index < items.length-1 ? index++ : index = 0;
+			goIndex();
+		}
+		
+		var goPre = function(){
+			index == 0 ? index = items.length-1 : index--;
+			goIndex();
+		}
+		
+		goNextBtn.addEventListener('click',function(){
+			goNext();
+		})
+		
+		goPreBtn.addEventListener('click',function(){
+			goPre();
+		})
+		
+		
+		for (var i = 0; i < points.length; i++) {
+			points[i].addEventListener('mouseover',function(){
+				var pointIndex = this.getAttribute('data-index')
+				index = pointIndex;
+				goIndex();
+				time = 0
+			})
+		}
+		
+		setInterval(function(){
+			time++;
+			time == 20 ? (goNext(),time=0) : ''
+			
+		},100)
+	</script>
+</body>
+</html>
