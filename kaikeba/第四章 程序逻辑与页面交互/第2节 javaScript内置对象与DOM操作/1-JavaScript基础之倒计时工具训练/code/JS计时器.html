@@ -92,6 +92,7 @@
 			var sumTime = parseInt($('hour').value*(60*60)) + parseInt($('minutes').value*60) + parseInt($('second').value);
 			//计算时间并格式化，渲染初始时间
 			var startValue = compute(sumTime);
+			console.log(startValue)
 			$('time').innerHTML = `时间：${startValue.h}时： ${startValue.m}分钟：${startValue.s}秒`
 			$('hour').value = startValue.h;
 			$('minutes').value = startValue.m;
