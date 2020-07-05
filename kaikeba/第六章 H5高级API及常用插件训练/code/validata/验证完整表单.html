@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>菜鸟教程(runoob.com)</title>
+		<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+		<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+		<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+		<style>
+			.error{
+	color:red;
+}
+</style>
+	</head>
+	<body>
+		<form method="get" class="cmxform" id="form1" action="">
+			<fieldset>
+				<legend>表单验证</legend>
+				<p>
+					<label for="email">email</label>
+					<input id="email" name="email" type="text">
+				</p>
+				<p>
+					<label for="color">喜欢的颜色</label>
+					<select name="color" >
+						<option value=""></option>
+						<option value="red">red</option>
+						<option value="blue">blue</option>
+						<option value="green">green</option>
+					</select>
+				</p>
+				<p>
+					<label for="tel">电话</label>
+					<input id="tel" name="tel" type="number" required>
+				</p>
+				<p>
+					<label for="address">住址</label>
+					<input id="address" name="address" type="text">
+				</p>
+				<p>
+					<label for="photo">头像</label>
+					<input id="photo" name="photo" type="file" accept="image/*">
+				</p>
+				<p>
+					<label for="agree">我同意</label>
+					<input id="agree" name="agree" type="radio"  >
+				</p>
+				<p>
+					<input class="submit" type="submit" value="Login">
+				</p>
+			</fieldset>
+		</form>
+		<script>
+			$.validator.setDefaults({
+				submitHandler: function() {
+					alert("提交事件!");
+				}
+			});
+			
+			$.validator.addMethod("isPhonenum", function(value, element) {   
+			    var tel = /^[1][3,4,5,7,8][0-9]{9}$/;
+			    return this.optional(element) || (tel.test(value));
+			}, "请正确填写您的手机号码");
+			
+			$.validator.addMethod("isEmail", function(value, element) {
+			    var tel = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+			    return this.optional(element) || (tel.test(value));
+			}, "请正确填写您的邮箱");
+
+			$().ready(function() {
+				// 提交时验证表单
+				var validator = $("#form1").validate({
+					onfocusout: function(element) {
+						$(element).valid();
+					},
+					// errorPlacement: function(error, element) {
+					// 	console.log(element)
+					// 	// Append error within linked label
+					// 	$(element)
+					// 		.closest("form")
+					// 		.find("p[class='" + element.attr("id") + "']")
+					// 		.after(error);
+					// },
+					// errorElement: "span",
+					rules: {
+					      email: {
+					        required: true,
+					        email: 'isEmail'
+					      },
+						  color:'required',
+						  // tel: {
+						  //   required: true,
+						  //   tel: 'isPhonenum'
+						  // },
+						  tel: 'isPhonenum',
+						  address: {
+						    required: true,
+						  },
+						  photo:'required',
+					      agree: 'required'
+					    },
+					messages: {
+						email:{
+							required:'请输入邮箱',
+							email:'hfa'
+						},
+						color:'请选择您喜欢的颜色',
+						// tel:'请输入手机号',
+						address:'请输入地址',
+						photo:'请上传头像',
+						agree:'请勾选',
+						user: {
+							required: "请输入用户名",
+							minlength: "用户名不少于3个字符"
+						},
+						password: {
+							required: "请输入密码",
+							minlength: "密码不能少于 5 个且不能大于 12 个",
+							maxlength: "密码不能少于 5 个且不能大于 12 个"
+						}
+					}
+				});
+
+				$(".cancel").click(function() {
+					validator.resetForm();
+				});
+			});
+		</script>
+	</body>
+</html>

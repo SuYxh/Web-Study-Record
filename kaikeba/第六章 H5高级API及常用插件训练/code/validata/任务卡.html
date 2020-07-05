@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>validate() 插件</title>
+	<link rel="stylesheet" media="screen" href="//static.runoob.com/assets/jquery-validation-1.14.0/demo/css/screen.css">
+	<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+	<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+	<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+	<style>
+	#main{
+		width: 400px;
+		height: 600px;
+		margin: 50px auto;
+	}
+	.cmxform fieldset p.error label {
+		color: red;
+	}
+	div.container {
+		background-color: #eee;
+		border: 1px solid red;
+		margin: 5px;
+		padding: 5px;
+	}
+	div.container ol li {
+		list-style-type: disc;
+		margin-left: 20px;
+	}
+	div.container {
+		display: none
+	}
+	.container label.error {
+		display: inline;
+	}
+	form.cmxform {
+		width: 30em;
+	}
+	form.cmxform label.error {
+		display: block;
+		margin-left: 1em;
+		width: auto;
+	}
+	</style>
+	<script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+			alert("提交事件! (取消跳过验证)");
+		}
+	});
+
+	$().ready(function() {
+		$("#form1").validate({
+			errorLabelContainer: $("#form1 div.error")
+		});
+
+		var container = $('div.container');
+		// 提交时验证表单
+		var validator = $("#form2").validate({
+			errorContainer: container,
+			errorLabelContainer: $("ol", container),
+			wrapper: 'li'
+		});
+
+		$(".cancel").click(function() {
+			validator.resetForm();
+		});
+	});
+	</script>
+</head>
+
+<body>	
+	<div id="main">
+		<form method="get" class="cmxform" id="form1" action="">
+			<fieldset>
+				<legend>登录框</legend>
+				<p>
+					<label>用户名</label>
+					<input name="user" title="请输入用户名 (至少三个字母)" required minlength="3">
+				</p>
+				<p>
+					<label>密码</label>
+					<input type="password" maxlength="12" name="password" title="请输入密码，字母在 5 到 12 个之间" required minlength="5">
+				</p>
+				<div class="error">
+				</div>
+				<p>
+					<input class="submit" type="submit" value="Login">
+				</p>
+			</fieldset>
+		</form>
+		<div class="container">
+			<h4>在你提交表单时出现了以下错误，详情如下：</h4>
+			<ol>
+				<li>
+					<label for="email" class="error">请输入邮箱地址。</label>
+				</li>
+				<li>
+					<label for="phone" class="error">请输入电话号码 ( 2 到 8 个字母)</label>
+				</li>
+				<li>
+					<label for="address" class="error">请输入地址 (至少三个字母)</label>
+				</li>
+				<li>
+					<label for="avatar" class="error">请选择图片 (png, jpg, jpeg, gif)</label>
+				</li>
+				<li>
+					<label for="cv" class="error">请选择文档 (doc, docx, txt, pdf)</label>
+				</li>
+			</ol>
+		</div>
+		<form class="cmxform" id="form2" method="get" action="">
+			<fieldset>
+				<legend>验证完整表单</legend>
+				<p>
+					<label for="email">Email</label>
+					<input id="email" name="email" required type="email">
+				</p>
+				<p>
+					<label for="agree">喜欢的颜色</label>
+					<select id="color" name="color" title="请选择你喜欢的颜色!" required>
+						<option></option>
+						<option>Red</option>
+						<option>Blue</option>
+						<option>Yellow</option>
+					</select>
+				</p>
+				<p>
+					<label for="phone">电话</label>
+					<input id="phone" name="phone" required type="number" rangelength="[2,8]">
+				</p>
+				<p>
+					<label for="address">地址</label>
+					<input id="address" name="address" required minlength="3">
+				</p>
+				<p>
+					<label for="avatar">头像</label>
+					<input type="file" id="avatar" name="avatar" required>
+				</p>
+				<p>
+					<label for="agree">请同意我们的声明</label>
+					<input type="checkbox" class="checkbox" id="agree" title="请同意我们的声明!" name="agree" required>
+				</p>
+				<p>
+					<input class="submit" type="submit" value="提交">
+					<input class="cancel" type="submit" value="取消">
+				</p>
+			</fieldset>
+		</form>		
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.min.js"></script>
+		<style type="text/css">
+			#main {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" style="width:600px;height:400px;"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var option = {
+				title: {
+					text: "星期"
+				},
+				tooltip: {},
+				xAxis: {
+					type: 'category',
+					data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+					data: [120, 200, 150, 80, 70, 110, 130],
+					type: 'bar',
+					showBackground: true,
+					backgroundStyle: {
+						color: 'rgba(220, 220, 220, 0.8)'
+					},
+					itemStyle: {
+						normal: {
+							color: function(d) {
+								return "#" + Math.floor(Math.random() * (256 * 256 * 256 - 1)).toString(16);
+							}
+							// color: function(params) {
+							//     // build a color map as your need.
+							//     var colorList = [
+							//       '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+							//        '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+							//        '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+							//     ];
+							//     return colorList[params.dataIndex]
+							// }
+						}
+					}
+				}]
+			};
+
+			myChart.setOption(option)
+		</script>
+	</body>
+</html>

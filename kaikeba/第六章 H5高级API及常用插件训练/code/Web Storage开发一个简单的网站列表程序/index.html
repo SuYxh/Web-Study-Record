@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Web Storage开发一个简单的网站列表程序</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<style type="text/css">
+			body {
+				background: radial-gradient(200% 100% at bottom center, #f7f7b6, #e96f92, #75517d, #1b2947);
+				background: radial-gradient(220% 105% at top center, #1b2947 10%, #75517d 40%, #e96f92 65%, #f7f7b6);
+				background-attachment: fixed;
+				overflow: hidden;
+			}
+
+			.main {
+				width: 600px;
+				height: 400px;
+				border: 1px dashed #CCCCCC;
+				margin: 100px auto;
+				border-radius: 25px;
+				text-align: center;
+				padding: 20px;
+			}
+
+			.stars {
+				transform: perspective(500px);
+				transform-style: preserve-3d;
+				position: absolute;
+				bottom: 0;
+				perspective-origin: 50% 100%;
+				left: 50%;
+				animation: rotate 90s infinite linear;
+			}
+
+			p input {
+				width: 280px;
+				height: 30px;
+				border-radius: 20px;
+				border: none;
+				background: rgba(0, 0, 0, 0.2);
+				text-indent: 0.5em;
+				outline: none;
+			}
+
+			.btn {
+				width: 100px;
+				height: 30px;
+				background: rgba(0, 0, 0, 0.1);
+				border-radius: 8px;
+				border: none;
+				color: white;
+				margin: 0 auto;
+				display: block;
+			}
+
+			.name {
+				display: inline-block;
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stars"></div>
+		<div class="main">
+			<h3>Web Storage开发一个简单的网站列表程序</h3>
+			<div class="top">
+				<p><span class="name">别&nbsp;&nbsp;&nbsp;&nbsp;名：</span><input type="" name="key" id="key" /></p>
+				<p><span class="name">网站名称：</span><input type="" name="webname" id="webname" /></p>
+				<p><span class="name">网&nbsp;&nbsp;&nbsp;&nbsp;址：</span><input type="" name="weblink" id="weblink" /></p>
+				<p><input class="btn" type="submit" id="add" value="新增记录" /></p>
+			</div>
+			<div class="bottom">
+				<p><span class="name">输入别名：</span><input type="okey" name="okey" id="okey" /></p>
+
+				<p><input class="btn" type="submit" id="select" value="查找网站" /></p>
+
+				<div id="result">
+
+				</div>
+			</div>
+		</div>
+
+
+		<script type="text/javascript">
+			function $(id) {
+				return typeof id === 'string' ? document.getElementById(id) : null;
+			}
+			// var keyVal = $('key').value;
+
+			$('add').onclick = () => {
+				var keyVal = $('key').value;
+				var val = `${$('key').value}的网站名称是：${$('webname').value}，网址是：${$('weblink').value}`;
+				// console.log($('key').value)
+				// console.log(keyVal)
+				// console.log(val)
+				window.localStorage.setItem(keyVal, val);
+				var content = window.localStorage.getItem(keyVal);
+				if(content){
+					alert("添加成功！")
+				}
+				
+			}
+
+			$('select').onclick = () => {
+				var selectKey = $('okey').value;
+				var content = window.localStorage.getItem(selectKey);
+				//获取内容
+				console.log(content)
+				if (content) {
+					$('result').innerHTML = content
+				} else{
+					$('result').innerHTML = "您输入的key值不存在！"
+				}
+			}
+		</script>
+	</body>
+</html>

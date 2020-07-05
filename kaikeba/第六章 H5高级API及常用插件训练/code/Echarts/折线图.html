@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>折线图</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.min.js"></script>
+		<style type="text/css">
+			#main {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" style="width:600px;height:400px;"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('main'), 'light');
+
+			var option = {
+				tooltip:{},
+				xAxis: {
+					type: 'category',
+					data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+					data: [820, 932, 901, 934, 1290, 1330, 1320],
+					type: 'line'
+				}]
+			};
+
+
+			myChart.setOption(option)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.min.js"></script>
+		<style type="text/css">
+			#main {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" style="width:600px;height:400px;"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('main'),'light');
+
+			var option = {
+				title: {
+					text: '某站点用户访问来源',
+					subtext: '纯属虚构',
+					left: 'center'
+				},
+				tooltip: {
+					trigger: 'item',
+					formatter: '{a} <br/>{b} : {c} ({d}%)'
+				},
+				legend: {
+					orient: 'vertical',
+					left: 'left',
+					data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+				},
+				series: [{
+					name: '访问来源',
+					type: 'pie',
+					radius: '55%',
+					center: ['50%', '60%'],
+					data: [{
+							value: 335,
+							name: '直接访问'
+						},
+						{
+							value: 310,
+							name: '邮件营销'
+						},
+						{
+							value: 234,
+							name: '联盟广告'
+						},
+						{
+							value: 135,
+							name: '视频广告'
+						},
+						{
+							value: 1548,
+							name: '搜索引擎'
+						}
+					],
+					　　label : {
+					　　　　normal : {
+					　　　　　　formatter: '{b} ({d}%)',
+					　　　　　　textStyle : {
+					　　　　　　　　fontWeight : 'normal',
+					　　　　　　　　fontSize : 15
+					　　　　　　}
+					　　　　}
+					　　},
+					emphasis: {
+						itemStyle: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					},
+					itemStyle:{
+						normal:{
+							              color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+						}
+					}
+				}]
+			};
+
+
+			myChart.setOption(option)
+		</script>
+	</body>
+</html>
