@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>变量的解构赋值</h2>
+    <script>
+        /*
+        //1. 数值的解构赋值
+       //let [a,b,c] = [10,20,30];
+       let [a,[b,c]] = [10,[20,30]];
+       console.log(a);
+       console.log(b);
+       console.log(c);
+    
+       //解构部分数值
+        let [x,,y] = [10,20,30];
+        console.log(x);
+        console.log(y);
+        let [x1,x2,...xn] = [10,20,30,40,50];
+        console.log(x1);
+        console.log(x2);
+        console.log(xn);
+        //默认值
+        let [a1,b1=0] = [10];
+        console.log(a1);
+        console.log(b1);
+        */
+
+        /*
+        //2. 对象的解构赋值
+        //let {name,age,sex} = {name:'张三', age:20, sex:"男"};
+        //let {age,sex,name} = {name:'张三', age:20, sex:"男"};
+        let {age,name} = {name:'张三', age:20, sex:"男"};
+        console.log(name);
+        console.log(age);
+        //console.log(sex);
+
+        //解构对象起别名
+        let {age:a,name:b,id=100} = {name:'张三', age:20, sex:"男"};
+        console.log(a);
+        console.log(b);
+        console.log(id);
+
+        //定义一个书的信息
+        var obj = {
+                book: [
+                    'JavaScript权威指南',
+                    {author:'小淘',price:132}
+                ]
+            };
+        //let {book:[title,{author,price}]} = obj;
+        let {book,book:[title,{author,price}]} = obj;
+        console.log(title,author,price);
+        console.log(book);
+        */
+        
+        //字符串解构赋值
+        const [a, b, c, d, e] = 'hello';
+        console.log(a); // "h"
+        console.log(b); // "e"
+        console.log(c); // "l"
+        console.log(d); // "l"
+        console.log(e); // "o"
+
+        //解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。
+        let {toString: s1} = 123;
+        //数值和布尔值的包装对象都有toString属性
+        console.log(s1 === Number.prototype.toString); // true
+
+        let {toString: s2} = true;
+        console.log(s2 === Boolean.prototype.toString); // true
+
+
+        //函数的参数也可以使用解构赋值。
+        function move({x=0, y=0} = {}) {
+            return [x, y];
+        }
+
+        console.log(move({x:3, y:8})); // [3, 8]
+        console.log(move({x:3}));      // [3, 0]
+        console.log(move({}));         // [0, 0]
+        console.log(move());           // [0, 0]
+    </script>
+</body>
+</html>

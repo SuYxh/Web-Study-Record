@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./style.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<div class="add">
+				<span>品牌名称</span>
+				<input v-model="val" type="text" name="add" id="add" @keyup.enter="add" />
+				<button type="button" @click="add" >添加</button>
+			</div>
+			<div class="search">
+				<span>{{msg}}</span>
+				<input v-model="cz" type="text" name="search" id="search"  @keyup.enter="search" @input="searchInput()" placeholder="请根据品牌名称查找" />
+			</div>
+			<table id="table" border="1" cellspacing="0">
+				<thead>
+					<tr>
+						<th>编号</th>
+						<th>品牌名称</th>
+						<th>创立时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody v-if="all">
+					<tr v-for="item in shopinfo" :key='item.id'>
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.date}}</td>
+						<td><a href="#" @click="del(item.id)">删除</a></td>
+					</tr>
+				</tbody>
+				<tbody v-else>
+					<tr v-if="hiddle" >
+						<td v-for="index in shopfuben" :key='index'>{{index}}</td>
+						<td ><a href="#" @click="del(shopfuben.id)">删除</a></td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+		<script type="text/javascript">
+
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						msg: '品牌名称',
+						shopinfo: [],
+						shopfuben:[],
+						val: '',
+						nowtime: '',
+						cz:'',
+						all:true,
+						hiddle:true
+					}
+				},
+				mounted() {
+					axios.get('http://localhost:3000/shop').then(res => {
+						this.shopinfo = res.data
+					})
+
+					let date = new Date();
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var strDate = date.getDate();
+					if (month < 10 || strDate < 10) {
+						month = '0' + month
+						strDate = '0' + strDate
+					}
+					this.nowtime = `${year}-${month}-${strDate}`
+
+				},
+				methods: {
+					del(id) {
+						console.log("传入的id：" + id)
+						
+						 axios.delete('http://localhost:3000/shop/'+id)
+						        .then(response => {
+						          console.log('/shop delete', response.data)
+						        })
+					},
+					add() {
+						if (this.val != '') {
+							let dataAdd = {
+								"id": this.shopinfo.length + 1,
+								"name": this.val,
+								"date": this.nowtime
+							}
+							axios.post('http://localhost:3000/shop', dataAdd)
+								.then(response => {
+									console.log('/shop post', response.data)
+								})
+						} else {
+							alert('请输入内容')
+						}
+					},
+					search(){
+						let num = this.shopinfo.findIndex( i => i.name === this.cz)
+						if (num == -1) {
+							alert('您查找的品牌不存在')
+						} else{
+							this.shopfuben = this.shopinfo[num]
+							this.all = false
+						}
+					},
+					searchInput(){
+						if(this.cz == ''){
+							this.all = true
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

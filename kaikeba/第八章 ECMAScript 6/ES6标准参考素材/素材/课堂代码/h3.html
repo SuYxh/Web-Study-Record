@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>字符串的扩展</h2>
+    <script>
+        //1. 模板字符串
+        let title = "百度";
+        let url = "http://www.baidu.com";
+        console.log('<a href="'+url+'">'+title+'</a>');
+        console.log(`<a href="${url}">${title}</a>`);
+        
+        let info1 = "<ul><li>北京</li>"+
+        "<li>上海</li><li>广州</li></ul>";
+        console.log(info1);
+        let info2 = `<ul>
+        <li>北京</li>
+        <li>上海\`</li>
+        <li>广州</li>
+    </ul>`;
+        console.log(info2);
+        //2. 模板字符串实例
+
+        //将下面的数据输出到模板ul标签中
+        let data = [
+            {name:"张三",sex:"男"},
+            {name:"李四",sex:"女"},
+            {name:"王五",sex:"男"},
+            {name:"赵六",sex:"女"},
+        ];
+
+        let str = `<ul>${data.map(function(ob){
+                return `<li>${ob.name}:${ob.sex}<li>`;
+            }).join("")}</ul>`;
+        let str2 = `<ul>${data.map(ob=>`<li>${ob.name}:${ob.sex}<li>`).join("")}</ul>`;
+        console.log(str);
+        console.log(str2);
+        //3. 标签模板
+        
+        //alert`Hello`;
+
+        //定义一个安全处理html标签函数
+        function SaferHTML(tpldata, ...values){
+            let s = tpldata[0];
+            for (let i = 0; i < values.length; i++){
+                let arg = String(values[i]);
+                //在替换中转义特殊字符
+                s += arg.replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;");
+
+                //不要转义模板中的特殊字符。
+                s += tpldata[i+1];
+            }
+            return s;
+        }
+
+        let t1 = "<b>北京</b>";
+        let t2 = "<i>上海</i>";
+
+        console.log(SaferHTML`<ul><li>${t1}</li><li>${t2}</li></ul>`);
+
+        document.write(SaferHTML`<ul><li>${t1}</li><li>${t2}</li></ul>`);
+    </script>
+</body>
+</html>

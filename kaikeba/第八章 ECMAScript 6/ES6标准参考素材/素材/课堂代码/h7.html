@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>函数的扩展</h2>
+    <script>
+        //1. 函数参数的默认值
+        /*
+        function fun(uname="lisi"){
+            //uname = uname || "lisi";
+            console.log("Hello "+uname);
+        }
+        fun("zhangsan");
+        fun();
+
+        function add(x=0,y=0){
+            return x+y;
+        }
+        console.log(add(10,20));
+        console.log(add(10));
+        console.log(add());
+        */
+        //2. 箭头函数：
+        var f = function(v){
+            return v;
+        }
+        var f2 = (v)=>{
+            return v;
+        }
+        var f3 = v=>v;
+        
+        console.log(f(100));
+        console.log(f2(200));
+        console.log(f3(300));
+
+        var add = (x,y)=>x+y;  //(x,y)=>{ return x+y; }
+        console.log(add(100,200));
+
+        //3. 箭头函数中this的理解
+        /*
+        //定义一个stu学生对象，内有：两个属性、一个方法。
+        const stu = {
+            uname:"张三",
+            likes:['吃饭','睡觉','敲代码'],
+            printLikes:function(){
+                let my = this;
+                //使用map遍历likes属性，并输出信息
+                this.likes.map(function(like){
+                    //此处的this代表的是window对象，而非stu对象
+                    console.log(`${my.uname} 喜欢 ${like}`);
+                });
+            }
+        };
+        stu.printLikes();
+        */
+
+        //定义一个stu学生对象，内有：两个属性、一个方法。
+        const stu = {
+            uname:"张三",
+            likes:['吃饭','睡觉','敲代码'],
+            printLikes:function(){
+                //使用map遍历likes属性，并输出信息
+                this.likes.map(like=>{
+                    //此处的this代表的是window对象，而非stu对象
+                    console.log(`${this.uname} 喜欢 ${like}`);
+                });
+            }
+        };
+        stu.printLikes();
+
+        /*
+        const stu = {
+            uname:"张三",
+            getinfo:()=>{
+                return this.uname;
+            }
+        }
+        console.log(stu.getinfo())
+        */
+    </script>
+</body>
+</html>

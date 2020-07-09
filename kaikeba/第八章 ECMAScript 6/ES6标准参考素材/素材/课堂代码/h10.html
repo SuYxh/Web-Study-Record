@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>对象的扩展</h2>
+    <script>
+        //对象的扩展
+        //let stu = {'name':'zhangsan','age':20};
+        let name="wangwu";
+        let age = 22;
+        //let stu = {"name":name,"age":age}; 
+        let stu = {name,age}; //等价于上面写法
+        console.log(stu);
+
+        let f = function(){
+            console.log("hello!");
+        }
+        let ob = {name,f};
+        console.log(ob);
+        console.log(ob.name);
+        ob.f();
+
+    </script>
+</body>
+</html>

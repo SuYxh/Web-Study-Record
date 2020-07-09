@@ -1,0 +1,91 @@
+﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>随机点名器</title>
+        <style>
+            *{
+                margin:0px;
+                padding:0px;
+            }
+            #main{
+                margin:100px;
+                background:#ff6600;
+                width:520px;
+                padding:50px;
+                border-radius:20px 20px 20px 20px;
+                box-shadow:0 2px 12px #666666;
+            }
+            #box{
+                background:#cccccc;
+                margin:50px;
+                padding:20px;
+                font-size:55px;
+                font-weight:bold;
+                border-radius:15px 15px 15px 15px;
+                box-shadow:0 2px 12px #666666;
+            }
+            #bt{
+                width:100px;
+                font-size:20px;
+                font-weight:bold;
+                background-color:green;
+                border-radius:8px 8px 8px 8px;
+                box-shadow:0 2px 12px #666666;
+                cursor:pointer;
+                padding:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+        <div id="main">
+            <div id="box">随机点名器</div>
+            <button id="bt" onclick="doit()">开 始</button>
+        </div>
+        </center>
+        <script>
+            var namelist=[
+                "万  钊","杨霁月","杨  帆","杨云阁","周思密",
+                "娄志华","田树勋","董世良","申汶洞","段文强",
+                "王利超","张  振","赵延博","李  楠","杨金林",
+                "于  涛","孙昔砚","栗云龙","程晓波","陈  春"
+            ];
+
+            var mytime=null;
+
+            function show(){
+                var box=window.document.getElementById("box");
+                var num=Math.floor((Math.random()*100000))%namelist.length;
+                box.innerHTML=namelist[num];
+                mytime=setTimeout("show()",50);
+            }
+
+            var bt=window.document.getElementById("bt");  
+            bt.onclick = function(){
+                if(mytime==null){
+                    bt.innerHTML="停 止";
+                    bt.style.backgroundColor="red";
+                    show();                    
+                }else{
+                    bt.innerHTML="开 始";
+                    bt.style.backgroundColor="green";
+                    clearTimeout(mytime);
+                    mytime=null;                        
+                }
+            }
+                   
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

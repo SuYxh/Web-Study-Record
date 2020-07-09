@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展运算符实例</title>
+    <style>
+        body{background-color: darkorange;}
+        #hid{color:white;font-size:80px;text-align:center;}
+        #hid span{
+            margin:5px;
+            cursor:pointer;
+            display:inline-block;
+            transsition:transform 0.25s;
+        }
+        /*定义鼠标移入的动画效果*/
+        #hid span:hover{
+            transform:translateY(-20px) rotate(20deg) scale(2);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="hid">Hello ES6!</h1>
+
+    <script>
+        //获取页面中h1元素节点
+        const hid = document.querySelector("#hid");
+        //获取节点中间的内容，作为参数调用下面函数，并将返回结果替换原先h1标签之间的内容中
+        hid.innerHTML = wrapWithSpan(hid.textContent);
+        //自定义函数
+        function wrapWithSpan(str){
+            //将内容使用map遍历，并未每个字符外添加span标签后合并返回。
+            return [...str].map(v=>`<span>${v}</span>`).join("");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>数组的扩展</h2>
+    <script>
+        //1. 数组的遍历
+        /*
+        let a = ['aaa','bbb','ccc']
+        a.name = "zhangsan"; //添加非数字属性
+        //使用for循环遍历
+        for(let i=0;i<a.length;i++){
+            console.log(a[i]);
+        }
+        //使用for...in遍历方式
+        for(let i in a){
+            console.log(i,"->",a[i]);
+        }
+        //使用forEach遍历
+        a.forEach(function(v){
+            console.log(v);
+        });
+        a.forEach(v=>{
+            console.log(v);
+        });
+        //使用for 。。。of遍历数组
+        for(let v of a){
+            console.log(v);
+        }
+        */
+        //2. for…of循环的使用实例
+        //使用for...of遍历数组：
+        let b = ['zhangsan','lisi','wangwu'];
+        for(let [k,v] of b.entries()){
+            console.log(k,'->',v);
+        }
+        //使用for...of遍历Maps(映射)
+        const iterable1 = new Map([['one','zhangsan'],['two','lisi'],['three','wangwu']]);
+        for(let [k,v] of iterable1){
+            console.log(k,'->',v);
+        }
+
+        //set集合遍历
+        const s = new Set([10,20,30,50,10,30,50]);
+        for(let v of s){
+            console.log(v);
+        }
+
+        //遍历子串
+        for(let c of "hello"){
+            console.log(c);
+        }
+
+        //3.Array.from()将一个类数组对象或者可遍历对象转换成一个真正的数组.
+        let ob = {0:"aaaa",1:"bbb",2:"cccc",length:3}
+        console.log(Array.from(ob));
+
+        const data1 =[
+            {name:'zhangsan',age:22,sex:'man'},
+            {name:'lisi',age:25,sex:'woman'},
+            {name:'wangwu',age:23,sex:'man'},
+        ];
+        console.log(Array.from(data1,v=>v.age));
+
+        //4.Array.of()方法用于将一组值转化为数组，即新建数组，而不考虑参数的数量或类型。
+        //使用Array.of()创建数组
+        console.log(Array.of());  //[] 创建一个空数组
+        console.log(Array.of(8)); //[8] 创建只有一个元素值为8的数组
+        console.log(Array.of(1, 2, 3)); //[1,2,3] 创建一个值为1，2，3的数组
+
+        //5.数组实例的 find() 和 findIndex() 数组成员查找。
+        const data2 =[
+            {name:'zhangsan',age:22,sex:'man'},
+            {name:'lisi',age:25,sex:'woman'},
+            {name:'wangwu',age:23,sex:'man'},
+        ];
+        let ob1 = data2.find(v => v.name=='lisi'); //查找名字为lisi的信息
+        console.log(ob1);
+
+        let ob2 = data2.findIndex(v => v.name=='wangwu'); //查找名字为wangwu的位置
+        console.log(ob2);
+
+        //6.数组实例的 some() 和 every() 目的：确定数组的所有成员是否满足指定的测试.
+        const data3 =[
+            {name:'zhangsan',age:22,sex:'man'},
+            {name:'lisi',age:25,sex:'woman'},
+            {name:'wangwu',age:23,sex:'man'},
+        ];
+        console.log(data3.some(v=> v.sex=='woman')); //判断数据中sex属性值是否含有woman值的
+        console.log(data3.every(v=> v.sex=='woman'));//判断数据中sex属性值是否都是woman
+
+        //7.数组实例的 fill() 使用指定的元素替换原数组内容
+        console.log([1,2,3,4,5,6].fill(8)); //[8, 8, 8, 8, 8, 8]
+        console.log([1,2,3,4,5,6].fill(8,2)); //[1, 2, 8, 8, 8, 8]
+        console.log([1,2,3,4,5,6].fill(8,2,4)); //[1, 2, 8, 8, 5, 6]
+        
+    </script>
+</body>
+</html>

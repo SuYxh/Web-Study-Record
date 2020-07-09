@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>ToDoList</title>
+		<link rel="stylesheet" type="text/css" href="./style.css" />
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="add">
+				<span>品牌名称</span>
+				<input type="text" name="add" id="add" />
+				<button type="button">添加</button>
+			</div>
+			<div class="search">
+				<span>品牌名称</span>
+				<input type="text" name="search" id="search" />
+			</div>
+			<div class="content">
+				<table id="table" border="1" cellspacing="0">
+					<thead>
+						<tr>
+							<th>编号</th>
+							<th>品牌名称</th>
+							<th>创立时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="table_Main">
+						
+					</tbody>
+						
+						<!-- <tr>
+							<td>1</td>
+							<td>Apple</td>
+							<td>2020-01-01</td>
+							<td><a href="#">删除</a></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Huawei</td>
+							<td>1998-01-01</td>
+							<td><a href="#">删除</a></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Google</td>
+							<td>2001-01-01</td>
+							<td><a href="#">删除</a></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>sanxing</td>
+							<td>2012-01-01</td>
+							<td><a href="#">删除</a></td>
+						</tr> -->
+				</table>
+			</div>
+			<div class="ddddd">
+				
+			</div>
+		</div>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+		<script type="text/javascript">
+			let arr = ['yxh1','yxh2','yxh3','yxh4']
+			let table = document.querySelector('#table_Main')
+			console.log(table)
+			let result = axios.get('http://localhost:3000/shop').then( res => {
+				console.log(res.data)
+				let arr = res.data
+				for (let item in arr) {
+					console.log(arr[item])
+					let template ="<tr>"+ "<td>" +`${arr[item].id}` +"</td>" +"</tr>"
+					// console.log(template)
+					table.append(template)
+		
+					
+					
+				}
+			
+			})
+			
+		</script>
+	</body>
+</html>

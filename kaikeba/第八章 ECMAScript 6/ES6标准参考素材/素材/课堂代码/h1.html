@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>let和const的使用</h2>
+    <script>
+        /*
+        console.log(uname); //undefined
+        var uname;
+        console.log(uname); //undefined
+        uname = "zhangsan";
+        console.log(uname); //zhangsan
+        */
+
+        /*
+        //console.log(uname); //ReferenceError
+        let uname;
+        console.log(uname); //undefined
+        uname = "zhangsan";
+        console.log(uname); //zhangsan
+
+        var age = 20;
+        //let age = 30;  //不可以重复声明变量
+        console.log(age)
+        */
+
+        /*
+        for(let i=1;i<=10;i++){
+            //console.log(i);
+        }
+        console.log(i); // Uncaught ReferenceError: i is not defined
+
+        for(var i=1;i<=10;i++){
+            //console.log(i);
+        }
+        console.log(i); //11
+
+        {
+            var sex = "man";
+            let classid = "web03";
+        }
+        console.log(sex);
+        console.log(classid); //classid is not defined
+        */
+
+
+        //案例1：常量不可修改，重复声明
+        const PI = 3.1415926;
+        console.log(PI)
+        //PI = 3.14 //常量不可再次赋值：
+        // 原因：TypeError: Assignment to constant variable.
+        //const PI = 3.14 //不可重复声明
+        // 原因：SyntaxError: Identifier 'PI' has already been declared
+
+        //案例2：常量声明只在块级别所用域内有效
+        {
+            const CEO = "首席执行官"
+            console.log(CEO)
+        }
+        //console.log(CEO) //报错：ReferenceError: CEO is not defined
+
+        //案例3：常量也是不可提升，及必须在声明后使用常量
+        //console.log(CTO) //ReferenceError: Cannot access 'CTO' before initialization
+        const CTO = "首席技术官"
+        console.log(CTO)
+
+
+
+        //定义一个人这个常量对象
+        const person = {name:'zhangsan',age:20};
+        console.log(person);
+        person.age = 30; 
+        console.log(person);
+        //person = {name:'lisi',age:22}
+    </script>
+</body>
+</html>

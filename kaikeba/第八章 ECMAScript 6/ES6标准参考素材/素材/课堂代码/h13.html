@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>Class 的继承</h2>
+    <script>
+        //定义Person类
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age  = age;
+            }
+
+            toString(){
+                return this.name+":"+this.age;
+            }
+        }
+        
+        //定义一个学生Stu类，继承Person父类
+        class Stu extends Person{
+            constructor(name,age,classid){
+                super(name,age); //构造父类
+                this.classid = classid;
+            }
+
+            toString(){
+                return super.toString()+":"+this.classid;
+            }
+        }
+
+        //使用
+        const p = new Person("zhagnsan",20);
+        console.log(p.name,p.age);
+        console.log(p.toString());
+
+        const s = new Stu("wangwu",12,"3-2班");
+        console.log(s.name,s.age,s.classid);
+        console.log(s.toString());
+    </script>
+</body>
+</html>

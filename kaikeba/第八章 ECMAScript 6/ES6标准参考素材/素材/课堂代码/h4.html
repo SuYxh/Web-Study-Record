@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>字符串的新增方法</h2>
+    <script>
+        //1.子串查找方法，返回布尔值：includes(), startsWith(), endsWith()
+        let url = 'http://www.baidu.com/a/b.html';
+        console.log(url.includes("baidu.com"));
+        console.log(url.startsWith("https"));
+        console.log(url.endsWith(".html"));
+
+        //2.重复字符串方法：repeat()
+        console.log("=".repeat(20));
+        console.log("hello".repeat(3));
+
+        //3.字符串补全长度方法：padStart()，padEnd()
+        console.log("123".padStart(5,"0")); //00123
+        console.log("123".padEnd(5,"0"));   //12300
+        console.log("123456".padEnd(5,"0"));   //123456
+
+        //补齐等宽编号
+        console.log("5".padStart(8,"20200000"));    //20200005
+        console.log("125".padStart(8,"20200000"));  //20200125
+        console.log("45".padStart(8,"20200000"));   //20200045
+        console.log("=".repeat(40));
+        //4.ES2019字符串实例新增方法：trimStart()和trimEnd()
+        const s = "  abc  ";
+        console.log("#"+s+"#");
+        console.log("#"+s.trim()+"#");
+        console.log("#"+s.trimStart()+"#");
+        console.log("#"+s.trimEnd()+"#");
+
+        //5.字符串全局正则表达式匹配方法：matchAll()
+        let info = "<ul><li>北京</li><li>上海</li><li>广州</li></ul>";
+        //传统匹配方式
+        console.log(info.match(/<li>(.*?)<\/li>/g));
+
+        //使用matchAll()匹配
+        console.log([...info.matchAll(/<li>(.*?)<\/li>/g)]);
+    </script>
+</body>
+</html>

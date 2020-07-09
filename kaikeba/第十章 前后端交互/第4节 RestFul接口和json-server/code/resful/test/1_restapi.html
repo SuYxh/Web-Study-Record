@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        function testGet2() {
+            // axios.get('http://localhost:3000/posts')
+            // axios.get('http://localhost:3000/posts/1')
+            axios.get('http://localhost:3000/posts?id=1')
+                .then(response => {
+                    console.log('/posts get', response.data)
+                })
+        }
+
+        function testGet() {
+            axios.get('http://localhost:3000/posts?id=1').then(response => {
+                // console.log('返回的数据：' + JSON.stringify(res.data))
+                console.log(response.data)
+            })
+        }
+
+        function testPost() {
+            axios.post('http://localhost:3000/posts', {
+                    "title": "json-server3",
+                    "author": "typicode3"
+                })
+                .then(response => {
+                    console.log('/posts post', response.data)
+                })
+        }
+        testGet()
+            // testGet2()
+            // testPost()
+    </script>
+</body>
+
+</html>

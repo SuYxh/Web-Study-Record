@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>Class 的基本语法</h2>
+    <script>
+        //使用class定义一个Stu类
+        class Stu{
+            constructor(name,age){
+                this.name = name;
+                this.age  = age;
+            }
+
+            toString(){
+                return this.name+":"+this.age;
+            }
+
+            //静态方法
+            static demo(){
+                console.log("Hello Class Stu!");
+            }
+        }
+        //使用
+        const s = new Stu("zhangsan",20);
+        console.log(s.name);
+        console.log(s.toString());
+
+        //使用类名调用方法
+        Stu.demo();
+    </script>
+</body>
+</html>

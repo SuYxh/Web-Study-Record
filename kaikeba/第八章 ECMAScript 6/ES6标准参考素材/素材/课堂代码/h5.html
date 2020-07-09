@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6标准</title>
+</head>
+<body>
+    <h2>运算符的扩展</h2>
+    <script>
+        //es6之扩展运算符 三个点（...）
+        //1. 对象的扩展运算符
+        let stu1 = {name:'李四',age:22,sex:'男'};
+        let stu2 = {...stu1}; //克隆一份（独立）
+        stu2.age = 30;
+        console.log(stu1);
+        console.log(stu2);
+
+        //2. 数组的扩展运算符
+        let a1 = [10,20,30,40];
+        //let a2 = a1; //为数组a1起个别名a2（实际是只有一个数组对象）
+        let a2 = [...a1]; //将数组a1的值取出重新创建一个新数组a2（独立）
+        a1[1] = 200;
+        console.log(a1);
+        console.log(a2);
+        //3. 剩余参数的处理
+        function demo(x,y,z){
+            console.log(x,y,z);
+        }
+        let a = [10,20,30];
+        //demo(a[0],a[1],a[2]);
+        demo(...a);
+
+        //function demo2(name,...params){
+        function demo2(...params){
+            console.log(params);
+        }
+        demo2("aa","bb");
+        demo2("aa","bb","cc","dd");
+        demo2("aa","bb","cc");
+
+        //解构赋值
+        let arr = [10,20,30,40,50,60,70];
+        let [id1,id2,...idn] = arr;
+        console.log(id1);
+        console.log(id2);
+        console.log(idn);
+    </script>
+</body>
+</html>

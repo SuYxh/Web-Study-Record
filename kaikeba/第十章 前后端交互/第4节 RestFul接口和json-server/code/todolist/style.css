@@ -1,0 +1,61 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	text-decoration: none;
+	color: blue;
+}
+
+#app{
+	display: block;
+	width: 600px;
+	height: 400px;
+	margin: 100px auto;
+	border: 1px solid red;
+	padding: 20px;
+}
+
+.add,.search{
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+	width: 98%;
+	height: 100px;
+	margin-bottom: 10px;
+	height: 30px;
+	padding-left: 10px;
+}
+
+.add span,.add input,.search span,.search input{
+	display: block;
+	margin-right: 10px;
+}
+
+input {
+	outline: none;
+	/* border-color: #767676; */
+	color: #767676;
+}
+
+button {
+	cursor: pointer;
+	width: 60px;
+	outline: none;
+	border: 1px solid #EEEEEE;
+	background-color: #EEEEEE;
+	color: #B8B8B8;
+	border-radius: 5px;
+}
+
+
+#table{
+	width: 100%;
+	text-align: center;
+}
+
+#table thead {
+	background-color: skyblue;
+	color: white;
+}
