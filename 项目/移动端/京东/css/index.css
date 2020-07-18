@@ -1,0 +1,204 @@
+body{
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    font-family: -apple-system, Helvetica,sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    /* background: #c82519; */
+}
+/* 点击高亮我们需要清除 只是为transparent 完成透明 */
+*{
+    -webkit-tap-highlight-color: transparent;
+}
+/* 在移动端浏览器的外观在ios上添加这个属性才能自定义按钮和输入框样式 */
+input{
+    -webkit-appearance:none;
+
+}
+/* 禁止长按页面弹出彩带你 */
+img,a{
+    -webkit-touch-callout: none;
+}
+
+a{
+    color: #666;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+div{
+    box-sizing: border-box;
+}
+
+img{
+    vertical-align: middle;
+}
+.app{
+    height: 45px;
+
+}
+.app ul li{
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    background-color: #333;
+    text-align: center;
+    vertical-align: middle;
+}
+.app ul li:nth-child(1){
+    width: 8%;
+} 
+.app ul li:nth-child(1) img{
+    width: 10px;
+}
+
+.app ul li:nth-child(2){
+    width: 10%;
+} 
+.app ul li:nth-child(2) img{
+    width: 30px;
+    vertical-align: middle;
+}
+.app ul li:nth-child(3){
+    width: 57%;
+    color: #f63515;
+} 
+.app ul li:nth-child(4){
+    width: 25%;
+    background-color: #f63515;
+    color: #fff;
+} 
+/* 搜索 */
+.search-wrap{
+    position: fixed;
+    height: 44px;
+    width: 100%;
+    overflow: hidden;
+    max-width: 640px;
+    min-width: 320px;
+}
+.search-btn{
+    position: absolute;
+    height: 44px;
+    width: 40px;
+    left: 0;
+    top: 0;
+}
+.search-btn:before{
+    content: '';
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+
+}
+.search-login{
+    position: absolute;
+    height: 44px;
+    line-height: 44px;
+    width: 40px;
+    right: 0;
+    top: 0;
+    color: #fff;
+}
+.search{
+    position: relative;
+    height: 30px;
+    background-color: #fff;
+    margin:0 50px;
+    margin-top: 7px;
+    border-radius: 50px;
+}
+.jd_ico{
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    background: url(../images/jd.png);
+    background-size: 20px 15px;
+
+}
+.jd_ico:after{
+    position: absolute;
+    top:0;
+    left: 25px;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+.glass{
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    background-color: pink;
+    background: url(../images/jd-sprites.png) no-repeat -81px 0;
+    background-size: 200px;
+}
+.slider img{
+    width: 100%;
+}
+.brand{
+    overflow: hidden;
+    border-radius: 10px 10px 0 0 ;
+}
+.brand div{
+    float: left;
+    width: 33.33%;
+}
+.brand div img{
+    
+    width: 100%;
+}
+nav{
+    overflow: hidden;
+    background-color: #f6f6f6;
+}
+nav a{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+nav a img{
+    width: 40px;;
+    margin-top: 10px;
+}
+nav a span{
+    display: block;
+    margin-top: 6px;
+}
+/* 新闻模块 */
+
+.news{
+    margin-top: 10px;
+}
+.news a{
+    box-sizing: border-box;
+    float: left;
+}
+.news img{
+    width: 100%;
+}
+.news a:nth-child(1){
+    width: 50%;
+}
+.news a:nth-child(2){
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
+.news a:nth-child(3){
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
