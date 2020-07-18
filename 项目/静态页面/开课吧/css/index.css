@@ -1,0 +1,697 @@
+/* 收获：在一套样式，响应式布局中，div不要设置高度，由内容进行撑开 */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* 实际开发过程中毕竟使用 * 来进行样式重置，太耗性能 */
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+
+/* 顶部区域 */
+header {
+    width: 100%;
+    height: 126px;
+}
+
+header div {
+    height: 126px;
+    display: flex;
+    align-items: center;
+}
+
+header img:nth-child(1) {
+    width: 157.7px;
+    height: 62.6px;
+    margin-right: 44.3px;
+}
+
+header img:nth-child(2) {
+    width: 343px;
+    height: 33px;
+}
+/* 顶部区域结束 */
+
+
+
+/* 导航栏区域 */
+nav {
+    width: 100%;
+    height: 44px;
+    background-color: #01A0EB;
+}
+
+.nav_flex {
+    display: flex;
+}
+
+.all-course {
+    width: 290px;
+    height: 44px;
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.all-course p {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.all-course img {
+    width: 18px;
+    height: 14px;
+}
+
+.menu {
+    flex: 1;
+    height: 44px;
+    /* background-color: aqua; */
+    padding-left: 39px;
+}
+
+.menu ul {
+    display: flex;
+    line-height: 44px;
+}
+
+.menu ul li {
+    margin-right: 45px;
+}
+
+.menu ul li a {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.info {
+    height: 44px;
+    /* background-color: azure; */
+    display: flex;
+    align-items: center;
+}
+
+.info img {
+    width: 19.3px;
+    height: 19.3px;
+}
+
+.info span:nth-child(2) {
+    font-family: Arial-BoldMT;
+    font-size: 15.75px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.info span:nth-child(3) {
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    margin-left: 36px;
+}
+
+
+/* banner部分 */
+.banner {
+    height: 300px;
+}
+
+.banner_flex {
+    display: flex;
+}
+
+.banner_left {
+    width: 290px;
+    height: 300px;
+    /* background-color: chocolate; */
+    border: 1px solid #01A0EB;
+}
+
+.banner_left_item {
+    width: 288px;
+    height: 74px;
+    /* background-color: darkgrey; */
+    border-bottom: 1px solid #01A0EB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 16px;
+}
+
+.banner_left_item:last-child {
+    border-bottom: none;
+}
+
+.banner_left_item_left p {
+    font-family: PingFangSC-Semibold;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+}
+
+.banner_left_item_left p:nth-child(2) {
+    font-family: PingFangSC-Regular;
+}
+
+.banner_left_item_right img {
+    width: 3px;
+    height: 6px;
+}
+
+.banner_right {
+    width: 890px;
+    height: 290px;
+    /* background-color: aqua; */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+/* 即将开课部分 */
+.jjkk {
+    margin-top: 44px;
+    /* background-color: #00FFFF; */
+}
+
+.jjkk_top {
+    width: 100%;
+    /* background-color: antiquewhite; */
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.jjkk_top img {
+    width: 34px;
+    height: 40px;
+}
+
+.jjkk_top span {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0;
+    margin-left: 15px;
+}
+
+.jjkk_bottom {
+    width: 100%;
+    /* height: 285px; */
+    /* background-color: cadetblue; */
+    display: flex;
+}
+
+.jjkk_bottom_item {
+    position: relative;
+    width: 230px;
+    height: 285px;
+    /* background-color: brown; */
+    margin-right: 10px;
+    border: 1px solid #E6E6E6;
+}
+
+.jjkk_bottom_item:last-child {
+    margin-right: 0;
+}
+
+.jjkk_bottom_item img {
+    width: 210px;
+    height: 158px;
+    margin: 10px 10px 0 10px;
+}
+
+.jjkk_bottom_item p:nth-child(2) {
+    font-size: 12px;
+    color: #fff;
+    position: absolute;
+    padding: 0 12px;
+    top: 156px;
+    left: 0;
+    height: 24px;
+    background: #8ec31f;
+    text-align: center;
+    line-height: 24px;
+}
+
+.jjkk_bottom_item p:nth-child(3) {
+    width: 200px;
+    height: 40px;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    margin: 25px 15px 0 15px;
+}
+
+.jjkk_bottom_item span {
+    display: inline-block;
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #666666;
+    letter-spacing: 0;
+    margin-left: 13px;
+    margin-top: 5px;
+}
+
+
+/* 官方力荐 */
+
+.gflj {
+    width: 100%;
+    /* height: 896px; */
+    background-color: #F5F5F5;
+    margin-top: 70px;
+    padding-top: 44px;
+}
+
+.gflj_top {
+    /* height: 40px; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.gflj_top img {
+    width: 34px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.gflj_top p {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0;
+    margin-right: 17px;
+}
+
+.gflj_top span {
+    font-family: MLingWaiMedium-SC;
+    font-size: 18px;
+    color: #000000;
+    letter-spacing: 0;
+}
+
+.gflj_middle {
+    /* height: 650px; */
+	display: flex;
+	flex-wrap: wrap;
+    /* background-color: #00FFFF; */
+}
+
+.gflj_middle_item{
+	width: 230px;
+	height: 320px;
+	margin-right: 10px;
+	background-color: #FFFFFF;
+}
+
+.gflj_middle_item:nth-child(5),.gflj_middle_item:nth-child(10){
+	margin-right: 0;
+}
+
+.gflj_middle_item:nth-child(-n+5){
+	margin-bottom: 10px;
+}
+
+.gflj_middle_item img{
+	width: 210px;
+	height: 158px;
+	margin: 10px 10px 12px 10px;
+}
+
+.gflj_middle_item p{
+	letter-spacing: 0;
+}
+
+.gflj_middle_item p:nth-child(2){
+	margin: 0 15px 5px 15px;
+	font-family: PingFangSC-Medium;
+	font-size: 14px;
+	color: #333333;
+}
+
+.gflj_middle_item p:nth-child(3){
+	margin: 0 15px 20px 15px;
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #666666;
+}
+
+.gflj_middle_item p:nth-child(4){
+	margin-left: 15px;
+}
+
+.gflj_middle_item .offical-tag{
+	margin-right: 7px;
+	    display: inline-block;
+	    position: relative;
+	    background: #C0DE84;
+	    height: 10px;
+	    padding-bottom: 1px;
+}
+
+.gflj_middle_item .offical-tag span{
+	    will-change: opacity;
+	    display: block;
+	    z-index: 1;
+	    margin-top: -8px;
+		font-size: 12px;
+		color: #333333;
+}
+
+.gflj_bottom {
+	display: flex;
+	justify-content: center;
+}
+
+.gflj_bottom_button {
+    width: 170px;
+    height: 54px;
+    text-align: center;
+    line-height: 54px;
+    border: 1px solid #999;
+    font-size: 16px;
+    color: #666;
+    margin: 38px auto 50px;
+    cursor: pointer;
+    border-radius: 2px;
+	outline-style: none;
+}
+
+.button_bg{
+	display: inline-block;
+	width: 9px;
+	height: 11px;
+	margin-left: 9px;
+	background: url(../images/more3.png) no-repeat;
+}
+
+
+
+/* 联系我们 */
+.contact{
+	width: 100%;
+	/* height: 300px; */
+	background: url(../images/bg.png) no-repeat;
+	background-size: cover;
+	text-align: center;
+	display: inline-block;
+}
+
+.contact .contact_ad{
+	font-family: PingFangSC-Medium;
+	font-size: 28px;
+	color: #FFFFFF;
+	letter-spacing: 0;
+	margin-top: 64px;
+}
+
+.contact .consulation-btn{
+	width: 187px;
+	height: 52px;
+	background-image: linear-gradient(141deg, #00CAFF 0%, #00AFF2 100%);
+	border-radius: 26px;
+	margin-top: 30px;
+	outline: none;
+	border: none;
+}
+
+.contact .contact_zx{
+	margin-top: 25px;
+	font-family: PingFangSC-Regular;
+	font-size: 19.2px;
+	color: #FFFFFF;
+	letter-spacing: 0;
+	margin-bottom: 40px;
+}
+
+/* 底部 */
+
+footer{
+	width: 100%;
+	/* height: 170px; */
+	background-color: #161616;
+	display: flex;
+	padding-top: 37px;
+	padding-bottom: 36px;
+}
+
+.footer_left{
+	width: 626px;
+	height: 97px;
+	/* background-color: #00FFFF; */
+	margin-left: 168px;
+	display: inline-block;
+}
+
+.footer_left_ad{
+	font-family: PingFangSC-Regular;
+	font-size: 14px;
+	color: #999999;
+	letter-spacing: 0;
+	margin-bottom: 15px;
+}
+
+.footer_left_jj{
+	font-family: PingFangSC-Regular;
+	font-size: 14px;
+	color: #999999;
+	letter-spacing: 0;
+	margin-bottom: 18px;
+}
+
+.footer_left_info{
+	font-family: PingFangSC-Regular;
+	font-size: 14px;
+	color: #666666;
+	letter-spacing: 0;
+}
+
+
+.footer_right{
+	width: 223px;
+	height: 93px;
+	/* background-color: #8EC31F; */
+	margin-left: 88px;
+}
+
+.footer_right .download{
+	display: flex;
+}
+
+.footer_right .download button{
+	width: 105px;
+	height: 31px;
+	margin-right: 13px;
+	border: 1px solid #999999;
+	border-radius: 2px;
+	outline: none;
+	color: #999999;
+	background-color: #000000;
+}
+
+.footer_right .gzh{
+	display: inline-block;
+	margin-top: 30px;
+	margin-left: 55px;
+	font-family: PingFangSC-Regular;
+	font-size: 14px;
+	color: #666666;
+	letter-spacing: 0;
+}
+
+.footer_right .gzh img {
+	width: 26px;
+	height: 26px;
+	opacity: 0.84;
+	vertical-align: middle;
+}
+
+
+@media  screen and (max-width: 576px) {
+	* {
+	    padding: 0;
+	    margin: 0;
+	    box-sizing: border-box;
+	}
+	body{
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	.header_hiddle,.all-course,.info,.banner_left,.gflj_top_hidden,.footer_right{
+		display: none;
+	}
+	
+	.container{
+		width: 100%;
+	}
+	
+	header{
+		width: 100%;
+		height: 100px;
+	}
+	header div img:first-child{
+		width: 188px;
+		height: 72px;
+		margin: 0 0 13px 23px;
+	}
+	
+	nav{
+		width: 100%;
+		height: 80px;
+	}
+	
+	.menu{
+		width: 100%;
+		height: 80px;
+		padding: 0;
+	}
+	.menu ul{
+		width: 100%;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		line-height: 0;
+	}
+	.menu ul li {
+		width: 16%;
+		height: 80px;
+		margin-right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	
+	.banner{
+		width: 100%;
+		height: 244px;
+	}
+	.banner_right{
+		margin: 0;
+		width: 100%;
+	}
+	.banner_right img{
+		width: 100%;
+		height: 244px;
+		background-size: cover;
+	}
+	
+	.jjkk{
+		margin-top: 43px;
+		width: 100%;
+	}
+	.jjkk_bottom{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	
+	.jjkk_bottom .jjkk_bottom_item{
+		width: 48%;
+		height: 309px;
+		margin: 5px auto;
+		
+	}
+	
+	
+	.jjkk_bottom_item p:nth-child(3) {
+	    width: 160px;
+	    height: 40px;
+	    font-family: PingFangSC-Medium;
+	    font-size: 14px;
+	    color: #333333;
+	    letter-spacing: 0;
+		margin-right: 10px;
+	}
+	.jjkk_bottom .jjkk_bottom_item img{
+		width: 90%;
+	}
+	
+	.gflj{
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.gflj .gflj_middle{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.gflj .gflj_middle .gflj_middle_item{
+		width: 48%;
+		height: 309px;
+		margin: 5px auto;
+	}
+	
+	.gflj .gflj_middle .gflj_middle_item img{
+		/* width: 162px; */
+		width: 90%;
+	}
+	.contact{
+		display: inline-block;
+	}
+	.contact .contact_ad{
+		font-family: PingFangSC-Medium;
+		font-size: 20px;
+		color: #FFFFFF;
+		letter-spacing: 0;
+		margin-top: 64px;
+	}
+	
+	.contact .consulation-btn{
+		width: 187px;
+		height: 52px;
+		background-image: linear-gradient(141deg, #00CAFF 0%, #00AFF2 100%);
+		border-radius: 26px;
+		margin-top: 30px;
+		outline: none;
+		border: none;
+		color: white;
+	}
+	
+	.contact .contact_zx{
+		margin-top: 25px;
+		font-family: PingFangSC-Regular;
+		font-size: 16px;
+		color: #FFFFFF;
+		letter-spacing: 0;
+		margin-bottom: 69px;
+	}
+	
+	footer{
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.footer_left{
+		margin-left: 24px;
+		margin-bottom: 40px;
+	}
+	
+
+}
