@@ -4,21 +4,21 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>ToDoList</title>
-		<link rel="stylesheet" type="text/css" href="./style.css" />
+		<title>Todolist</title>
+		<link rel="stylesheet" type="text/css" href="./style.css"/>
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	</head>
 	<body>
-		<div class="wrap">
+		<div id="app">
 			<div class="add">
 				<span>品牌名称</span>
-				<input type="text" name="add" id="add" />
-				<button type="button">添加</button>
+				<input v-model="val" type="text" name="add" id="add" @keyup.enter="add" />
+				<button type="button" @click="add" >添加</button>
 			</div>
 			<div class="search">
-				<span>品牌名称</span>
-				<input type="text" name="search" id="search" />
+				<span>{{msg}}</span>
+				<input v-model="cz" type="text" name="search" id="search"  @keyup.enter="search" @input="searchInput()" placeholder="请根据品牌名称查找" />
 			</div>
-			<div class="content">
 				<table id="table" border="1" cellspacing="0">
 					<thead>
 						<tr>
@@ -28,60 +28,137 @@
 							<th>操作</th>
 						</tr>
 					</thead>
-					<tbody id="table_Main">
-						
+					
+					
+					<tbody v-if="all">
+						<tr v-for="item in shopinfo" :key='item.id'>
+							<td>{{item.id}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.date}}</td>
+							<td><a href="#" @click="del(item.id)">删除</a></td>
+						</tr>
 					</tbody>
-						
-						<!-- <tr>
-							<td>1</td>
-							<td>Apple</td>
-							<td>2020-01-01</td>
-							<td><a href="#">删除</a></td>
+					<tbody v-else>
+						<tr v-if="hiddle" >
+							<td v-for="index in shopfuben" :key='index'>{{index}}</td>
+							<td ><a href="#" @click="del(shopfuben.id)">删除</a></td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>Huawei</td>
-							<td>1998-01-01</td>
-							<td><a href="#">删除</a></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Google</td>
-							<td>2001-01-01</td>
-							<td><a href="#">删除</a></td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>sanxing</td>
-							<td>2012-01-01</td>
-							<td><a href="#">删除</a></td>
-						</tr> -->
+					</tbody>
 				</table>
-			</div>
-			<div class="ddddd">
-				
-			</div>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 		<script type="text/javascript">
-			let arr = ['yxh1','yxh2','yxh3','yxh4']
-			let table = document.querySelector('#table_Main')
-			console.log(table)
-			let result = axios.get('http://localhost:3000/shop').then( res => {
-				console.log(res.data)
-				let arr = res.data
-				for (let item in arr) {
-					console.log(arr[item])
-					let template ="<tr>"+ "<td>" +`${arr[item].id}` +"</td>" +"</tr>"
-					// console.log(template)
-					table.append(template)
-		
+
+			new Vue({
+				el: '#app',
+				data() {
+					return {
+						msg: '品牌名称',
+						shopinfo: [],
+						shopfuben:[],
+						val: '',
+						nowtime: '',
+						cz:'',
+						all:true,
+						hiddle:true
+					}
+				},
+				
+				// 在组件创建的时候发送网络请求获取数据并渲染
+				created() {
+					axios.get('http://localhost:3000/shop').then(res => {
+						this.shopinfo = res.data
+						if (this.shopinfo.length > 0) {
+							this.$message({
+							          showClose: true,
+							          message: '数据请求成功！',
+							          type: 'success'
+							        });
+						}
+					})
+					// 日期格式化
+					let date = new Date();
+					let year = date.getFullYear();
+					let month = date.getMonth() + 1;
+					let strDate = date.getDate();
+					if (month < 10 ) {
+						month = '0' + month
+					}
+					if(strDate < 10){
+						strDate = '0' + strDate
+					}
+					this.nowtime = `${year}-${month}-${strDate}`
+				},
+				methods: {
+					//  删除功能
+					del(id) {
+						axios.delete('http://localhost:3000/shop/'+id)
+						        .then(response => {
+								  this.shopinfo.splice(id-1,1)
+								  this.$message({
+								            showClose: true,
+								            message: '删除成功！',
+								            type: 'success'
+								          });
+						        })
+						 
+					},
 					
+					// 增加
+					add() {
+						if (this.val != '') {
+							let dataAdd = {
+								"id": this.shopinfo.length + 1,
+								"name": this.val,
+								"date": this.nowtime
+							}
+							axios.post('http://localhost:3000/shop', dataAdd)
+								.then(response => {
+									this.shopinfo.push(dataAdd)
+									this.$message({
+									          showClose: true,
+									          message: '添加成功！',
+									          type: 'success'
+									        });
+								})
+						} else {
+							this.$message({
+							          showClose: true,
+							          message: '您输入的内容不能为空哦',
+							          type: 'warning'
+							        });
+						}
+					},
 					
+					// 查询
+					search(){
+						let num = this.shopinfo.findIndex( i => i.name === this.cz)
+						if (num == -1) {
+							 this.$message({
+							          showClose: true,
+							          message: '您查找的商品不存在，换个商品试试吧！',
+							          type: 'error'
+							        });
+							this.cz = ''
+						} else{
+							this.$message({
+							          showClose: true,
+							          message: '商品查询成功！',
+							          type: 'success'
+							        });
+							this.shopfuben = this.shopinfo[num]
+							this.all = false
+						}
+					},
+					searchInput(){
+						if(this.cz == ''){
+							this.all = true
+						}
+					}
 				}
-			
 			})
-			
 		</script>
 	</body>
 </html>
