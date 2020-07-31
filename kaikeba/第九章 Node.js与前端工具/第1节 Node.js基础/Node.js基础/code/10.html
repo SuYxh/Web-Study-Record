@@ -1,0 +1,518 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>10、events事件触发器 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="11.html" />
+    
+    
+    <link rel="prev" href="9.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1、Node.js简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    2、创建第一个应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    3、全局对象和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    4、Node.js模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    5、util实用工具模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    6、url模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    7、path模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    8、fs模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    9、http模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10、events事件触发器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    11、net模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    12、NPM 包管理工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >10、events事件触发器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="events&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;">events&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;</h1>
+<ul>
+<li>Events&#x6A21;&#x5757;&#x662F;Node&#x5BF9;&#x201C;&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x201D;&#x6A21;&#x5F0F;&#xFF08;publish/subscribe&#xFF09;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x5411;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x3002;</li>
+<li>&#x8BE5;&#x6A21;&#x5757;&#x901A;&#x8FC7;EventEmitter&#x5C5E;&#x6027;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x8BE5;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x4F8B;&#x5177;&#x6709;on&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x76D1;&#x542C;&#x6307;&#x5B9A;&#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x89E6;&#x53D1;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x90FD;&#x53EF;&#x4EE5;&#x53D1;&#x5E03;&#x6307;&#x5B9A;&#x4E8B;&#x4EF6;&#xFF0C;&#x88AB;EventEmitter&#x5B9E;&#x4F8B;&#x7684;on&#x65B9;&#x6CD5;&#x76D1;&#x542C;&#x5230;&#x3002;</li>
+</ul>
+<h4 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h4>
+<ul>
+<li>&#x2460; &#x52A0;&#x8F7D;events&#x6A21;&#x5757;&#x540E;&#xFF0C;&#x901A;&#x8FC7;EventEmitter&#x5C5E;&#x6027;&#x5EFA;&#x7ACB;&#x4E86;&#x4E00;&#x4E2A;EventEmitter&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5F15;&#x5165; events &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">const</span> events = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+<span class="hljs-comment">// &#x521B;&#x5EFA; myEmitter &#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">const</span> myEmitter = <span class="hljs-keyword">new</span> events.EventEmitter();
+</code></pre>
+<ul>
+<li><p>&#x6216;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x6269;&#x5C55;&#x7C7B;MyEmitter&#x7EE7;&#x627F;EventEmitter&#xFF0C;&#x5E76;&#x5EFA;&#x7ACB;&#x4E86;&#x4E00;&#x4E2A;EventEmitter&#x5B50;&#x7C7B;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+<span class="hljs-comment">//&#x7EE7;&#x627F;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyEmitter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmitter</span> </span>{}
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;</span>
+<span class="hljs-keyword">const</span> myEmitter = <span class="hljs-keyword">new</span> MyEmitter();
+</code></pre>
+</li>
+<li><p>&#x2461; &#x6CE8;&#x518C;&#x76D1;&#x542C;&#x5668;:&#x901A;&#x8FC7;on&#x65B9;&#x6CD5;&#x4E3A;eventName&#x4E8B;&#x4EF6;&#x6307;&#x5B9A;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;(&#x56DE;&#x8C03;&#x51FD;&#x6570;eventHandler)&#xFF1A;</p>
+</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#x53CA;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x7A0B;&#x5E8F;</span>
+myEmitter.on(<span class="hljs-string">&apos;eventName&apos;</span>, eventHandler);
+</code></pre>
+<ul>
+<li>&#x2462; &#x901A;&#x8FC7;emit&#x65B9;&#x6CD5;&#x89E6;&#x53D1;eventName&#x4E8B;&#x4EF6;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</span>
+myEmitter.emit(<span class="hljs-string">&apos;eventName&apos;</span>);
+</code></pre>
+<h4 id="&#x5B9E;&#x4F8B;&#xFF1A;">&#x5B9E;&#x4F8B;&#xFF1A;</h4>
+<ul>
+<li>&#x2460; &#x57FA;&#x672C;&#x4F7F;&#x7528;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5F15;&#x5165; events &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+<span class="hljs-comment">//&#x7EE7;&#x627F;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyEmitter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmitter</span> </span>{}
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;</span>
+<span class="hljs-keyword">const</span> myEmitter = <span class="hljs-keyword">new</span> MyEmitter();
+
+<span class="hljs-comment">//&#x4E3A;&#x540D;&#x4E3A;event&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;</span>
+myEmitter.on(<span class="hljs-string">&apos;event&apos;</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&apos;</span>);
+});
+
+<span class="hljs-comment">//&#x89E6;&#x53D1;&#x540D;&#x4E3A;event&#x7684;&#x4E8B;&#x4EF6;</span>
+myEmitter.emit(<span class="hljs-string">&apos;event&apos;</span>);
+</code></pre>
+<ul>
+<li>&#x2461; &#x5C06; <code>&#x53C2;&#x6570;</code> &#x548C; <code>this</code> &#x4F20;&#x7ED9;&#x76D1;&#x542C;&#x5668;(&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;)</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5F15;&#x5165; events &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+<span class="hljs-comment">//&#x7EE7;&#x627F;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyEmitter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmitter</span> </span>{}
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;</span>
+<span class="hljs-keyword">const</span> myEmitter = <span class="hljs-keyword">new</span> MyEmitter();
+
+myEmitter.on(<span class="hljs-string">&apos;event&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(a, b, <span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span> === myEmitter);
+    <span class="hljs-comment">//&#x8F93;&#x51FA;</span>
+    <span class="hljs-comment">/*
+    aaaa bbbb MyEmitter {
+        _events: [Object: null prototype] { event: [Function] },
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        [Symbol(kCapture)]: false
+    } true
+    */</span>
+});
+
+myEmitter.emit(<span class="hljs-string">&apos;event&apos;</span>, <span class="hljs-string">&apos;aaaa&apos;</span>, <span class="hljs-string">&apos;bbbb&apos;</span>);
+</code></pre>
+<ul>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x4F7F;&#x7528; ES6 &#x7684;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x76D1;&#x542C;&#x5668;&#x3002;&#x4F46; this &#x5173;&#x952E;&#x8BCD;&#x4E0D;&#x4F1A;&#x6307;&#x5411; EventEmitter &#x5B9E;&#x4F8B;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">//....</span>
+<span class="hljs-keyword">const</span> myEmitter = <span class="hljs-keyword">new</span> MyEmitter();
+myEmitter.on(<span class="hljs-string">&apos;event&apos;</span>, (a, b) =&gt; {
+  <span class="hljs-built_in">console</span>.log(a, b, <span class="hljs-keyword">this</span>);
+  <span class="hljs-comment">// &#x6253;&#x5370;: a b {}</span>
+});
+myEmitter.emit(<span class="hljs-string">&apos;event&apos;</span>, <span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>);
+</code></pre>
+<ul>
+<li><p>&#x2462; &#x4EC5;&#x5904;&#x7406;&#x4E8B;&#x4EF6;&#x4E00;&#x6B21;</p>
+</li>
+<li><p>&#x4F7F;&#x7528; eventEmitter.once() &#x53EF;&#x4EE5;&#x6CE8;&#x518C;&#x6700;&#x591A;&#x53EF;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002; &#x5F53;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x76D1;&#x542C;&#x5668;&#x4F1A;&#x88AB;&#x6CE8;&#x9500;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;&#x3002;</p>
+</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x5F15;&#x5165; events &#x6A21;&#x5757;</span>
+<span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>);
+<span class="hljs-comment">//&#x7EE7;&#x627F;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyEmitter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmitter</span> </span>{}
+<span class="hljs-comment">//&#x5B9E;&#x4F8B;&#x5316;</span>
+<span class="hljs-keyword">const</span> myEmitter = <span class="hljs-keyword">new</span> MyEmitter();
+
+<span class="hljs-keyword">let</span> m = <span class="hljs-number">0</span>;
+myEmitter.once(<span class="hljs-string">&apos;event&apos;</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(++m);
+});
+myEmitter.emit(<span class="hljs-string">&apos;event&apos;</span>);
+<span class="hljs-comment">// &#x6253;&#x5370;: 1</span>
+myEmitter.emit(<span class="hljs-string">&apos;event&apos;</span>);
+<span class="hljs-comment">// &#x4E0D;&#x89E6;&#x53D1;</span>
+</code></pre>
+<ul>
+<li>&#x2463; &#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#x5E94;&#x7528;&#x5177;&#x4F53;&#x8BE6;&#x89C1;&#x624B;&#x518C;&#x8BF4;&#x660E;&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="9.html" class="navigation navigation-prev " aria-label="Previous page: 9、http模块">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="11.html" class="navigation navigation-next " aria-label="Next page: 11、net模块">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"10、events事件触发器","level":"1.12","depth":1,"next":{"title":"11、net模块","level":"1.13","depth":1,"path":"11.md","ref":"11.md","articles":[]},"previous":{"title":"9、http模块","level":"1.11","depth":1,"path":"9.md","ref":"9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"10.md","mtime":"2020-07-13T18:49:56.934Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-09T14:45:24.666Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

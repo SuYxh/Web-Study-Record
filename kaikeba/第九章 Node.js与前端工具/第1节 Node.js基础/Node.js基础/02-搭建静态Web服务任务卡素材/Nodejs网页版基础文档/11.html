@@ -1,0 +1,533 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>11、net模块 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="12.html" />
+    
+    
+    <link rel="prev" href="10.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1.html">
+            
+                <a href="1.html">
+            
+                    
+                    1、Node.js简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="2.html">
+            
+                <a href="2.html">
+            
+                    
+                    2、创建第一个应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="3.html">
+            
+                <a href="3.html">
+            
+                    
+                    3、全局对象和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="4.html">
+            
+                <a href="4.html">
+            
+                    
+                    4、Node.js模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="5.html">
+            
+                <a href="5.html">
+            
+                    
+                    5、util实用工具模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="6.html">
+            
+                <a href="6.html">
+            
+                    
+                    6、url模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="7.html">
+            
+                <a href="7.html">
+            
+                    
+                    7、path模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="8.html">
+            
+                <a href="8.html">
+            
+                    
+                    8、fs模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="9.html">
+            
+                <a href="9.html">
+            
+                    
+                    9、http模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="10.html">
+            
+                <a href="10.html">
+            
+                    
+                    10、events事件触发器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.13" data-path="11.html">
+            
+                <a href="11.html">
+            
+                    
+                    11、net模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="12.html">
+            
+                <a href="12.html">
+            
+                    
+                    12、NPM 包管理工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >11、net模块</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="11&#x3001;net&#x6A21;&#x5757;">11&#x3001;net&#x6A21;&#x5757;</h1>
+<ul>
+<li>Node.js Net &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x5E95;&#x5C42;&#x7684;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x7684;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x521B;&#x5EFA;&#x670D;&#x52A1;&#x5668;/&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#x8BE5;&#x6A21;&#x5757;&#xFF1A;<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;net&quot;</span>)
+</code></pre>
+</li>
+<li>&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x53C2;&#x8003;&#x624B;&#x518C;</li>
+</ul>
+<h4 id="&#x6848;&#x4F8B;&#x4E00;&#xFF1A;&#x7B80;&#x5355;&#x7684;socket&#x8FDE;&#x63A5;">&#x6848;&#x4F8B;&#x4E00;&#xFF1A;&#x7B80;&#x5355;&#x7684;socket&#x8FDE;&#x63A5;</h4>
+<ul>
+<li>server&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x6848;&#x4F8B;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;net&apos;</span>);<span class="hljs-comment">//&#x5BFC;&#x5165;net&#x6A21;&#x5757;</span>
+<span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;socket&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5BF9;&#x8C61;server</span>
+<span class="hljs-keyword">const</span> server = net.createServer((client) =&gt; {
+  <span class="hljs-comment">// &apos;connection&apos; &#x76D1;&#x542C;&#x5668;&#x3002;</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x8FDE;&#x63A5;&apos;</span>);
+  <span class="hljs-comment">//&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x6DFB;&#x52A0;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+  client.on(<span class="hljs-string">&apos;end&apos;</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&apos;</span>);
+  });
+  client.write(<span class="hljs-string">&apos;&#x4F60;&#x597D;\r\n&apos;</span>);
+  client.pipe(client); <span class="hljs-comment">//&#x7BA1;&#x9053;&#xFF1A;&#x4ECE;&#x54EA;&#x91CC;&#x6765;&#x7684;&#x5C31;&#x6D41;&#x5230;&#x54EA;&#x91CC;&#x53BB;</span>
+});
+<span class="hljs-comment">//&#x4E3A;server&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;error&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+server.on(<span class="hljs-string">&apos;error&apos;</span>, (err) =&gt; {
+  <span class="hljs-keyword">throw</span> err;
+});
+<span class="hljs-comment">//&#x5F00;&#x542F;server&#x670D;&#x52A1;&#x5E76;&#x76D1;&#x542C;8124&#x7AEF;&#x53E3;</span>
+server.listen(<span class="hljs-number">8124</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x542F;&#x52A8;&apos;</span>);
+});
+</code></pre>
+<ul>
+<li>client&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x4F7F;&#x7528;net&#x6A21;&#x5757;&#x5EFA;&#x8BAE;&#x4E00;&#x4E2A;&#x901A;&#x8BAF;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</span>
+<span class="hljs-keyword">const</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;net&apos;</span>); <span class="hljs-comment">//&#x5BFC;&#x5165;net</span>
+
+<span class="hljs-comment">//&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x7AEF;&#x53E3;&#x4E3A;8124</span>
+<span class="hljs-keyword">const</span> client = net.connect({port:<span class="hljs-number">8124</span>},() =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x8FDE;&#x63A5;&#xFF01;&quot;</span>);
+    client.write(<span class="hljs-string">&quot;world!\r\n&quot;</span>);
+});
+
+<span class="hljs-comment">//&#x4E3A;&#x5F53;&#x524D;&#x5BA2;&#x6237;&#x7AEF;&#x7ED1;&#x5B9A;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+client.on(<span class="hljs-string">&quot;data&quot;</span>,(data) =&gt; {
+    <span class="hljs-built_in">console</span>.log(data.toString());
+});
+</code></pre>
+<h5 id="&#x6848;&#x4F8B;&#x4E8C;&#xFF1A;&#x591A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x4E00;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5B9E;&#x73B0;&#x4FE1;&#x606F;&#x4EA4;&#x6D41;">&#x6848;&#x4F8B;&#x4E8C;&#xFF1A;&#x591A;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x4E00;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5B9E;&#x73B0;&#x4FE1;&#x606F;&#x4EA4;&#x6D41;</h5>
+<ul>
+<li>server.js&#x670D;&#x52A1;&#x5668;&#x7AEF;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x4F7F;&#x7528;net&#x6A21;&#x5757;&#x5EFA;&#x8BAE;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x5F88;&#x591A;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x670D;&#x52A1;&#x5668;</span>
+<span class="hljs-keyword">const</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;net&apos;</span>); <span class="hljs-comment">//&#x5BFC;&#x5165;net</span>
+
+<span class="hljs-keyword">const</span> clientSet = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(); <span class="hljs-comment">//&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x5B58;&#x653E;&#x5BA2;&#x6237;&#x7AEF;&#x5BF9;&#x8C61;&#x7684;Set&#x96C6;&#x5408;</span>
+
+<span class="hljs-comment">//&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5BF9;&#x8C61;</span>
+<span class="hljs-keyword">const</span> server = net.createServer((client) =&gt; {
+    <span class="hljs-comment">//&#x6B64;&#x5904;&#x7684;client&#x5C31;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;</span>
+    <span class="hljs-comment">// &apos;connection&apos; &#x76D1;&#x542C;&#x5668;&#x3002;</span>
+    <span class="hljs-built_in">console</span>.log(client.remoteAddress+<span class="hljs-string">&apos;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x8FDE;&#x63A5;&apos;</span>);
+    clientSet.add(client); <span class="hljs-comment">//&#x5C06;&#x5F53;&#x524D;&#x5BA2;&#x6237;&#x7AEF;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x5230;Set&#x4E2D;</span>
+    <span class="hljs-comment">//&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x65AD;&#x5F00;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+    client.on(<span class="hljs-string">&apos;end&apos;</span>, () =&gt; {
+        clientSet.delete(client);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&apos;</span>);
+    });
+
+      <span class="hljs-comment">//&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#xFF08;&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E;&#xFF09;</span>
+    client.on(<span class="hljs-string">&apos;data&apos;</span>, (data) =&gt; {
+        <span class="hljs-comment">//&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5E76;&#x5206;&#x53D1;&#x6D88;&#x606F;</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> cs <span class="hljs-keyword">of</span> clientSet){
+            cs.write(client.remoteAddress+<span class="hljs-string">&quot;:&quot;</span>+data.toString())
+        }
+    });
+});
+
+<span class="hljs-comment">//&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;error&#x9519;&#x8BEF;&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+server.on(<span class="hljs-string">&apos;error&apos;</span>, (err) =&gt; {
+    <span class="hljs-comment">//throw err;</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;error&#xFF01;&quot;</span>)
+});
+
+<span class="hljs-comment">//&#x5F00;&#x542F;&#x670D;&#x52A1;&#x76D1;&#x542C;&#xFF08;&#x7AEF;&#x53E3;8124&#xFF09;</span>
+server.listen(<span class="hljs-number">8124</span>, () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x670D;&#x52A1;&#x5668;&#x5DF2;&#x542F;&#x52A8;&apos;</span>);
+});
+</code></pre>
+<ul>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;client.js</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x4F7F;&#x7528;net&#x6A21;&#x5757;&#x5EFA;&#x8BAE;&#x4E00;&#x4E2A;&#x901A;&#x8BAF;&#x7684;&#x5BA2;&#x6237;&#x7AEF;</span>
+<span class="hljs-comment">//&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;&#xFF1A;node client2.js 192.168.1.7 8124</span>
+<span class="hljs-keyword">const</span> net = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;net&apos;</span>); <span class="hljs-comment">//&#x5BFC;&#x5165;net</span>
+
+<span class="hljs-comment">//&#x83B7;&#x53D6;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x7684;&#x53C2;&#x6570;</span>
+<span class="hljs-keyword">const</span> hostname = process.argv[<span class="hljs-number">2</span>];
+<span class="hljs-keyword">const</span> port = process.argv[<span class="hljs-number">3</span>];
+
+
+<span class="hljs-comment">//&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x7AEF;</span>
+<span class="hljs-keyword">const</span> client = net.connect({host:hostname,port:port},() =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x8FDE;&#x63A5;&#xFF01;&quot;</span>);
+    <span class="hljs-comment">//&#x63A5;&#x6536;&#x952E;&#x76D8;&#x8F93;&#x5165;&#x503C;&#xFF0C;&#x5E76;&#x53D1;&#x9001;&#x670D;&#x52A1;&#x5668;&#x7AEF;</span>
+    process.stdin.setEncoding(<span class="hljs-string">&apos;utf8&apos;</span>);<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x7F16;&#x7801;</span>
+    process.stdin.on(<span class="hljs-string">&apos;readable&apos;</span>, () =&gt; {
+      <span class="hljs-keyword">let</span> chunk;
+      <span class="hljs-comment">// &#x4F7F;&#x7528;&#x5FAA;&#x73AF;&#x786E;&#x4FDD;&#x6211;&#x4EEC;&#x8BFB;&#x53D6;&#x6240;&#x6709;&#x7684;&#x53EF;&#x7528;&#x6570;&#x636E;&#x3002;</span>
+      <span class="hljs-keyword">while</span> ((chunk = process.stdin.read()) !== <span class="hljs-literal">null</span>) {
+          <span class="hljs-comment">//&#x5224;&#x65AD;&#x8F93;&#x5165;q&#x9000;&#x51FA;</span>
+          <span class="hljs-keyword">if</span>(chunk == <span class="hljs-string">&quot;q\r\n&quot;</span>){
+              <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;exit&#xFF01;&quot;</span>);
+              process.exit();
+          }
+        client.write(chunk);
+      }
+    });
+});
+
+<span class="hljs-comment">//&#x4E3A;&#x5F53;&#x524D;&#x5BA2;&#x6237;&#x7AEF;&#x7ED1;&#x5B9A;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+client.on(<span class="hljs-string">&quot;data&quot;</span>,(data) =&gt; {
+    <span class="hljs-built_in">console</span>.log(data.toString());
+});
+
+<span class="hljs-comment">//&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x4E8B;&#x4EF6;&#x5904;&#x7406;</span>
+client.on(<span class="hljs-string">&quot;end&quot;</span>,(data) =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;&#x5BA2;&#x6237;&#x7AEF;&#x5DF2;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&quot;</span>);
+});
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="10.html" class="navigation navigation-prev " aria-label="Previous page: 10、events事件触发器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="12.html" class="navigation navigation-next " aria-label="Next page: 12、NPM 包管理工具">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"11、net模块","level":"1.13","depth":1,"next":{"title":"12、NPM 包管理工具","level":"1.14","depth":1,"path":"12.md","ref":"12.md","articles":[]},"previous":{"title":"10、events事件触发器","level":"1.12","depth":1,"path":"10.md","ref":"10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"11.md","mtime":"2020-07-09T19:06:41.313Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-09T14:45:24.666Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
