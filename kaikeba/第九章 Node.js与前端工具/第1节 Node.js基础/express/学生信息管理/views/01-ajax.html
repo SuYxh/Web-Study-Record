@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生JavaScript的Ajax</title>
+    <style>
+        #did{
+            width: 300px;
+            height: 200px;
+            border: 1px solid #999999;
+        }
+    </style>
+</head>
+<body>
+    <h1>原生JavaScript的Ajax</h1>
+    <a href="/">返回首页</a>
+    <div id="did">
+
+    </div>
+    <br><br>
+    <button onclick="doload()" >加载</button>
+    
+    <script>
+        function doload() { 
+            // 创建对象
+            let xhr = new XMLHttpRequest()
+            
+            // 准备打开请求信息
+            xhr.open("GET","/ajax/a1")
+
+            // 执行Ajax请求
+            xhr.send(null)
+            // 回调
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("did").innerHTML += xhr.responseText;
+                }
+            }
+         }
+        
+    </script>
+</body>
+</html>

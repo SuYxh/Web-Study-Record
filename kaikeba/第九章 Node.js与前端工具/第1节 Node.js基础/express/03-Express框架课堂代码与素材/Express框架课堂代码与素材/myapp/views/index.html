@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>欢迎使用Express 框架</h1>
+    <h3>标准格式: {{title}}</h3>
+    <h3>原始格式: <%= title %></h3>
+    <p>网址：{{link}}</p>
+    <p>网址：{{@link}}</p>
+    <p>数值：{{num[0]*2}}、{{num[1]+num[2]}}、{{num[3]/2}}</p>
+
+    <h3>模板中遍历输出</h3>
+    <ul>
+        {{each dlist}}
+            <li>{{$index}}=>{{$value.name}}:{{$value.age}}:{{$value.sex==1?'男':'女'}}
+                {{if $value.sex==1}}
+                    男
+                {{else}}
+                    女
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</body>
+</html>

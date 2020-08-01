@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>会员信息管理</title>
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{background-color:#eee;}
+    </style>
+  </head>
+  <body>   
+    <!-- 页面容器开始 -->
+    <div class="container">
+      <div class="row">
+        <!--页面左侧主体开始-->
+        <div class="col-md-12 text-center">
+            <h2>会员信息管理</h2>
+            <br>
+            <a type="button" href="/member/add" class="btn btn-primary btn-sm">添加信息</a>
+            <a type="button" href="/" class="btn btn-primary btn-sm">返回首页</a>
+            <br><br>
+            <form id="chaxunform" action="/member/chaxun" method="post" class="form-inline">
+              <div class="form-group">
+                <label for="guanjianzi">关键字：</label>
+                <input name="condition" type="text" class="form-control" id="guanjianzi" placeholder="姓名/电话">
+              </div>
+              <button type="submit" class="btn btn-primary" id="search">搜索</button>
+            </form>
+            <br><br>
+            <table class="table table-hover text-center">
+              <tbody><tr>
+                <th class="text-center">id号</th>
+                <th class="text-center">会员姓名</th>
+                <th class="text-center">邮箱地址</th>
+                <th class="text-center">联系电话</th>
+                <th class="text-center">会员等级</th>
+                <th class="text-center">编辑</th>
+              </tr>
+              
+              {{each memlist }}
+              <tr>
+                <td>{{ $value.id }}</td>
+                <td>{{ $value.name }}</td>
+                <td>{{ $value.email }}</td>
+                <td>{{ $value.phone }}</td>
+                {{if $value.levelofmember == 0}}
+                <td> 普通会员 </td>
+                {{else if $value.levelofmember == 1}}
+                <td>vip会员</td>
+                {{else if $value.levelofmember == 2}}
+                <td>银牌会员</td>
+                {{else if $value.levelofmember == 3}}
+                <td>金牌会员</td>
+                {{/if}}
+                <td>
+                  <a type="button" href="member/edit?id={{$value.id}}" class="btn btn-info btn-xs">编辑</a>
+                  <a type="button" href="member/delete?id={{$value.id}}" class="btn btn-danger btn-xs">删除</a>
+                </td>
+              </tr>
+              {{/each}}
+              
+            </tbody></table>
+        </div>
+        <!--页面左侧主体开始-->
+      </div>
+    </div>
+    <!-- 页面容器结束 -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrapValidator.min.js"></script>
+    <script>
+      $('#search').click(() => {
+        console.log(123)
+        // if ($('#condition').val == '') {
+        //   alert('请输入收索方式')
+        // }
+      })
+
+      $('#chaxunform').bootstrapValidator({
+             live : 'submitted', //enabled代表当表单控件内容发生变化时就触发验证，默认提交时验证，
+             // disabled和submitted代表当点击提交按钮时触发验证
+ 
+             feedbackIcons: {  //显示表单验证结果的图标
+                  valid: 'glyphicon glyphicon-ok',
+                  invalid: 'glyphicon glyphicon-remove',
+                 validating: 'glyphicon glyphicon-refresh'
+             },
+             fields: {
+              condition: {
+                     validators: {
+                         notEmpty: {
+                             message: '请输入查询信息！'
+                         }
+                     }
+                 }
+             }
+         })
+    </script>
+  </body>
+</html>
