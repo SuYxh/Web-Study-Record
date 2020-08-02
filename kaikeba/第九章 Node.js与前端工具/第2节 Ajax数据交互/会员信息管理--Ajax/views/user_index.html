@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>会员信息管理</title>
+    <!-- Bootstrap -->
+    <!-- <link href="/static/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="/static/css/toast.style.css" rel="stylesheet">
+    <link href="/static/css/sweetalert2.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面容器开始 -->
+    <div class="container">
+        <div class="row">
+            <!--页面左侧主体开始-->
+            <div class="col-md-12 text-center">
+                <h2>会员信息管理--Ajax</h2>
+                <br>
+                <button type="button" onclick="doAdd()" class="btn btn-primary btn-sm">添加信息</button>
+                <a type="button" href="/" class="btn btn-primary btn-sm">返回首页</a>
+                <br><br>
+                <!-- 会员信息查询表单 -->
+                <form id="chaxunform" action="/member/chaxun" method="post" class="form-inline">
+                    <div class="form-group">
+                        <label for="guanjianzi0">关键字：</label>
+                        <input name="condition" type="text" class="form-control" id="guanjianzi" placeholder="姓名/电话">
+                    </div>
+                    <button onclick="searchItem()" class="btn btn-primary" id="search">搜索</button>
+                </form>
+                <br><br>
+                <!-- 会员信息表格 -->
+                <table id="tablelist" class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">id号</th>
+                            <th class="text-center">会员姓名</th>
+                            <th class="text-center">邮箱地址</th>
+                            <th class="text-center">联系电话</th>
+                            <th class="text-center">会员等级</th>
+                            <th class="text-center">编辑</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <!--页面左侧主体开始-->
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加会员信息</h4>
+                </div>
+                <div class="modal-body">
+                    <!--主体表单开始-->
+                    <form action="#" id="myform" method="post" class="form-horizontal">
+                        <input type="hidden" name="id" value="0" />
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">会员姓名：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">邮箱地址：</label>
+                            <div class="col-sm-9 text-left">
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">联系电话：</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">会员等级：</label>
+                            <div class="col-sm-9">
+                                <input type="radio" name="levelofmember" value="0"> 普通会员 &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="levelofmember" value="1"> vip会员 &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="levelofmember" value="2"> 银牌会员 &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="levelofmember" value="3"> 金牌会员
+                            </div>
+                        </div>
+
+                    </form>
+                    <!--主体表单结束-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" onclick="doSave()" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面容器结束 -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/sweetalert2.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrapValidator.min.js"></script>
+    <script src="/static/js/toast.script.js"></script>
+
+    <script>
+        // jQuery Toast插件简单封装----弹窗使用
+        //  hint ： 提示信息   type：弹窗的类型 
+        function jqtoast(hint, type) {
+            $.Toast("温馨提示", hint, type, {
+                stack: true,
+                position_class: "toast-top-right",
+                has_icon: true,
+                has_close_btn: true,
+                fullscreen: false,
+                timeout: 1500,
+                sticky: false,
+                has_progress: true,
+                rtl: false,
+            });
+        }
+        //  会员等级判断
+        function huiyuan(num) {
+            if (num == 0) {
+                return '普通会员'
+            }
+            if (num == 1) {
+                return 'VIP会员'
+            }
+            if (num == 2) {
+                return '银牌会员'
+            }
+            if (num == 3) {
+                return '金牌会员'
+            }
+        }
+        // 页面渲染函数
+        function onload() {
+            $.get('/api/user', (res) => {
+                if (res.code == 0) {
+                    console.log(res)
+                    $('#tablelist tbody').empty()
+                    for (const key in res.memlist) {
+                        let mem = res.memlist[key]
+                        var tr = `<tr class="uid${mem.id}">
+							<td>${mem.id}</td>
+							<td>${mem.name}</td>
+							<td>${mem.email}</td>
+                            <td>${mem.phone}</td>
+                            <td>${huiyuan(mem.levelofmember)}</td>
+							<td>
+							<button type="button" onclick="doEdit(${mem.id})" class="btn btn-info btn-xs">编辑</button>
+							<button type="button" onclick="dodelete(${mem.id})" class="btn btn-danger btn-xs">删除</button>
+							</td>
+                        </tr>`
+                        $(tr).appendTo('#tablelist tbody')
+                        // swal({
+                        //     text: "数据获取成功！",
+                        //     type: "success",
+                        //     timer: 1000,
+                        //     showConfirmButton:false
+                        // });
+                    }
+                } else {
+                    console.log(res.error)
+                }
+            })
+        }
+        onload()
+        // 编辑函数
+        function doEdit(uid) {
+            $.get('/api/user/find', { id: uid }, (res) => {
+                console.log(uid, res.mem)
+                if (res.code == 0) {
+                    $("#myModalLabel").html("编辑会员信息");
+                    $('#myform').attr('action', '/api/user/edit')
+                    // 将当前获取的信息放置到当前的表单中
+                    var mem = res.mem
+                    $('#myform input[name = "id"]').val(mem.id)
+                    $('#myform input[name = "name"]').val(mem.name)
+                    $('#myform input[name = "email"]').val(mem.email)
+                    $('#myform input[name = "phone"]').val(mem.phone)
+                    if (mem.levelofmember == 0) {
+                        $('#myform input[name = "levelofmember"][value="0"]').prop('checked', true)
+                    }
+                    if (mem.levelofmember == 1) {
+                        $('#myform input[name = "levelofmember"][value="1"]').prop('checked', true)
+                    }
+                    if (mem.levelofmember == 2) {
+                        $('#myform input[name = "levelofmember"][value="2"]').prop('checked', true)
+                    }
+                    if (mem.levelofmember == 3) {
+                        $('#myform input[name = "levelofmember"][value="3"]').prop('checked', true)
+                    }
+                    $('#myModal').modal('show');
+                } else {
+                    console.log(res.error)
+                }
+            })
+        }
+
+        // 添加函数
+        function doAdd() {
+            $("#myModalLabel").html("添加会员信息");
+            $('#myform').attr('action', '/api/user/add')
+            $('#myModal').modal('show');
+        }
+        // 保存函数
+        function doSave() {
+            var data = $("#myform").serialize();
+            let url = $('#myform').attr('action')
+            let info = $("#myModalLabel").html();
+            $.ajax({
+                type: 'post',
+                url,
+                data,
+                success(res) {
+                    if (res.code == 0) {
+                        $('#myform')[0].reset();  // 重置表单  
+                        $('#myModal').modal('hide');  //隐藏表单
+                        onload()
+                        console.log('保存成功')
+                        if (info == '添加会员信息') {
+                            jqtoast('添加成功！', 'success')
+                        } else {
+                            jqtoast('编辑成功！', 'success')
+                        }
+                    } else {
+                        alert(res.error)
+                    }
+                },
+                error() {
+                    alert('保存请求失败！')
+                }
+            })
+        }
+        // 删除函数
+        function dodelete(uid) {
+            swal({
+                text: "确定删除吗，你将无法恢复它！",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#4cd964',
+                cancelButtonText: '取消',
+                reverseButtons: true, //控制按钮反转
+                confirmButtonText: '立即删除',
+            }).then(function (isConfirm) {
+                if (!isConfirm) {
+                    swal({
+                        text: "取消了！",
+                        type: "success",
+                        confirmButtonText: '确认',
+                        confirmButtonColor: '#4cd964',
+                    })
+                } else {
+                    $.get('/api/user/del', { id: uid }, (res) => {
+                        if (res.code == 0) {
+                            $(`tr.uid${uid}`).remove()
+                        }
+                    })
+                    swal({
+                        text: "删除成功！",
+                        type: "success",
+                        confirmButtonText: '确认',
+                        confirmButtonColor: '#4cd964',
+                    })
+                }
+            });
+        }
+
+        //  模糊搜索
+        function searchItem() {
+            console.log(123)
+            let content = $('#guanjianzi').val()
+            $.get('/api/user/condition', { condition: content }, (res) => {
+                console.log(res)
+                if (content != '') {
+                    if (res.code == 0) {
+                        jqtoast('查询成功！', 'success')
+                        $('#tablelist tbody').empty()
+                        var tr = `<tr class="uid${res.data.id}">
+							<td>${res.data.id}</td>
+							<td>${res.data.name}</td>
+							<td>${res.data.email}</td>
+                            <td>${res.data.phone}</td>
+                            <td>${huiyuan(res.data.levelofmember)}</td>
+							<td>
+							<button type="button" onclick="doEdit(${res.data.id})" class="btn btn-info btn-xs">编辑</button>
+							<button type="button" onclick="dodelete(${res.data.id})" class="btn btn-danger btn-xs">删除</button>
+							</td>
+                        </tr>`
+                        $(tr).appendTo('#tablelist tbody')
+                    } else {
+                        jqtoast('没有找到您想要的信息哦！', 'error')
+                    }
+                }
+            })
+        }
+
+        // 监控搜索框的内容，搜索后当手动清空搜索框的时候，加载全部的数据
+        $('#guanjianzi').on('input propertychange', function () {
+            console.log('在实时触发！！！')
+            if ($('#guanjianzi').val() == '') {
+                onload()
+            }
+        })
+
+        // 搜索框的非空验证
+        $('#chaxunform').bootstrapValidator({
+            live: 'submitted', //enabled代表当表单控件内容发生变化时就触发验证，默认提交时验证，
+            // disabled和submitted代表当点击提交按钮时触发验证
+            fields: {
+                condition: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入查询信息！'
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

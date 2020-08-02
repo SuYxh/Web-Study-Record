@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>学生信息管理</title>
+    <!-- Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{background-color:#eee;}
+    </style>
+  </head>
+  <body>   
+    <!-- 页面容器开始 -->
+    <div class="container">
+      <div class="row">
+        <!--页面左侧主体开始-->
+        <div class="col-md-6 text-center col-md-offset-3">
+            <h2>学生信息管理</h2>
+            <br>
+            <a type="button" href="index.html" class="btn btn-primary btn-sm">浏览信息</a>
+            <a type="button" href="#" class="btn btn-primary btn-sm">返回首页</a>
+            <br><br>
+            <form action="index.html" method="post" class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">姓名：</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">性别：</label>
+              <div class="col-sm-9 text-left">
+                <input type="radio" name="sex" value="1"> 男 &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="sex" value="0"> 女 
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">年龄：</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="age">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-3 control-label">班级：</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="classid">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9 text-left">
+                <button type="submit" class="btn btn-primary">提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--页面左侧主体开始-->
+      </div>
+    </div>
+    <!-- 页面容器结束 -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>  
+  </body>
+</html>

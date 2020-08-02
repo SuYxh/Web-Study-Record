@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>学生信息管理</title>
+    <!-- Bootstrap -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{background-color:#eee;}
+    </style>
+  </head>
+  <body>   
+    <!-- 页面容器开始 -->
+    <div class="container">
+      <div class="row">
+        <!--页面左侧主体开始-->
+        <div class="col-md-12 text-center">
+            <h2>学生信息管理</h2>
+            <br>
+            <button type="button" onclick="doAdd()" class="btn btn-primary btn-sm">添加信息</button>
+            <a type="button" href="#" class="btn btn-primary btn-sm">返回首页</a>
+            <br><br>
+            <table class="table table-hover text-center">
+              	<thead>
+	              	<tr>
+		                <th class="text-center">id号</th>
+		                <th class="text-center">姓名</th>
+		                <th class="text-center">性别</th>
+		                <th class="text-center">年龄</th>
+		                <th class="text-center">班级</th>
+		                <th class="text-center">编辑</th>
+	              	</tr>
+              	</thead>
+              	<tbody>
+	              <tr class="sid1">
+	                <td>1</td>
+	                <td>张翠山</td>
+	                <td>男</td>
+	                <td>40</td>
+	                <td>web220</td>
+	                <td>
+	                  <button type="button" onclick="doEdit(1)" class="btn btn-info btn-xs">编辑</button>
+	                  <button type="button" class="btn btn-danger btn-xs">删除</button>
+	                </td>
+	              </tr>
+	              
+	              <tr class="sid2">
+	                <td>2</td>
+	                <td>殷素素</td>
+	                <td>女</td>
+	                <td>35</td>
+	                <td>web221</td>
+	                <td>
+	                  <button type="button" onclick="doEdit(2)" class="btn btn-info btn-xs">编辑</button>
+	                  <button type="button" class="btn btn-danger btn-xs">删除</button>
+	                </td>
+	              </tr>
+	              
+	              <tr class="sid3">
+	                <td>3</td>
+	                <td>张无忌</td>
+	                <td>男</td>
+	                <td>20</td>
+	                <td>web102</td>
+	                <td>
+	                  <button type="button" onclick="doEdit(3)" class="btn btn-info btn-xs">编辑</button>
+	                  <button type="button" class="btn btn-danger btn-xs">删除</button>
+	                </td>
+	              </tr>
+	              
+	              <tr class="sid5">
+	                <td>5</td>
+	                <td>赵敏</td>
+	                <td>女</td>
+	                <td>18</td>
+	                <td>web221</td>
+	                <td>
+	                  <button type="button" onclick="doEdit(5)" class="btn btn-info btn-xs">编辑</button>
+	                  <button type="button" class="btn btn-danger btn-xs">删除</button>
+	                </td>
+	              </tr>
+	              
+	              <tr class="sid6">
+	                <td>6</td>
+	                <td>谢逊</td>
+	                <td>男</td>
+	                <td>42</td>
+	                <td>web102</td>
+	                <td>
+	                  <button type="button" onclick="doEdit(6)" class="btn btn-info btn-xs">编辑</button>
+	                  <button type="button" class="btn btn-danger btn-xs">删除</button>
+	                </td>
+	              </tr>
+              	</tbody>
+              </table>
+        </div>
+        <!--页面左侧主体开始-->
+      </div>
+    </div>
+    <!-- 页面容器结束 -->
+
+	<!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">编辑学生信息</h4>
+          </div>
+          <div class="modal-body">
+            <!--主体表单开始-->
+            <form action="#" id="myform" method="post" class="form-horizontal">
+            	<input type="hidden" name="id" value="0"/>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">姓名：</label>
+	              <div class="col-sm-6">
+	                <input type="text" class="form-control" name="name">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">性别：</label>
+	              <div class="col-sm-6 text-left">
+	                <input type="radio" name="sex" value="1"> 男 &nbsp;&nbsp;&nbsp;&nbsp;
+	                <input type="radio" name="sex" value="0"> 女 
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">年龄：</label>
+	              <div class="col-sm-6">
+	                <input type="text" class="form-control" name="age">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">班级：</label>
+	              <div class="col-sm-6">
+	                <input type="text" class="form-control" name="classid">
+	              </div>
+	            </div>
+          	</form>
+	 	    <!--主体表单结束-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" onclick="doSave()" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+		function doEdit(sid){
+			$("#myModalLabel").html("编辑学生信息");
+			$('#myModal').modal('show');
+		}
+		function doAdd(){
+			$("#myModalLabel").html("添加学生信息");
+			$('#myModal').modal('show');
+		}
+		function doSave(){
+			var data = $("#myform").serialize();
+			alert(data);
+		}
+    </script>
+  </body>
+</html>

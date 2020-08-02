@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>学生信息管理</title>
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{background-color:#eee;}
+    </style>
+  </head>
+  <body>   
+    <!-- 页面容器开始 -->
+    <div class="container">
+      <div class="row">
+        <!--页面左侧主体开始-->
+        <div class="col-md-12 text-center">
+            <h2>学生信息管理</h2>
+            <br>
+            <button type="button" onclick="doAdd()" class="btn btn-primary btn-sm">添加信息</button>
+            <a type="button" href="/" class="btn btn-primary btn-sm">返回首页</a>
+            <br><br>
+            <table id="tablist" class="table table-hover text-center">
+              	<thead>
+	              	<tr>
+		                <th class="text-center">id号</th>
+		                <th class="text-center">姓名</th>
+		                <th class="text-center">性别</th>
+		                <th class="text-center">年龄</th>
+		                <th class="text-center">班级</th>
+		                <th class="text-center">编辑</th>
+	              	</tr>
+              	</thead>
+              	<tbody>
+	            
+              	</tbody>
+              </table>
+        </div>
+        <!--页面左侧主体开始-->
+      </div>
+    </div>
+    <!-- 页面容器结束 -->
+
+	<!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">编辑学生信息</h4>
+          </div>
+          <div class="modal-body">
+            <!--主体表单开始-->
+            <form action="#" id="myform" method="post" class="form-horizontal">
+            	<input type="hidden" name="id" value="0"/>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">姓名：</label>
+	              <div class="col-sm-6">
+	                <input type="text" class="form-control" name="name">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">性别：</label>
+	              <div class="col-sm-6 text-left">
+	                <input type="radio" name="sex" value="1"> 男 &nbsp;&nbsp;&nbsp;&nbsp;
+	                <input type="radio" name="sex" value="0"> 女 
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">年龄：</label>
+	              <div class="col-sm-6">
+	                <input type="text" class="form-control" name="age">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label for="inputEmail3" class="col-sm-3 control-label">班级：</label>
+	              <div class="col-sm-6">
+	                <input type="text" class="form-control" name="classid">
+	              </div>
+	            </div>
+          	</form>
+	 	    <!--主体表单结束-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" onclick="doSave()" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		//加载所有学生信息并放置到当前页面中
+		function doLoad(){
+			//执行ajax请求加载信息
+			$.get("/api/stu",function(data){
+				//判断是否加载成功
+				if(data.code == 0){
+					$("#tablist tbody").empty(); //清空当前表格数据
+					//遍历获取的信息并向页面表格中添加数据
+					for(var key in data.stulist){
+						var stu = data.stulist[key];
+						var tr = '<tr class="sid'+stu.id+'">';
+						tr += '<td>'+stu.id+'</td>';
+						tr += '<td>'+stu.name+'</td>';
+						tr += '<td>'+(stu.sex==1?'男':'女')+'</td>';
+						tr += '<td>'+stu.age+'</td>';
+						tr += '<td>'+stu.classid+'</td>';
+	                	tr += '<td>';
+						tr += '<button type="button" onclick="doEdit('+stu.id+')" class="btn btn-info btn-xs">编辑</button> \r\n';
+						tr += '<button type="button" onclick="doDel('+stu.id+')" class="btn btn-danger btn-xs">删除</button>';
+						tr += '</td></tr>';
+						$(tr).appendTo("#tablist tbody");
+					}
+				}else{
+					alert(data.error); //输出错误信息
+				}
+			});
+		}
+		doLoad(); //执行加载当前数据
+
+		//打开编辑窗口
+		function doEdit(sid){
+			//发送ajax请求获取要修改的信息
+			$.get("/api/stu/find",{id:sid},function(res){
+				if(res.code == 0){
+					$("#myModalLabel").html("编辑学生信息");
+					$("#myform").attr("action","/api/stu/edit");
+					//将当前获取的信息放置到当前表单项中，以供修改
+					var stu = res.stu; //获取要编辑的信息
+					$("#myform input[name='id']").val(stu.id);
+					$("#myform input[name='name']").val(stu.name);
+					if(stu.sex == 1){
+						$("#myform input[name='sex'][value='1']").prop('checked',true);
+					}else{
+						$("#myform input[name='sex'][value='0']").prop('checked',true);
+					}
+					$("#myform input[name='age']").val(stu.age);
+					$("#myform input[name='classid']").val(stu.classid);
+					
+					$('#myModal').modal('show');
+				}else{
+					alert(res.error);
+				}
+			});
+			
+		}
+		
+		//打开添加窗口
+		function doAdd(){
+			$("#myModalLabel").html("添加学生信息");
+			$("#myform").attr("action","/api/stu/add");
+			$('#myModal').modal('show');
+		}
+		
+		//执行数据保存操作
+		function doSave(){
+			var url = $("#myform").attr("action"); //获取提交的url地址
+			var data = $("#myform").serialize(); //获取form表单中的提交信息
+			//alert(data);
+			//执行ajax请求，实现数据添加
+			$.ajax({
+				type:"post",
+				url:url,
+				data:data,
+				success:function(res){
+					if(res.code == 0){
+						$("#myform")[0].reset(); //重置form表单
+						$('#myModal').modal('hide');//隐藏表单
+						doLoad(); //重载当前页面数据（更新添加）
+					}else{
+						alert(res.error);
+					}
+				},
+				error:function(){
+					alert("保存请求失败！");
+				}
+			});
+
+		}
+		
+		//执行学员信息删除
+		function doDel(sid){
+			//alert(sid);
+			if(confirm('确定要删除吗？')){ //询问删除
+				//ajax请求删除
+				$.get("/api/stu/del",{id:sid},function(res){
+					if(res.code == 0){
+						//执行当前数据行节点的删除
+						$("tr.sid"+sid).remove();
+					}
+				});
+			}
+		}
+	</script>
+  </body>
+</html>

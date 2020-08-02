@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript中Ajax的封装</h1>
+    <h3><a href="/">返回首页</a></h3>
+    <button onclick="doLoad()">加载</button>
+
+
+    <script>
+        /**
+         * 发送一个 AJAX 请求 
+         * @param {String} method 请求方法
+         * @param {String} url 请求地址 
+         * @param {Object} params 请求参数 {a:10,b:20} => a=10&b=20
+         * @param {Function} done 请求完成过后需要做的事情（委托/回调） 
+         */
+        function myajax(method, url, params, done) { 
+            //将请求方法换成大写
+            method = method.toUpperCase();
+            //处理请求参数
+            var pairs = [];
+            for(var key in params){
+                pairs.push(key+"="+params[key]);
+            }
+            var querystring = pairs.join("&");
+        
+            //获取ajax请求对象
+            var xhr = new XMLHttpRequest();
+            //判断请求方式是否是get
+            if(method === "GET"){
+                url = url+"?"+querystring;
+            }
+            //准备打开Ajax的请求信息
+            xhr.open(method,url); 
+
+            //判断是否是post请求
+            data = null;
+            if(method === "POST"){
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                data = querystring;
+            }
+            //执行ajax请求
+            xhr.send(data);
+            //绑定请求准备状态改变事件处理函数
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState===4){
+                    if(xhr.status === 200){
+                        done(xhr.responseText);
+                    }else{
+                        done(null);
+                    }
+                } 
+            } 
+        }
+
+
+        //测试
+        function doLoad(){
+            // myajax("get","/test/a1",{},function(data){
+            //     alert(data);
+            // });
+
+            myajax("post","/test/a2",{m1:123,m2:456},function(data){
+                alert(data);
+            });
+        }
+    </script>
+</body>
+</html>

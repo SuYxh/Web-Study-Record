@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #did{width:300px;height:200px;border:1px solid #999;}
+    </style>
+</head>
+<body>
+    <h1>JavaScript的原生Ajax测试</h1>
+    <h3><a href="/">返回首页</a></h3>
+    <input type="text"/>
+    <button onclick="doLoad()">加载</button><br/><br/>
+    <div id="did"></div>
+
+    <script>
+        function doLoad(){
+            //获取ajax请求对象
+            var xhr = new XMLHttpRequest();
+            //准备打开Ajax的请求信息
+            xhr.open("GET","/test/a1");
+            //执行ajax请求
+            xhr.send(null);
+            //绑定请求准备状态改变事件处理函数
+            xhr.onreadystatechange = function(){
+                //console.log(xhr.readyState);
+                //console.log(xhr.status);
+                if(xhr.readyState===4 && xhr.status == 200){
+                    //console.log(xhr.responseText);
+                    document.getElementById("did").innerHTML = xhr.responseText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

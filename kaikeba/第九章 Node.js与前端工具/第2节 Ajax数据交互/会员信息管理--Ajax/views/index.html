@@ -1,0 +1,18 @@
+{{extend './layout.html'}}
+{{block 'content'}} 
+<h1>{{ title }}</h1>
+<p>{{ title }}</p>
+<!-- <p><a href="/stu">学生信息管理系统</a></p> -->
+<p><a href="/member">会员信息管理系统</a></p>
+<p><a href="/users">会员信息管理系统--Ajax</a></p>
+<ul>
+    <li>
+        获取所有信息（get）： /api/user
+    </li>
+    <li>获取单条信息（get）：/api/user/find?id=?</li>
+    <li>添加信息（post）：/api/user/add</li>
+    <li>修改信息（post）：/api/user/edit</li>
+    <li>删除信息（get）：/api/user/del?id=?</li>
+    <li>模糊查询（get）：/api/user/condition?condition=?</li>
+</ul>
+{{/block}}

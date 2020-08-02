@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #did{width:200px;height:200px;border:1px solid #999;}
+    </style>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+    <h1>jQuery中的Ajax操作</h1>
+    <h3><a href="/">返回首页</a></h3>
+    <button onclick="doLoad1()">加载1</button>
+    <br/><br/>
+    <div id="did"></div>
+    <script>
+       function doLoad1(){
+            //$("#did").load("/test/a1");
+            //$("#did").load("/test/a2",{m1:100,m2:200});
+
+            // $.get("/test/a2",{m1:111,m2:222},function(data){
+            //     alert(data);
+            // })
+
+            // $.post("/test/a2",{m1:111,m2:222},function(data){
+            //     alert(data);
+            // })
+
+            $.ajax({
+                type:'post',
+                url:'/test/a2',
+                data: {m1:102,m2:103},
+                success:function(res){
+                    alert(res);
+                }
+            });
+
+        }
+    </script>
+</body>
+</html>

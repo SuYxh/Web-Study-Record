@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript中Ajax的同步和异步处理</h1>
+    <h3><a href="/">返回首页</a></h3>
+    <button onclick="doLoad()">加载</button>
+
+
+    <script>
+        function doLoad(){
+            //获取ajax请求对象
+            console.log("start....");
+            var xhr = new XMLHttpRequest();
+            //准备打开Ajax的请求信息
+            xhr.open("GET","/test/a1",true); //异步
+            //xhr.open("GET","/test/a1",false); //同步(已废弃)
+            //执行ajax请求
+            xhr.send(null);
+            //绑定请求准备状态改变事件处理函数
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState===4 && xhr.status == 200){
+                    console.log(xhr.responseText);
+                    console.log("end....");
+                }
+            } 
+        }
+
+    </script>
+</body>
+</html>

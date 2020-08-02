@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #did{width:300px;height:200px;border:1px solid #999;}
+    </style>
+</head>
+<body>
+    <h1>JavaScript中Ajax的get和post请求处理</h1>
+    <h3><a href="/">返回首页</a></h3>
+    <button onclick="doLoad1()">get加载</button>
+    <button onclick="doLoad2()">post加载</button><br/><br/>
+    <div id="did"></div>
+
+    <script>
+        function doLoad1(){
+            //获取ajax请求对象
+            var xhr = new XMLHttpRequest();
+            //准备打开Ajax的请求信息
+            xhr.open("GET","/test/a2?m1=10&m2=20");
+            //执行ajax请求
+            xhr.send(null);
+            //绑定请求准备状态改变事件处理函数
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState===4 && xhr.status == 200){
+                    //console.log(xhr.responseText);
+                    document.getElementById("did").innerHTML = xhr.responseText;
+                }
+            }
+        }
+
+        function doLoad2(){
+            //获取ajax请求对象
+            var xhr = new XMLHttpRequest();
+            //准备打开Ajax的请求信息
+            xhr.open("POST","/test/a2");
+
+            // 设置请求头中的 Content‐Type 为 application/x‐www‐form‐urlencoded 
+            // 标识此次请求的请求体格式为 urlencoded 以便于服务端接收数据 
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            
+            //执行ajax请求
+            xhr.send('m1=100&m2=200');
+            //绑定请求准备状态改变事件处理函数
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState===4 && xhr.status == 200){
+                    //console.log(xhr.responseText);
+                    document.getElementById("did").innerHTML = xhr.responseText;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
