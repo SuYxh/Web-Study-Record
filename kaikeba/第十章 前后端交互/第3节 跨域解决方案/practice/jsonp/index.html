@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+    <script>
+        function jsonp({
+            url,
+            params,
+            cb
+        }) {
+            return new Promise((resolve, reject) => {
+                // 创建script 标签
+                let script = document.createElement('script')
+                // http://suggestion.baidu.com/su?wd=bbb&cb=show
+                window[cb] = function (data) {
+                    resolve(data)
+                    // document.body.removeChild(script)
+                }
+                params = {
+                    ...params,
+                    cb
+                } // wd=bbb&callback=show
+                let arrs = []
+                for (let key in params) {
+                    arrs.push(`${key}=${params[key]}`)
+                }
+
+                script.src = `${url}?${arrs.join('&')}`
+
+                document.body.appendChild(script)
+            })
+        }
+
+        jsonp({
+            url: 'http://suggestion.baidu.com/su',
+            params: {
+                wd: 'aa'
+            },
+            cb: 'show'
+        }).then(data => {
+            console.log(data)
+        })
+    </script>
+</body>
+
+</html>

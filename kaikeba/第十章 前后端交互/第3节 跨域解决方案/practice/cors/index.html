@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let xhr = new XMLHttpRequest()
+        // 带上cookie跨域
+        document.cookie = 'name=jarvis'  // 设置cookie
+        xhr.withCredentials = true   // 前端是否携带cookie
+        xhr.open('GET','http://localhost:4000/yxh')
+        // xhr.open('PUT','http://localhost:4000/yxh')
+
+        xhr.setRequestHeader('name','yxh')
+        xhr.send(null)
+        xhr.onreadystatechange = function () { 
+            if (xhr.readyState === 4 && xhr.status === 200 ) {
+                console.log(xhr.response)
+                console.log(xhr.getResponseHeader('name'))
+            }
+         }
+    </script>
+</body>
+</html>

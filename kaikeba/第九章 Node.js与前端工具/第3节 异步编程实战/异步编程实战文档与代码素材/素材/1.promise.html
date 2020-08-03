@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = new Promise((resolve, reject) => {
+            // resolve 代表了成功  reject 代表了失败
+            // resolve('成功了')
+            reject('失败了')
+        })
+        obj.then((val) => {
+            console.log('铁蛋儿' + val)
+        }, (err) => {
+            console.log('小白龙' + err)
+        })
+    </script>
+</body>
+
+</html>

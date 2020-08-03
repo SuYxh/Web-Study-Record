@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        let promise = $.ajax({
+            url: '1.txt',
+            dataType: 'json'
+        })
+        promise.then(data => {
+            console.log(data)
+        })
+        Promise.all([
+            $.ajax({
+                url: '1.txt',
+                dataType: 'json'
+            }),
+            $.ajax({
+                url: '2.txt',
+                dataType: 'json'
+            }),
+            $.ajax({
+                url: '3.txt',
+                dataType: 'json'
+            })
+        ]).then(res => {
+            // 解构赋值
+            let [arr, num, {
+                name,
+                age
+            }] = res
+            console.log(arr)
+            console.log(num)
+            console.log(name, age)
+        }, err => {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>

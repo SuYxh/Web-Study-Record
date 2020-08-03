@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $.ajax({
+            url: 'http://localhost:3000',
+            type: 'post',
+            data: {
+                name: 'tiedan',
+                age: 18
+            },
+            contentType: 'application/json;charset=utf-8',
+            success: function (res) {
+                console.log('前端请求的结果' +
+                    res)
+            },
+            error: function (msg) {
+                console.log(msg)
+            }
+        })
+    </script>
+</body>
+
+</html>

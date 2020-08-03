@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "co": "^4.6.0",
+    "express": "^4.17.1",
+    "thunkify": "^2.1.2"
+  }
+}

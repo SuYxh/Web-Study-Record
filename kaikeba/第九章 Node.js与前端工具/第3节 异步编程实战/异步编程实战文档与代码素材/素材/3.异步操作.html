@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <script>
+        $(() => {
+            $('#btn').click(() => {
+                let obj = new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: 'name.txt',
+                        success(str) {
+                            resolve(str)
+                        },
+                        error(err) {
+                            reject(err)
+                        }
+                    })
+                })
+                obj.then(str => {
+                    alert('成功' + str)
+                }, err => {
+                    alert('失败' + err)
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
