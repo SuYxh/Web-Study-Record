@@ -1,0 +1,14 @@
+{
+  "name": "webtongxun",
+  "version": "1.0.0",
+  "description": "web通讯",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "杨鑫昊",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.31"
+  }
+}

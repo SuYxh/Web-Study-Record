@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>聊天室</title>
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/layout.css">
+  </head>
+  <body>
+    <div class="container">
+        <h1>express + socket.io 聊天室 <span id="chatnum"></span></h1>
+        <!-- 姓名 start -->
+        <div class="row" id="login">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="username">昵称：</label>
+                    <input type="text" class="form-control" id="username" placeholder="请输入昵称">
+                </div>
+                <button class="btn btn-success" id="loginBtn">登录</button>
+            </div>
+        </div>
+        <!-- 姓名 end -->
+        <!-- 内容框start -->
+        <div class="row" id="content">
+            <div class="col-md-12" id="chatcon">
+                <div class="con-item" >
+                    <!-- 说话人 -->
+                    <p>
+                        <span class="label label-info">时光@</span>
+                    </p>
+                    <!-- 说话内容 -->
+                    <p>
+                        <span class="alert alert-warning">时光不老，我们不散</span>
+                    </p>
+                </div>
+            </div>
+            <!-- 内容框 end -->
+            <!-- 消息发送 start -->
+            <div class="col-md-12">
+                <textarea id="msgContent" class="form-control" rows="3"></textarea>
+                <button class="btn btn-success" id="sendBtn">发送</button>
+            </div>
+            <!-- 消息发送 end -->
+        </div> 
+    </div>  
+    
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="/js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket,uname;
+        // 创建模板   {user: "dahuang", msg: "你好"}
+        function createTpl(data,flag) { 
+            let str = `
+            <div class="con-item">
+                <p>
+                    <span class="label label-info">${flag ? '我' : `${data.user}`}</span>
+                </p>
+                <p>
+                    <span class="alert alert-${flag ? 'success' : 'warning'}">${data.msg}</span>
+                </p>
+            </div>
+            `
+            return str
+         }
+
+        // 登陆后显示 聊天框，隐藏登录表单
+        $('#loginBtn').on('click',() => {
+            // 记录下登录的用户名
+            uname = $.trim($('#username').val())
+            // 判断登录输入的内容
+            if (uname === '') { return }
+            $('#login').hide();
+            $('#content').show();
+            // 登录后 建立socket连接
+            socket = io('http://localhost:3000');
+            socket.on('connect', function(){
+                console.log('连接成功！')
+                // 当连接成功的时候应该把人名和消息发送给服务器
+                socket.emit('login',uname)
+             });
+            //  接收服务器传来的消息
+            socket.on('msg', function(data){
+                console.log(data)   // {user: "dahuang", msg: "你好"}
+                // data.user === uname 表示是自己 则使用 success 的样式，那么 flag 为true
+                var  flag = data.user === uname
+                // 创建html代码模板
+                var tpl = createTpl(data,flag)
+                // 将创建的代码模板放置聊天框中  即 #chatcon
+                $('#chatcon').append(tpl)
+            });
+            // 服务器显示登录的人数
+            socket.on('count',(data) => {
+                $('#chatnum').html('当前在线人数：'+ data)
+            });
+            socket.on('disconnect', function(){
+                console.log('断开连接！')
+            });           
+        })
+
+        // 点击 发送按钮 发送消息到服务器
+        $('#sendBtn').on('click',() => {
+            console.log('sendBtn')
+            socket.emit('send',$('#msgContent').val())
+            // 消息发送后 需要进行清空一下
+            $('#msgContent').val('')
+        })
+    </script>
+  </body>
+</html>

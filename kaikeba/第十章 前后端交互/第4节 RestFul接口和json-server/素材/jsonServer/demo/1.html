@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button class="add">添加数据</button>
+    <button class="delete">删除数据</button>
+    <button class="change">修改数据</button>
+    <button class="selet">查找数据</button>
+    <script>
+        // 添加数据
+        $('.add').click(function () {
+            let newData = {
+                "id": "8",
+                "name": "老爷爷",
+                "age": "100000"
+            }
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/users',
+                data: newData,
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        })
+        //获取数据
+        $('.selet').click(function () {
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:3000/users',
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        })
+        // 删除数据
+        $('.delete').click(function () {
+            $.ajax({
+                type: 'delete',
+                url: 'http://localhost:3000/users/2',
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        })
+        // 修改数据
+        $('.change').click(function () {
+            let updata = {
+                "name": "铁蛋儿",
+                "age": "18"
+            }
+            $.ajax({
+                type: 'put',
+                url: 'http://localhost:3000/users/8',
+                data: updata,
+                success: function (res) {
+                    console.log(res)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
