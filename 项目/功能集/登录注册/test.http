@@ -1,0 +1,35 @@
+# 请求的根URL
+@url=http://localhost:3001/api  
+
+@json=Content-Type: application/json
+
+### 测试一下
+
+get {{url}}/users
+
+
+### 注册接口
+
+post {{url}}/register
+{{json}}
+
+{
+    "username":"yxh",
+    "password":"yxh"
+}
+
+
+### 登录接口
+
+POST {{url}}/login
+{{json}}
+
+{
+    "username":"yxh",
+    "password":"yxh"
+}
+
+
+### 获取个人信息的接口，需要带 token
+get {{url}}/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMzdmMzNkMWJiNTdkNDMwMGE0NzYxOSIsImlhdCI6MTU5NzUwMzUxMn0.ig46oGjM2MZJ5xDMIHeuB8njNv1w2LYc41OXYHi4kRc
