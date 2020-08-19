@@ -81,6 +81,6 @@ fs.readdir(dirname,(err,files)=>{
 
 
 //文件监听
-fs.watchFile("./mydir/a.txt", { interval: 200 }, (a, b) => {
-    console.log('a.txt 被改动');
-  });
+// fs.watchFile("./mydir/a.txt", { interval: 200 }, (a, b) => {
+//     console.log('a.txt 被改动');
+//   });
