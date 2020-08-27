@@ -10,6 +10,7 @@ let port = process.argv[2]
 
 // 监听请求
 server.on('request',(req,res) => {
+  console.log(req.url)
     const filePath = path.join(process.cwd(), req.url)
     // console.log(filePath)
      let contentType = ''
@@ -40,7 +41,9 @@ server.on('request',(req,res) => {
      
     fs.stat(filePath, (err, stats) => {
         // 设置公共头部信息
-        res.setHeader('Content-Type',contentType)
+        res.setHeader('Content-Type',`${contentType};charset=utf-8`)
+        // res.setHeader('Content-Type',contentType)
+
         if (err) {
           // 状态码
           res.statusCode = 404    
@@ -56,8 +59,19 @@ server.on('request',(req,res) => {
           //  如果是文件夹，返回文件列表
           fs.readdir(filePath, (err, files) => {
             if (err) return
-            res.statusCode = 200
+            console.log(files)
+            console.log(filePath)
+            console.log(files.includes('index.html'))
+            if ( files.includes('index.html')) {
+              console.log(123)
+            console.log(filePath)
+              const resData = fs.readFileSync(`${filePath}/index.html`,'utf8')
+              res.end(resData)
+            } else {
+              res.statusCode = 200
             res.end(files.join(','))
+            }
+            
           })
         }
       })
