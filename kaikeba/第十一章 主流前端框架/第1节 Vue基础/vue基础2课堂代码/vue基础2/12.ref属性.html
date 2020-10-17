@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #obox {
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" ref="txt">
+        <button @click="getVal">按钮</button>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                getVal() {
+                    console.log(this.$refs.txt.value)
+                }
+            },
+            // 相当于window.onload页面加载完毕
+            mounted() {
+                this.$refs.txt.focus()
+            }
+        })
+    </script>
+</body>
+
+</html>

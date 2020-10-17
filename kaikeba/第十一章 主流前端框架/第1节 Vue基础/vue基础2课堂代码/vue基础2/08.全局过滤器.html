@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            {{msg|capita}}
+        </p>
+    </div>
+    <div id="app1">
+        <p>
+            {{msg|capita}}
+        </p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        // 全局过滤器
+        Vue.filter('capita', function (value) {
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        })
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'hello'
+            }
+        })
+        let vm1 = new Vue({
+            el: "#app1",
+            data: {
+                msg: 'hello'
+            }
+        })
+    </script>
+</body>
+
+</html>

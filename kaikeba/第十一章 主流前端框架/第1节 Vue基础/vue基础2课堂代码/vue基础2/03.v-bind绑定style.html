@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <p :style="{color:a,fontSize:b}">
+
+        </p>
+        <p :style="[d,c]">
+
+        </p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                a: 'red',
+                b: '30px',
+                d: {
+                    color: "red",
+                },
+                c: {
+                    fontSize: "30px"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

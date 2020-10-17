@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/home">主页</router-link>
+        <router-link to="/music">音乐</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./vue-router.js"></script>
+    <script>
+        // 提供组件
+        let Home = {
+            template: `<div>Home-----</div>`
+        }
+        let Music = {
+            template: `<div>Music-----
+                <router-link to="/music/pop">流行</router-link>
+                <router-link to="/music/cal">古典</router-link>
+                <router-view></router-view>
+                </div>`
+        }
+        // 二级路由的组件
+        let Detail = {
+            template: `<div>Detail{{$route.params.id}}</div>`
+        }
+        let routes = [{
+            name: 'default',
+            path: '/',
+            redirect: '/home'
+        }, {
+            name: 'home',
+            path: '/home',
+            component: Home
+        }, {
+            name: 'music',
+            path: '/music',
+            component: Music,
+            children: [{
+                path: "/music/:id",
+                component: Detail
+            }]
+        }]
+        const router = new VueRouter({
+            routes
+        })
+        let vm = new Vue({
+            el: '#app',
+            router,
+            data: {}
+        })
+    </script>
+</body>
+
+</html>
